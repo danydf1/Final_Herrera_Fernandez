@@ -2,3 +2,12 @@
     background-color: blueviolet;
     
 }
+.container {
+    margin-top: 2rem;
+    background-color: aquamarine;
+    padding: 2rem;
+    margin-top: 20px;
+    max-width: 120rem;
+    margin: 0 auto;
+   
+}
