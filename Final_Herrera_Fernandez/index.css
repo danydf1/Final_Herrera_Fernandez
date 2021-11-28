@@ -11,3 +11,10 @@
     margin: 0 auto;
    
 }
+.text-center {
+    width: 25rem;
+    height: 25rem;
+}
+.Columnasx2{
+    justify-content:space-around;
+}

@@ -116,3 +116,7 @@ C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_
 C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Final_Herrera_Fernandez\obj\Debug\Final_Herrera_Fernandez.csproj.CopyComplete
 C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Final_Herrera_Fernandez\obj\Debug\Final_Herrera_Fernandez.dll
 C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Final_Herrera_Fernandez\obj\Debug\Final_Herrera_Fernandez.pdb
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Final_Herrera_Fernandez\bin\Dominio.dll
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Final_Herrera_Fernandez\bin\Negocio.dll
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Final_Herrera_Fernandez\bin\Dominio.pdb
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Final_Herrera_Fernandez\bin\Negocio.pdb

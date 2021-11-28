@@ -11,25 +11,16 @@ namespace Final_Herrera_Fernandez
 {
 
 
-    public partial class Calendario
+    public partial class Error
     {
 
         /// <summary>
-        /// Control CalendarioConsorcio.
+        /// Control lblError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar CalendarioConsorcio;
-
-        /// <summary>
-        /// Control Gv_GrillaDiaria.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gv_GrillaDiaria;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblError;
     }
 }

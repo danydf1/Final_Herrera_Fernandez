@@ -1,0 +1,9 @@
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Negocio\bin\Debug\Negocio.dll
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Negocio\bin\Debug\Negocio.pdb
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Negocio\bin\Debug\Dominio.dll
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Negocio\bin\Debug\Dominio.pdb
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.dll
+C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.pdb

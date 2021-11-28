@@ -8,5 +8,10 @@ namespace Dominio
 {
     public class Calendarios
     {
+        public long Id { get; set; }
+        public DateTime Horario { get; set; }
+        public string Titulo{ get; set; }
+        public bool Estado { get; set; }
+       
     }
 }
