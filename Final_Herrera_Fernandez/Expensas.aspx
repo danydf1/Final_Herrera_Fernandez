@@ -2,13 +2,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
-    
-        <div class="text-center">
-  <img src="https://media.minutouno.com/adjuntos/150/imagenes/028/366/0028366658.jpg" class="rounded" alt="...">
-
-     
-    <asp:DropDownList ID="DropDownList1" runat="server" BackColor="#FF3300"></asp:DropDownList>
-    <asp:Button ID="Button1" runat="server" Text="Descargar" />
-    </div>
+    <div class="container" >
+        <div>
+            <table class="table">
+                <tr>
+                    <td><asp:Label runat="server" Text="ID"></asp:Label></td>
+                    <td><asp:TextBox runat="server" ID="txtId"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td><asp:Label runat="server" Text="Imagen"></asp:Label></td>
+                    <td><asp:FileUpload runat="server" ID="Archivo" /></td>
+                </tr>
+                <tr>
+                    <td  align="center" colspan="2"><asp:Button runat="server" ID="btnGuardar" OnClick="btnGuardar_Click" csclass="btn btn-primary" Text="Guardar"/></td>
+                </tr>
+            </table>
+            
+        </div>
+     </div>
 </asp:Content>
