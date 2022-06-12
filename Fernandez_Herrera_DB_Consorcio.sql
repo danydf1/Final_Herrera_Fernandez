@@ -11,7 +11,12 @@ CREATE  table CALENDARIOS  (
  TITULO VARCHAR(50) NOT NULL,
  ESTADO BIT NOT NULL,
 )
-
+go
+create table tbl_contents (
+	id int identity,
+	content varbinary(max),
+	constraint pk_tbl_contents primary key(id)
+);
         --DATOS---
 
 --CALENDARIO
@@ -38,3 +43,4 @@ INSERT INTO CALENDARIOS VALUES('29/11/2021 13:30','SOLARIUM',1)
 INSERT INTO CALENDARIOS VALUES('29/11/2021 17:00','SOLARIUM',1)
 INSERT INTO CALENDARIOS VALUES('29/11/2021 18:00','SOLARIUM',1)
 
+select * from tbl_contents;

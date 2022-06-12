@@ -5,40 +5,80 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
+using Dominio;
+using System.Data;
 
 namespace Final_Herrera_Fernandez
 {
     public partial class Expensas : System.Web.UI.Page
     {
+        public List<Archivos> listaGrilla { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListarRegistros();
-        }
+          
 
-        private void ListarRegistros()
-        {
-            
-        }
+           ExpensasNegocios negocio = new ExpensasNegocios();
+            try
+            {
 
+                if (!IsPostBack)
+                {
+                    
+                    listaGrilla = negocio.ListarRegistros();
+                    gvListaImagenes.DataSource = listaGrilla;
+                    gvListaImagenes.DataBind();
+
+                    
+
+                }
+
+
+                listaGrilla = negocio.ListarRegistros();
+                gvListaImagenes.DataSource = listaGrilla;
+                gvListaImagenes.DataBind();
+               
+
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("Error", ex.ToString());
+
+                Response.Redirect("Error.aspx");
+            }
+        }
+     
+
+     
+
+  
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("insert into ArchivosPdf(content) values ( @content)");
+                datos.setearConsulta("Insert Into tbl_contents(content) Values(@content)");
 
-                datos.setearParametro("@content", Archivo.FileBytes);
+                datos.setearParametro("@content", fuImagen.FileBytes) ;
+               
+                // Mostrar la imagen de la base de datos SQL Server en la página
+                lblMensajeOk.Text = "Se ha guardado la imagen correctamente.";
+                lblMensajeError.Text = "";
+            
                 datos.ejectutarAccion();
                 datos.cerrarConexion();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                lblMensajeOk.Text = "";
+                lblMensajeError.Text = ex.Message;
             }
 
 
         }
+
+    
     }
 }

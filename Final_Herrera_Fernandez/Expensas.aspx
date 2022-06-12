@@ -3,21 +3,34 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container" >
-        <div>
-            <table class="table">
-                <tr>
-                    <td><asp:Label runat="server" Text="ID"></asp:Label></td>
-                    <td><asp:TextBox runat="server" ID="txtId"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td><asp:Label runat="server" Text="Imagen"></asp:Label></td>
-                    <td><asp:FileUpload runat="server" ID="Archivo" /></td>
-                </tr>
-                <tr>
-                    <td  align="center" colspan="2"><asp:Button runat="server" ID="btnGuardar" OnClick="btnGuardar_Click" csclass="btn btn-primary" Text="Guardar"/></td>
-                </tr>
-            </table>
-            
+        
+        <div class="contenedor">
+            <div class="row">
+                <h1>Guardar, visualizar y lista imagenes en SQL Server</h1>
+            </div>
+            <div class="row">
+                <div class="column left">Imagen:</div>
+                <div class="column right"><asp:FileUpload ID="fuImagen" runat="server" /></div>
+            </div>
+            <div class="row">
+                <asp:Button CssClass="btn btn-primary" ID="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="return ValidarFormulario();" runat="server" Text="Guardar en SQL Server" />
+            </div>
         </div>
+        <div>
+            <div class="row">
+                <asp:Label CssClass="ok" ID="lblMensajeOk" runat="server"></asp:Label>
+                <asp:Label CssClass="error" ID="lblMensajeError" runat="server"></asp:Label>
+            </div>
+            <div class="row"><br /></div>
+        </div>
+        <div class="contenedor">
+            <asp:GridView CssClass="table-custom" ID="gvListaImagenes" AutoGenerateColumns="false" runat="server">
+                <Columns>
+                    <asp:BoundField HeaderText="ID" DataField="ID" />
+                    <asp:HyperLinkField HeaderText="Url" Text="Ver" DataNavigateUrlFields="visorImagen" Target="_blank" />
+                </Columns>
+            </asp:GridView>
+        </div>
+
      </div>
 </asp:Content>

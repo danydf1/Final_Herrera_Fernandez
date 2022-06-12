@@ -36,6 +36,7 @@ namespace Negocio
             comando.Parameters.AddWithValue(nombre, valor);
         }
 
+        
         public void cerrarConexion()
         {
             if (lector != null)
@@ -48,12 +49,13 @@ namespace Negocio
             get { return lector; }
         }
 
-        internal void ejectutarAccion()
+        public void ejectutarAccion()
         {
             comando.Connection = conexion;
             conexion.Open();
             comando.ExecuteNonQuery();
         }
 
+       
     }
 }

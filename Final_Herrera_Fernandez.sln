@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{94FF1A44-7DA2-4A78-A299-9F8830FA5D49}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\SQL Server Management Studio\Fernandez_Herrera_DB_Consorcio.sql = ..\..\..\SQL Server Management Studio\Fernandez_Herrera_DB_Consorcio.sql
+		Fernandez_Herrera_DB_Consorcio.sql = Fernandez_Herrera_DB_Consorcio.sql
 	EndProjectSection
 EndProject
 Global

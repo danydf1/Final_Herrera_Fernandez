@@ -4,3 +4,9 @@ C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_
 C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.dll
 C:\Users\aleh0\OneDrive\Imágenes\Documentos\PROG 3 2021\entregadiciembre\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.pdb
+C:\Users\aleh0\OneDrive\Escritorio\tpConsorcio ultima version\Final_Herrera_Fernandez\Dominio\bin\Debug\Dominio.dll
+C:\Users\aleh0\OneDrive\Escritorio\tpConsorcio ultima version\Final_Herrera_Fernandez\Dominio\bin\Debug\Dominio.pdb
+C:\Users\aleh0\OneDrive\Escritorio\tpConsorcio ultima version\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\aleh0\OneDrive\Escritorio\tpConsorcio ultima version\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\aleh0\OneDrive\Escritorio\tpConsorcio ultima version\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.dll
+C:\Users\aleh0\OneDrive\Escritorio\tpConsorcio ultima version\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.pdb

@@ -8,5 +8,12 @@ namespace Dominio
 {
    public  class Archivos
     {
+        public int ID { get; set; }
+        public byte[] Imagen { get; set; }
+        public string visorImagen { get; set; }
+
+        public Archivos()
+        {
+        }
     }
 }
