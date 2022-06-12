@@ -27,8 +27,9 @@ namespace Final_Herrera_Fernandez
                     listaGrilla = negocio.ListarRegistros();
                     gvListaImagenes.DataSource = listaGrilla;
                     gvListaImagenes.DataBind();
+                    Session.Add("ListarComponentes", listaGrilla);
 
-                    
+
 
                 }
 
@@ -36,7 +37,8 @@ namespace Final_Herrera_Fernandez
                 listaGrilla = negocio.ListarRegistros();
                 gvListaImagenes.DataSource = listaGrilla;
                 gvListaImagenes.DataBind();
-               
+                Session.Add("ListarComponentes", listaGrilla);
+
 
             }
             catch (Exception ex)
@@ -65,7 +67,8 @@ namespace Final_Herrera_Fernandez
                 // Mostrar la imagen de la base de datos SQL Server en la página
                 lblMensajeOk.Text = "Se ha guardado la imagen correctamente.";
                 lblMensajeError.Text = "";
-            
+                ExpensasNegocios negocio = new ExpensasNegocios();
+                listaGrilla = negocio.ListarRegistros();
                 datos.ejectutarAccion();
                 datos.cerrarConexion();
             }

@@ -77,6 +77,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Mensajes.aspx" />
     <Content Include="Servicios Recomendados.aspx" />
+    <Content Include="Vista de Archivos PDF.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
@@ -151,6 +152,13 @@
     </Compile>
     <Compile Include="Servicios Recomendados.aspx.designer.cs">
       <DependentUpon>Servicios Recomendados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista de Archivos PDF.aspx.cs">
+      <DependentUpon>Vista de Archivos PDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista de Archivos PDF.aspx.designer.cs">
+      <DependentUpon>Vista de Archivos PDF.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
