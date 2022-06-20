@@ -2,25 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container ">
+    <div class="container" >
+        
+        <div class="contenedor">
             <div class="row">
-                <div class="col-4"></div>
-                <div class="col-8 text-center">
-                    <h1 class="mb-5">Expensas</h1>
-                    <asp:FileUpload ID="fuImagen" CssClass="mb-4" runat="server" />
-
-                <asp:Button CssClass="btn btn-primary " ID="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="return ValidarFormulario();" runat="server" Text="Guardar en SQL Server" />
+                <h1>Guardar, visualizar y lista imagenes en SQL Server</h1>
             </div>
-            <div class="col-12 ">
-                <asp:GridView CssClass="table table-secondary " ID="gvListaImagenes" AutoGenerateColumns="false" runat="server">
-                    <Columns>
-                        <asp:BoundField HeaderText="ID" DataField="ID" />
-                        <asp:HyperLinkField HeaderText="Url" Text="Ver" DataNavigateUrlFields="visorImagen" Target="_blank" />
-                    </Columns>
-                </asp:GridView>
+            <div class="row">
+                <div class="column left">Imagen:</div>
+                <div class="column right"><asp:FileUpload ID="fuImagen" runat="server" /></div>
             </div>
-          </div>
-
+            <div class="row">
+                <asp:Button CssClass="btn btn-primary" ID="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="return ValidarFormulario();" runat="server" Text="Guardar en SQL Server" />
+            </div>
+        </div>
         <div>
             <div class="row">
                 <asp:Label CssClass="ok" ID="lblMensajeOk" runat="server"></asp:Label>
@@ -28,5 +23,14 @@
             </div>
             <div class="row"><br /></div>
         </div>
+        <div class="contenedor">
+            <asp:GridView CssClass="table-custom" ID="gvListaImagenes" AutoGenerateColumns="false" runat="server">
+                <Columns>
+                    <asp:BoundField HeaderText="ID" DataField="ID" />
+                    <asp:HyperLinkField HeaderText="Url" Text="Ver" DataNavigateUrlFields="visorImagen" Target="_blank" />
+                </Columns>
+            </asp:GridView>
+        </div>
+
      </div>
 </asp:Content>

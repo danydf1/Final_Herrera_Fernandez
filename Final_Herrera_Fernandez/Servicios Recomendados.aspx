@@ -9,9 +9,8 @@
                 <h2 class="mb-5">Servicios Recomendados por la administracion</h2>
             </div>
             <div class="col-12">
-                <asp:GridView CssClass="table table-primary" runat="server" ID="Lista"></asp:GridView>
+                <asp:GridView ID="Lista" CssClass="table table-primary" runat="server" ></asp:GridView>
             </div>
         </div>
     </div>
-
 </asp:Content>

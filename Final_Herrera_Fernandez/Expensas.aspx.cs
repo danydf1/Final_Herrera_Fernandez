@@ -23,17 +23,23 @@ namespace Final_Herrera_Fernandez
 
                 if (!IsPostBack)
                 {
+                    
                     listaGrilla = negocio.ListarRegistros();
                     gvListaImagenes.DataSource = listaGrilla;
                     gvListaImagenes.DataBind();
                     Session.Add("ListarComponentes", listaGrilla);
 
+
+
                 }
 
-                //listaGrilla = negocio.ListarRegistros();
-                //gvListaImagenes.DataSource = listaGrilla;
-                //gvListaImagenes.DataBind();
-                //Session.Add("ListarComponentes", listaGrilla);
+
+                listaGrilla = negocio.ListarRegistros();
+                gvListaImagenes.DataSource = listaGrilla;
+                gvListaImagenes.DataBind();
+                Session.Add("ListarComponentes", listaGrilla);
+
+
             }
             catch (Exception ex)
             {

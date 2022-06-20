@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
-
-
-
 namespace Negocio
 {
-    public class SercicioRecomendadoNegocio
+    public class ServiciosRecomendadosNegocio
     {
         public List<Contactos> ServiciosRecomendados()
         {
@@ -20,15 +17,16 @@ namespace Negocio
 
             try
             {
-                
+
                 while (Datos.Lector.Read())
                 {
                     Contactos aux = new Contactos();
 
-                    aux.id = (Int32)Datos.Lector["ID"];
+                    aux.id = Convert.ToInt32((long)Datos.Lector["ID"]);
                     aux.Servicio = (string)Datos.Lector["txt_Servicio"];
-                    aux.NombreContacto = (string) Datos.Lector["txt_Nombre"];
-                    aux.Telefono = (Int32)Datos.Lector["NroContacto"];
+                    aux.NombreContacto = (string)Datos.Lector["txt_Nombre"];
+                    aux.Telefono = (string)Datos.Lector["NroContacto"];
+                    aux.estado = (bool)Datos.Lector["ESTADO"];
 
                     lista.Add(aux);
                 }
@@ -43,6 +41,5 @@ namespace Negocio
                 Datos.cerrarConexion();
             }
         }
-        
     }
 }

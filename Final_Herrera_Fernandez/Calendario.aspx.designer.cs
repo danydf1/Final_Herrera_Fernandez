@@ -15,21 +15,21 @@ namespace Final_Herrera_Fernandez
     {
 
         /// <summary>
-        /// Control CalendarioConsorcio.
+        /// Control CalendarioEvento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar CalendarioConsorcio;
+        protected global::System.Web.UI.WebControls.Calendar CalendarioEvento;
 
         /// <summary>
-        /// Control Gv_GrillaDiaria.
+        /// Control GvCalendario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gv_GrillaDiaria;
+        protected global::System.Web.UI.WebControls.GridView GvCalendario;
     }
 }

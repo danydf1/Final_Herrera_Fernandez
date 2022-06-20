@@ -4,16 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Negocio;
 using Dominio;
-
+using Negocio;
 namespace Final_Herrera_Fernandez
 {
     public partial class Servicios_Recomendados : System.Web.UI.Page
     {
         public List<Contactos> ListaRegistros { get; set; }
-        SercicioRecomendadoNegocio negocio = new SercicioRecomendadoNegocio();
-        
+        ServiciosRecomendadosNegocio negocio = new ServiciosRecomendadosNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
             ListaRegistros = negocio.ServiciosRecomendados();

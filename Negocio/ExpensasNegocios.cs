@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Dominio;
 using System.Data.SqlClient;
-
-
 namespace Negocio
 {
     public class ExpensasNegocios
     {
+   
+
         public List<Archivos> ListarRegistros()
         {
             List<Archivos> lista = new List<Archivos>();
@@ -20,6 +20,8 @@ namespace Negocio
             Datos.ejecutarLectura();
             try
             {
+               
+
                 {
                     
                     while (Datos.Lector.Read())

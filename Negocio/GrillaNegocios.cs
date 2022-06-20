@@ -8,12 +8,12 @@ namespace Negocio
 {
    public class GrillaNegocios
     {
-        public List<Calendarios> Listar(int fecha)
+        public List<Calendarios> Listar(int dia)
         {
             List<Calendarios> lista = new List<Calendarios>();
             AccesoDatos Datos = new AccesoDatos();
 
-            Datos.setearConsulta("select id,fecha,titulo,estado from calendarios where datepart(DAYOFYEAR,(fecha))=" + fecha );
+            Datos.setearConsulta("select fecha,hora,titulo from calendarios where estado = 1 and datepart(DAYOFYEAR,(fecha) )=" + dia );
             Datos.ejecutarLectura();
 
             try
@@ -21,11 +21,12 @@ namespace Negocio
                 while (Datos.Lector.Read())
                 {
                     Calendarios aux = new Calendarios();
-                    aux.Id = (long)Datos.Lector["id"];
-                    aux.Horario = (DateTime)Datos.Lector["fecha"];
-                    aux.Titulo = (string)Datos.Lector["titulo"];
-                    aux.Estado = (bool)Datos.Lector["estado"];
 
+                    aux.Fecha= (DateTime)Datos.Lector["fecha"];
+                    aux.Horario = Convert.ToString(Datos.Lector["hora"]);
+                    aux.Titulo = (string)Datos.Lector["titulo"];
+                    
+                    
                     lista.Add(aux);
                 }
                 return lista;
