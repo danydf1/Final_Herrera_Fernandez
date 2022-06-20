@@ -11,7 +11,7 @@ namespace Final_Herrera_Fernandez
 {
     public partial class Calendario : System.Web.UI.Page
     {
-        public List<Calendarios> listaGrilla { get; set; }
+        public List<Calendarios> listaCalendario { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,30 +21,33 @@ namespace Final_Herrera_Fernandez
 
                 if (!IsPostBack)
                 {
-                    CalendarioConsorcio.SelectedDate = System.DateTime.Today;
-                    listaGrilla = negocio.Listar(CalendarioConsorcio.SelectedDate.DayOfYear);
-                    Gv_GrillaDiaria.DataSource = listaGrilla;
-                    Gv_GrillaDiaria.DataBind();
-                    
-
+                    int mifecha = DateTime.Now.DayOfYear;
+                    listaCalendario = negocio.Listar(mifecha);
+                    GvCalendario.DataSource = listaCalendario;
+                    GvCalendario.DataBind();
 
                 }
 
 
-                listaGrilla = negocio.Listar(CalendarioConsorcio.SelectedDate.DayOfYear);
-                Gv_GrillaDiaria.DataSource=listaGrilla;
-                Gv_GrillaDiaria.DataBind();
-                   
-                
+                listaCalendario = negocio.Listar(CalendarioEvento.SelectedDate.DayOfYear);
+                GvCalendario.DataSource = listaCalendario;
+                GvCalendario.DataBind();
+
+
 
             }
             catch (Exception ex)
             {
 
                 Session.Add("Error", ex.ToString());
-                
+
                 Response.Redirect("Error.aspx");
             }
+        
+            
+      
         }
+
+        
     }
 }

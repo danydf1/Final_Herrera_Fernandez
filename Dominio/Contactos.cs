@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Contactos : Persona
+    public class Contactos
     {
-          public string RazonSocial{ get; set; }
-          public string Direccion { get; set; }
-          public string Telefono { get; set; }
-          public Categorias Cat { get; set; }
-        public string  paginaweb { get; set; }
+        public Int32 id { get; set; }
+        public string Servicio { get; set; }
+        public string NombreContacto { get; set; }
+        public string Telefono { get; set; }
 
-        
+        public bool estado { get; set; }
+
+
 
 
 
