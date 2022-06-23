@@ -69,15 +69,15 @@
   <ItemGroup>
     <Content Include="Calendario.aspx" />
     <Content Include="Error.aspx" />
-    <Content Include="Espacios Comunes.aspx" />
+    <Content Include="EspaciosComunes.aspx" />
     <Content Include="Expensas.aspx" />
-    <Content Include="Fondo Comun.aspx" />
+    <Content Include="FondoComun.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="index.css" />
     <Content Include="Login.aspx" />
     <Content Include="Mensajes.aspx" />
-    <Content Include="Servicios Recomendados.aspx" />
-    <Content Include="Vista de Archivos PDF.aspx" />
+    <Content Include="ServiciosRecomendados.aspx" />
+    <Content Include="VistadeArchivosPDF.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
@@ -96,12 +96,12 @@
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Espacios Comunes.aspx.cs">
-      <DependentUpon>Espacios Comunes.aspx</DependentUpon>
+    <Compile Include="EspaciosComunes.aspx.cs">
+      <DependentUpon>EspaciosComunes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Espacios Comunes.aspx.designer.cs">
-      <DependentUpon>Espacios Comunes.aspx</DependentUpon>
+    <Compile Include="EspaciosComunes.aspx.designer.cs">
+      <DependentUpon>EspaciosComunes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Expensas.aspx.cs">
       <DependentUpon>Expensas.aspx</DependentUpon>
@@ -110,12 +110,12 @@
     <Compile Include="Expensas.aspx.designer.cs">
       <DependentUpon>Expensas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Fondo Comun.aspx.cs">
-      <DependentUpon>Fondo Comun.aspx</DependentUpon>
+    <Compile Include="FondoComun.aspx.cs">
+      <DependentUpon>FondoComun.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Fondo Comun.aspx.designer.cs">
-      <DependentUpon>Fondo Comun.aspx</DependentUpon>
+    <Compile Include="FondoComun.aspx.designer.cs">
+      <DependentUpon>FondoComun.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -146,19 +146,19 @@
       <DependentUpon>Mensajes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servicios Recomendados.aspx.cs">
-      <DependentUpon>Servicios Recomendados.aspx</DependentUpon>
+    <Compile Include="ServiciosRecomendados.aspx.cs">
+      <DependentUpon>ServiciosRecomendados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Servicios Recomendados.aspx.designer.cs">
-      <DependentUpon>Servicios Recomendados.aspx</DependentUpon>
+    <Compile Include="ServiciosRecomendados.aspx.designer.cs">
+      <DependentUpon>ServiciosRecomendados.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista de Archivos PDF.aspx.cs">
-      <DependentUpon>Vista de Archivos PDF.aspx</DependentUpon>
+    <Compile Include="VistadeArchivosPDF.aspx.cs">
+      <DependentUpon>VistadeArchivosPDF.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista de Archivos PDF.aspx.designer.cs">
-      <DependentUpon>Vista de Archivos PDF.aspx</DependentUpon>
+    <Compile Include="VistadeArchivosPDF.aspx.designer.cs">
+      <DependentUpon>VistadeArchivosPDF.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

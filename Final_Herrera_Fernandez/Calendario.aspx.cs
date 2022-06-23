@@ -32,9 +32,6 @@ namespace Final_Herrera_Fernandez
                 listaCalendario = negocio.Listar(CalendarioEvento.SelectedDate.DayOfYear);
                 GvCalendario.DataSource = listaCalendario;
                 GvCalendario.DataBind();
-
-
-
             }
             catch (Exception ex)
             {
@@ -42,12 +39,7 @@ namespace Final_Herrera_Fernandez
                 Session.Add("Error", ex.ToString());
 
                 Response.Redirect("Error.aspx");
-            }
-        
-            
-      
+            }     
         }
-
-        
     }
 }

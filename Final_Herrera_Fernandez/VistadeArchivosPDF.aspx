@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Vista de Archivos PDF.aspx.cs" Inherits="Final_Herrera_Fernandez.Vista_de_Archivos_PDF" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VistadeArchivosPDF.aspx.cs" Inherits="Final_Herrera_Fernandez.Vista_de_Archivos_PDF" %>
 
 <!DOCTYPE html>
 
