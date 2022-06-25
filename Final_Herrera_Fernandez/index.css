@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿.navbar {
     background-color: blueviolet;
     
@@ -28,6 +29,7 @@
     height: 250px;
     overflow-y:auto;
     overflow-x: hidden;
+<<<<<<< HEAD
 }
 
 .body-register {
@@ -91,3 +93,9 @@
     margin: 16px 0;
     font-size: 16px;
 }
+=======
+﻿
+>>>>>>> c847e23524c80f21269b4b36462d9ef9813dc7d6
+=======
+}
+>>>>>>> parent of f9ea773 (agregue pagina login y registrarme)

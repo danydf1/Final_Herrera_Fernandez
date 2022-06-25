@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Archivos.cs" />
     <Compile Include="Calendarios.cs" />
+    <Compile Include="CalendariosBase.cs" />
     <Compile Include="Categorias.cs" />
     <Compile Include="Contactos.cs" />
     <Compile Include="Expensas.cs" />

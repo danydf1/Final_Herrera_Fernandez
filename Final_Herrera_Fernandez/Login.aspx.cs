@@ -13,10 +13,5 @@ namespace Final_Herrera_Fernandez
         {
 
         }
-
-        protected void BtnAgregar_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
