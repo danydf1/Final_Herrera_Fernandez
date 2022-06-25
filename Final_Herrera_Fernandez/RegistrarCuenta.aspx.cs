@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Final_Herrera_Fernandez
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Registrarme : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

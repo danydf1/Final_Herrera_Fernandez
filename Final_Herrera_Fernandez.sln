@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{94FF1A44-7DA2-4A78-A299-9F8830FA5D49}"
 	ProjectSection(SolutionItems) = preProject
 		Fernandez_Herrera_DB_Consorcio.sql = Fernandez_Herrera_DB_Consorcio.sql
+		..\..\..\Imágenes\IMG CONSORCIO\Prohibido Fumar.png = ..\..\..\Imágenes\IMG CONSORCIO\Prohibido Fumar.png
 	EndProjectSection
 EndProject
 Global

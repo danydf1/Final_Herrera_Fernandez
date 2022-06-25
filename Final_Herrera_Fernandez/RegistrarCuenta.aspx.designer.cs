@@ -11,7 +11,7 @@ namespace Final_Herrera_Fernandez
 {
 
 
-    public partial class Index
+    public partial class Registrarme
     {
 
         /// <summary>

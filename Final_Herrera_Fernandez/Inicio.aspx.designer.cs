@@ -11,7 +11,7 @@ namespace Final_Herrera_Fernandez
 {
 
 
-    public partial class Espacios_Comunes
+    public partial class Inicio
     {
     }
 }
