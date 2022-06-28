@@ -12,11 +12,9 @@ namespace Dominio
         public string NombreUsuario { get; set; }
         public string Email { get; set; }
         public string Pass { get; set; }
-        public DateTime Fecha { get; set; }
-        public int Dni { get; set; }
+        public DateTime FechaAlta { get; set; }
         public string Tipo { get; set; }
         public bool Estado { get; set; }
-
  
     }
 }

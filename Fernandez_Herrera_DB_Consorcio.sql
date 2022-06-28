@@ -1,6 +1,3 @@
-
-
-
 create database Fernandez_Herrera_DB_Consorcio
 GO
 use Fernandez_Herrera_DB_Consorcio
@@ -40,7 +37,30 @@ create table Avisos (
  IDCATEGORIA INT NOT NULL FOREIGN KEY REFERENCES CATEGORIAS(ID),
   Estado bit not null ,
 )
+GO
+create table TipoUsuarios (
+ ID INT NOT NULL PRIMARY KEY IDENTITY (1,1),
+ DESCRIPCION VARCHAR(50) NOT NULL,
+)
+GO
+create table Usuarios (
+ ID BIGINT NOT NULL PRIMARY KEY IDENTITY (1,1),
+ NOMBREUSUARIO VARCHAR(50) NULL,
+ NOMBRE VARCHAR(50) NULL,
+ APELLIDO VARCHAR(50) NOT NULL,
+ EMAIL VARCHAR(100) NULL,
+ PASS VARCHAR(80) NULL,
+ FECHANAC DATE NOT NULL,
+ FECHAALTA DATE NOT NULL,
+ IDTIPO INT NOT NULL FOREIGN KEY REFERENCES TipoUsuarios(ID),
+ Estado bit not null 
+)
+
         --DATOS---
+
+--TIPOS USUARIOS--
+INSERT INTO TipoUsuarios VALUES('Administrador')
+INSERT INTO TipoUsuarios VALUES('Vecino')
 
 --CALENDARIO
 INSERT INTO CALENDARIOS VALUES('28/11/2021','10:00','PINTORES',1)
@@ -71,3 +91,27 @@ INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https:/
 
 INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://www.bing.com/th?id=OIP.FmlS-PaMW23NwkwKOH2bMQHaJR&w=150&h=188&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2',1,1)
 INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://th.bing.com/th/id/OIP.apI5d6gkSiQBgi_7hKHK8AHaJR?pid=ImgDet&w=170&h=213&c=7',1,1)
+
+GO
+	----SP----
+CREATE PROCEDURE sp_ins_usuario(
+@NombreUsuario VARCHAR (50),
+@Nombre VARCHAR (50),
+@Apellido VARCHAR (50),
+@Email VARCHAR (100),
+@Pass VARCHAR (80),
+@FechaNac Date
+)
+AS 
+BEGIN
+	Begin try 
+		INSERT INTO Usuarios(NOMBREUSUARIO,NOMBRE,APELLIDO,EMAIL,PASS,FECHANAC,FECHAALTA,IDTIPO,Estado) VALUES(@NombreUsuario,@Nombre,@Apellido,@Email,@Pass,@FechaNac,getDate(),2,1)
+	End try
+    Begin Catch
+		-- Mensaje de error, severidad (int), estado (int)
+        Rollback transaction
+
+        RAISERROR('Error grave al guardar el usuario', 16, 1)
+	End Catch
+
+END
