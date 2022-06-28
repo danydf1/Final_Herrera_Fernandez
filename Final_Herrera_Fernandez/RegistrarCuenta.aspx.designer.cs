@@ -69,13 +69,13 @@ namespace Final_Herrera_Fernandez
         protected global::System.Web.UI.WebControls.TextBox TxtApellido;
 
         /// <summary>
-        /// Control FechaNac.
+        /// Control check.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar FechaNac;
+        protected global::System.Web.UI.WebControls.CheckBox check;
 
         /// <summary>
         /// Control BtnAgregar.

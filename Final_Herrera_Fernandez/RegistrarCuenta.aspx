@@ -13,32 +13,33 @@
     <form id="form1" runat="server">
 
 
-            <div class="container ">
-                <div class="row">
-                    <div class="col-12">
-                        <h4>Formulario Registro</h4>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <h2>Formulario Registro</h2>
+                </div>
+                
+                <div class="col-12">
+                    <asp:TextBox ID="TxtNombreUsuario" class="form-control mb-2" type="text" placeholder="Ingrese Nombre de usuario" aria-label="Ingrese Nombre de Usuario" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TxtNombre" class="form-control mb-2" type="text" placeholder="Ingrese su Nombre" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TxtEmail" class="form-control mb-2" type="email" placeholder="Ingrese su Email" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TxtPass" class="form-control mb-2" MaxLength="8" type="password" placeholder="Ingrese su Contraseña 8 caracteres max" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TxtApellido" class="form-control mb-2" type="text" placeholder="Ingrese su Apellido" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
+                    <asp:TextBox runat="server" Type="Date" class="form-control"></asp:TextBox>
+                </div>
+                <div class="col-12">
+                    <div class="form-check mt-3">
+                        <asp:CheckBox runat="server" CssClass="form-check-input" ID="check"/>
+                        <label class="form-check-label" for="check">
+                            Estoy de acuerdo con Terminos y Condiciones
+                        </label>
                     </div>
-                    <div class="col-6">
-                        <asp:TextBox ID="TxtNombreUsuario" class="controls" type="text" placeholder="Ingrese Nombre de usuario" aria-label="Ingrese Nombre de Usuario" runat="server"></asp:TextBox>
-                        <asp:TextBox ID="TxtNombre" class="controls" type="text" placeholder="Ingrese su Nombre" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
-                   <asp:TextBox ID="TxtEmail" class="controls" type="email" placeholder="Ingrese su Email" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
-                        <asp:TextBox ID="TxtPass" class="controls" MaxLength="8" type="password" placeholder="Ingrese su Contraseña 8 caracteres max" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
-
-                        </div>
-                    <div class="col-6">
-                        <asp:TextBox ID="TxtApellido" class="controls" type="text" placeholder="Ingrese su Apellido" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
-                        <asp:Calendar ID="FechaNac" Width="90px"  CssClass="controls" runat="server"></asp:Calendar>
-                    </div>
-                    <div class="col-4">
-                                            </div>
-                    <div class="col-12 text-center">
-                        <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-                        <asp:Button ID="BtnAgregar" Text="Registrar" OnClick="BtnAgregar_Click" runat="server" CssClass="botons" type="submit" />
-
-                        <p><a href="Login.aspx">¿Ya tengo Cuenta?</a></p>
-                    </div>
+                    <asp:Button ID="BtnAgregar" Text="Registrar" OnClick="BtnAgregar_Click" runat="server" CssClass="btn btn-primary mt-3" type="submit" />
+                    <br />
+                    <a href="Login.aspx" >¿Ya tengo Cuenta? </a>
                 </div>
             </div>
+        </div>
     </form>
 </body>
 </html>
