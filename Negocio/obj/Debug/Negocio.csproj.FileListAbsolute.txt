@@ -25,3 +25,12 @@ D:\utn\FinalReparado\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.csproj.Co
 D:\utn\FinalReparado\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 D:\utn\FinalReparado\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.dll
 D:\utn\FinalReparado\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Daniel\Desktop\ProyectoUTN\Final_Herrera_Fernandez\Negocio\bin\Debug\Negocio.dll
+C:\Users\Daniel\Desktop\ProyectoUTN\Final_Herrera_Fernandez\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Daniel\Desktop\ProyectoUTN\Final_Herrera_Fernandez\Negocio\bin\Debug\Dominio.dll
+C:\Users\Daniel\Desktop\ProyectoUTN\Final_Herrera_Fernandez\Negocio\bin\Debug\Dominio.pdb
+C:\Users\Daniel\Desktop\ProyectoUTN\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\Daniel\Desktop\ProyectoUTN\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Desktop\ProyectoUTN\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\Daniel\Desktop\ProyectoUTN\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.dll
+C:\Users\Daniel\Desktop\ProyectoUTN\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.pdb

@@ -26,7 +26,7 @@ namespace Final_Herrera_Fernandez
             user.Apellido = TxtApellido.Text;
             user.Email = TxtEmail.Text;
             user.Pass = TxtPass.Text;
-            user.FechaNac = FechaNac.SelectedDate;
+            user.FechaNac = DateTime.Parse( FechaNac.Text);
             
             negocio.AgregarUsuario(user);
         }
