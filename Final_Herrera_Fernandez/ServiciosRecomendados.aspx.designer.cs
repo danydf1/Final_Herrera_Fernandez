@@ -11,7 +11,7 @@ namespace Final_Herrera_Fernandez
 {
 
 
-    public partial class Servicios_Recomendados
+    public partial class ServiciosRecomendados
     {
 
         /// <summary>

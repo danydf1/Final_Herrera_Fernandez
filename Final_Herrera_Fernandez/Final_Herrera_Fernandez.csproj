@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0874A392-06B6-4895-8E07-10F9C05D9796}</ProjectGuid>
+    <ProjectGuid>{F319B613-E412-48B8-82CF-E06BF3FB4D65}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44331</IISExpressSSLPort>
+    <IISExpressSSLPort>44355</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -72,24 +72,15 @@
     <Content Include="EspaciosComunes.aspx" />
     <Content Include="Expensas.aspx" />
     <Content Include="FondoComun.aspx" />
-    <Content Include="Index.aspx" />
     <Content Include="index.css" />
-    <Content Include="Login.aspx" />
+    <Content Include="Inicio.aspx" />
+    <Content Include="InicioAdm.aspx" />
     <Content Include="Mensajes.aspx" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <Content Include="Prohibido Fumar.png" />
-    <Content Include="RegistrarCuenta.aspx" />
-=======
->>>>>>> parent of f9ea773 (agregue pagina login y registrarme)
-    <Content Include="Servicios Recomendados.aspx" />
-    <Content Include="Vista de Archivos PDF.aspx" />
-=======
     <Content Include="ServiciosRecomendados.aspx" />
-    <Content Include="VistadeArchivosPDF.aspx" />
->>>>>>> c847e23524c80f21269b4b36462d9ef9813dc7d6
+    <Content Include="VistadeArhivosPDF.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="RegistrarCuenta.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calendario.aspx.cs">
@@ -127,19 +118,19 @@
     <Compile Include="FondoComun.aspx.designer.cs">
       <DependentUpon>FondoComun.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="InicioAdm.aspx.cs">
+      <DependentUpon>InicioAdm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="InicioAdm.aspx.designer.cs">
+      <DependentUpon>InicioAdm.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -156,41 +147,33 @@
       <DependentUpon>Mensajes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
-<<<<<<< HEAD
+    <Compile Include="ServiciosRecomendados.aspx.cs">
+      <DependentUpon>ServiciosRecomendados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiciosRecomendados.aspx.designer.cs">
+      <DependentUpon>ServiciosRecomendados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VistadeArhivosPDF.aspx.cs">
+      <DependentUpon>VistadeArhivosPDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VistadeArhivosPDF.aspx.designer.cs">
+      <DependentUpon>VistadeArhivosPDF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarCuenta.aspx.cs">
       <DependentUpon>RegistrarCuenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="RegistrarCuenta.aspx.designer.cs">
       <DependentUpon>RegistrarCuenta.aspx</DependentUpon>
-    </Compile>
-=======
->>>>>>> parent of f9ea773 (agregue pagina login y registrarme)
-    <Compile Include="Servicios Recomendados.aspx.cs">
-      <DependentUpon>Servicios Recomendados.aspx</DependentUpon>
-=======
-    <Compile Include="ServiciosRecomendados.aspx.cs">
-      <DependentUpon>ServiciosRecomendados.aspx</DependentUpon>
->>>>>>> c847e23524c80f21269b4b36462d9ef9813dc7d6
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ServiciosRecomendados.aspx.designer.cs">
-      <DependentUpon>ServiciosRecomendados.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="VistadeArchivosPDF.aspx.cs">
-      <DependentUpon>VistadeArchivosPDF.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="VistadeArchivosPDF.aspx.designer.cs">
-      <DependentUpon>VistadeArchivosPDF.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -205,11 +188,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominio\Dominio.csproj">
-      <Project>{c8a48e52-ca6b-4119-a85c-531b0399fe8e}</Project>
+      <Project>{898d5323-1c7e-44ca-99ab-2e36b97820d7}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
     <ProjectReference Include="..\Negocio\Negocio.csproj">
-      <Project>{7ea52ca5-ead3-43fd-8f8d-2097d8c23d68}</Project>
+      <Project>{7c70549f-019b-4d48-9ddf-4ffea8f4f873}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
   </ItemGroup>
@@ -226,9 +209,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>28229</DevelopmentServerPort>
+          <DevelopmentServerPort>63903</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44331/</IISUrl>
+          <IISUrl>https://localhost:44355/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

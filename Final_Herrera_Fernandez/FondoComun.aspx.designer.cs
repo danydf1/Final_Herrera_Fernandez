@@ -11,7 +11,7 @@ namespace Final_Herrera_Fernandez
 {
 
 
-    public partial class Fondo_Comun
+    public partial class FondoComun
     {
     }
 }

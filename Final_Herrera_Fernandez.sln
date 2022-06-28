@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{7C70549F-019B-4D48-9DDF-4FFEA8F4F873}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{C5872D84-5F27-4AE0-B767-B3711B52B588}"
+	ProjectSection(SolutionItems) = preProject
+		Fernandez_Herrera_DB_Consorcio.sql = Fernandez_Herrera_DB_Consorcio.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

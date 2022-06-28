@@ -1,35 +1,52 @@
-<<<<<<< HEAD
-﻿.navbar {
-    background-color: blueviolet;
+﻿body {
     
+    background-color:white;
 }
+
+.container-fluid {
+background-color:red;
+}
+.container-carrusel {
+    background-color: black;
+    margin-top:initial;
+}
+.cover {
+    height: 400px;
+    background-image: url(https://k30.kn3.net/taringa/2/6/7/6/A/8/civrotvictor/B05.jpg);
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .container {
-    margin-top: 2rem;
-    background-color: aquamarine;
+    margin-top: auto;
+    background-color: white;
     padding: 2rem;
     margin-top: 20px;
     max-width: 120rem;
-    height: 300px;
 }
+
 .text-center {
     width: 25rem;
     height: 25rem;
 }
-.Columnasx2{
-    justify-content:space-around;
 
+.Columnasx2 {
+    justify-content: space-around;
 }
+
 .MiContenedor {
     overflow: auto;
     background-color: orange;
-    max-height:auto;
+    max-height: auto;
 }
+
 .scrolling-table-container {
     width: 250px;
     height: 250px;
-    overflow-y:auto;
+    overflow-y: auto;
     overflow-x: hidden;
-<<<<<<< HEAD
 }
 
 .body-register {
@@ -93,9 +110,65 @@
     margin: 16px 0;
     font-size: 16px;
 }
-=======
-﻿
->>>>>>> c847e23524c80f21269b4b36462d9ef9813dc7d6
-=======
+
+.body-register {
+    background-image: url(https://images.unsplash.com/photo-1612180564996-f326ba5b939d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80);
+    background-size: cover;
 }
->>>>>>> parent of f9ea773 (agregue pagina login y registrarme)
+
+
+.form-register {
+    width: 400px;
+    background: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+}
+
+    .form-register h4 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+.controls {
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+}
+
+.form-register p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+}
+
+.form-register a {
+    color: white;
+    text-decoration: none;
+}
+
+    .form-register a:hover {
+        color: white;
+        text-decoration: underline;
+    }
+
+.form-register .botons {
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}

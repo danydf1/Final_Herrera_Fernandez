@@ -11,16 +11,25 @@ namespace Final_Herrera_Fernandez
 {
 
 
-    public partial class Servicios_Recomendados
+    public partial class Inicio
     {
 
         /// <summary>
-        /// Control Lista.
+        /// Control TxtBuscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Lista;
+        protected global::System.Web.UI.WebControls.TextBox TxtBuscar;
+
+        /// <summary>
+        /// Control BtnBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnBuscar;
     }
 }

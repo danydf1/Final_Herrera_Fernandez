@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="FondoComun.aspx.cs" Inherits="Final_Herrera_Fernandez.Fondo_Comun" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="FondoComun.aspx.cs" Inherits="Final_Herrera_Fernandez.FondoComun" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid text-center">
+     <div class="container-fluid text-center">
         <div class="row">
             <div class="col-12">
                 <h2>Saldo</h2>

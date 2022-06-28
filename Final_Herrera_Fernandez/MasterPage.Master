@@ -1,11 +1,11 @@
-﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Final_Herrera_Fernandez.MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Final_Herrera_Fernandez.MasterPage" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Tu consorcio</title>
@@ -15,70 +15,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <%--<div class="collapse" id="navbarToggleExternalContent">
-=======
-      <div class="collapse" id="navbarToggleExternalContent">
->>>>>>> parent of f9ea773 (agregue pagina login y registrarme)
-  <div class="bg-dark p-4">  
-      <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
- Opciones
-  </button>
-  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-      <li><a class="dropdown-item active" href="Calendario.aspx">Calendario</a></li>
-    <li><a class="dropdown-item " href="Mensajes.aspx">Mensajes</a></li>
-    <li><a class="dropdown-item" href="Expensas.aspx">Expensas</a></li>
-    <li><a class="dropdown-item" href="Servicios Recomendados.aspx">Servicios Recomendados</a></li>
-     <li><a class="dropdown-item" href="Fondo Comun.aspx">Fondo Comun</a></li> 
-      <li><a class="dropdown-item" href="Espacios Comunes.aspx">Espacios Comunes</a></li>
-      
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">Separated link</a></li>
-  </ul>
-</div>
-        
-  </div>
-</div>
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-<<<<<<< HEAD
-</nav>--%>
-       <nav class="navbar navbar-light bg-transparent ">
-=======
-        <%--        <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                        Opciones
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="Calendario.aspx">Calendario</a></li>
-                        <li><a class="dropdown-item " href="Mensajes.aspx">Mensajes</a></li>
-                        <li><a class="dropdown-item" href="Expensas.aspx">Expensas</a></li>
-                        <li><a class="dropdown-item" href="Servicios Recomendados.aspx">Servicios Recomendados</a></li>
-                        <li><a class="dropdown-item" href="Fondo Comun.aspx">Fondo Comun</a></li>
-                        <li><a class="dropdown-item" href="Espacios Comunes.aspx">Espacios Comunes</a></li>
-                    </ul>
-                </div>
-            </div>
-            <nav class="navbar navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-            </nav>
-         </div>--%>
-
-
         <nav class="navbar navbar-light bg-transparent ">
->>>>>>> c847e23524c80f21269b4b36462d9ef9813dc7d6
             <div class="container-fluid ">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -92,6 +29,12 @@
                 </a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav ms-5 me-auto  mb-lg-0">
+                        <li class="nav-item">
+                           
+                            <a class="nav-link ms-5" href="Inicio.aspx">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"  viewBox="0 0 16 16"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M479.1 32H32.04C12.55 32-2.324 49.25 .3008 68.51L56.29 425.1C60.79 456.6 87.78 480 119.8 480h272.9c31.74 0 58.86-23.38 63.36-54.89l55.61-356.6C514.3 49.25 499.5 32 479.1 32zM422.7 224H89.49L69.39 96h373.2L422.7 224z"/></svg>
+                                Inicio</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link ms-5" href="Calendario.aspx">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-calendar-event active me-2" viewBox="0 0 16 16">
@@ -144,24 +87,14 @@
                 </div>
             </div>
         </nav>
+        <div>
+       </div>
 
-<<<<<<< HEAD
-=======
-</nav>
-    
->>>>>>> parent of f9ea773 (agregue pagina login y registrarme)
-    
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-    
-=======
-
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
-
->>>>>>> c847e23524c80f21269b4b36462d9ef9813dc7d6
+        
     </form>
-    <!-- JavaScript Bundle with Popper -->
+    <footer><h1>footer con info de contacto...</h1></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

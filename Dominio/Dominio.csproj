@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C8A48E52-CA6B-4119-A85C-531B0399FE8E}</ProjectGuid>
+    <ProjectGuid>{898D5323-1C7E-44CA-99AB-2E36B97820D7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Dominio</RootNamespace>
@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Archivos.cs" />
+    <Compile Include="avisos.cs" />
     <Compile Include="Calendarios.cs" />
     <Compile Include="CalendariosBase.cs" />
     <Compile Include="Categorias.cs" />

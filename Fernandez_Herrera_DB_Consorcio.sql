@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 
 
-SET DATEFORMAT dmy;
 
 create database Fernandez_Herrera_DB_Consorcio
 GO
@@ -9,7 +7,7 @@ use Fernandez_Herrera_DB_Consorcio
 GO
 CREATE  table CALENDARIOS  (
  ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1), 
- FECHA varchar(10) NOT NULL,
+ FECHA DATE NOT NULL,
  HORA  TIME NOT NULL,
  TITULO VARCHAR(50) NOT NULL,
  ESTADO BIT NOT NULL,
@@ -28,53 +26,48 @@ txt_Nombre VARCHAR(50) NOT NULL,
 NroContacto  VARCHAR(15) NOT NULL,
  ESTADO BIT NOT NULL,
 );
-        --DATOS---
-
---CALENDARIO
-INSERT INTO CALENDARIOS VALUES('28/11/2021','10:00','PINTORES',1)
-INSERT INTO CALENDARIOS VALUES('28/11/2021','12:40','SOLARIUM',1)
-
-<<<<<<< HEAD
-INSERT INTO  ServiciosRecomendados VALUES('plomeria','el tano','15444333',1)
-=======
-
-
-SET DATEFORMAT dmy;
-
-create database Fernandez_Herrera_DB_Consorcio
 GO
-use Fernandez_Herrera_DB_Consorcio
-GO
-CREATE  table CALENDARIOS  (
- ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1), 
- FECHA varchar(10) NOT NULL,
- HORA  TIME NOT NULL,
- TITULO VARCHAR(50) NOT NULL,
- ESTADO BIT NOT NULL,
+create table CATEGORIAS (
+ID INT NOT NULL PRIMARY	KEY identity(1,1),
+DESCRIPCION VARCHAR (100)NOT NULL
 )
 go
-create table tbl_contents (
-	id int identity,
-	content varbinary(max),
-	constraint pk_tbl_contents primary key(id)
-);
-go
-create table ServiciosRecomendados(
-ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1), 
-txt_Servicio VARCHAR(50) NOT NULL,
-txt_Nombre VARCHAR(50) NOT NULL,
-NroContacto  VARCHAR(15) NOT NULL,
- ESTADO BIT NOT NULL,
-);
+create table Avisos (
+ ID BIGINT NOT NULL PRIMARY KEY IDENTITY (1,1),
+ FECHA DATE NOT NULL,
+ DESCRIPCION VARCHAR(5000) NULL,
+ IMAGENURL VARCHAR(1000) NOT NULL,
+ IDCATEGORIA INT NOT NULL FOREIGN KEY REFERENCES CATEGORIAS(ID),
+  Estado bit not null ,
+)
         --DATOS---
 
 --CALENDARIO
 INSERT INTO CALENDARIOS VALUES('28/11/2021','10:00','PINTORES',1)
 INSERT INTO CALENDARIOS VALUES('28/11/2021','12:40','SOLARIUM',1)
-
+--SERVICIOS RECOMENDADOS
 INSERT INTO  ServiciosRecomendados VALUES('plomeria','el tano','15444333',1)
->>>>>>> c847e23524c80f21269b4b36462d9ef9813dc7d6
 INSERT INTO  ServiciosRecomendados VALUES('plomeria','manolo','46001553',1)
-=======
-INSERT INTO  ServiciosRecomendados VALUES('plomeria','el tano',15444333,1)
->>>>>>> parent of f9ea773 (agregue pagina login y registrarme)
+--CATEGORIAS AVISOS
+INSERT INTO CATEGORIAS VALUES('CALENDARIO')
+INSERT INTO CATEGORIAS VALUES('MENSAJES')
+INSERT INTO CATEGORIAS VALUES('EXPENSAS')
+INSERT INTO CATEGORIAS VALUES('SERVICIOS COMUNES')
+INSERT INTO CATEGORIAS VALUES('SERVICIOS RECOMENDADOS')
+--AVISOS
+INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://www.bing.com/th?id=OIP.FmlS-PaMW23NwkwKOH2bMQHaJR&w=150&h=188&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2',1,1)
+INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://th.bing.com/th/id/OIP.apI5d6gkSiQBgi_7hKHK8AHaJR?pid=ImgDet&w=170&h=213&c=7',1,1)
+INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://www.bing.com/th?id=OIP.FmlS-PaMW23NwkwKOH2bMQHaJR&w=150&h=188&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2',1,1)
+INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://th.bing.com/th/id/OIP.apI5d6gkSiQBgi_7hKHK8AHaJR?pid=ImgDet&w=170&h=213&c=7',1,1)
+
+INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://www.bing.com/th?id=OIP.FmlS-PaMW23NwkwKOH2bMQHaJR&w=150&h=188&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2',1,1)
+INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://th.bing.com/th/id/OIP.apI5d6gkSiQBgi_7hKHK8AHaJR?pid=ImgDet&w=170&h=213&c=7',1,1)
+
+INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://www.bing.com/th?id=OIP.FmlS-PaMW23NwkwKOH2bMQHaJR&w=150&h=188&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2',1,1)
+INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://th.bing.com/th/id/OIP.apI5d6gkSiQBgi_7hKHK8AHaJR?pid=ImgDet&w=170&h=213&c=7',1,1)
+
+INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://www.bing.com/th?id=OIP.FmlS-PaMW23NwkwKOH2bMQHaJR&w=150&h=188&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2',1,1)
+INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://th.bing.com/th/id/OIP.apI5d6gkSiQBgi_7hKHK8AHaJR?pid=ImgDet&w=170&h=213&c=7',1,1)
+
+INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://www.bing.com/th?id=OIP.FmlS-PaMW23NwkwKOH2bMQHaJR&w=150&h=188&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2',1,1)
+INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://th.bing.com/th/id/OIP.apI5d6gkSiQBgi_7hKHK8AHaJR?pid=ImgDet&w=170&h=213&c=7',1,1)

@@ -11,7 +11,7 @@ namespace Final_Herrera_Fernandez
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblError.InnerText = Session["Error"] == null ? "No hay error" : (string)Session["Error"];
+
         }
     }
 }

@@ -8,7 +8,7 @@ using Dominio;
 using Negocio;
 namespace Final_Herrera_Fernandez
 {
-    public partial class Servicios_Recomendados : System.Web.UI.Page
+    public partial class ServiciosRecomendados : System.Web.UI.Page
     {
         public List<Contactos> ListaRegistros { get; set; }
         ServiciosRecomendadosNegocio negocio = new ServiciosRecomendadosNegocio();

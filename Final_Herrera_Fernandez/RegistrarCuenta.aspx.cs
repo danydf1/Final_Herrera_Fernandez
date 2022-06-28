@@ -7,9 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace Final_Herrera_Fernandez
 {
-    public partial class Index : System.Web.UI.Page
+    public partial class WebForm2 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnAgregar_Click(object sender, EventArgs e)
         {
 
         }
