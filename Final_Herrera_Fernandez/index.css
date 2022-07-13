@@ -3,9 +3,6 @@
     background-color:white;
 }
 
-.container-fluid {
-background-color:red;
-}
 .container-carrusel {
     background-color: black;
     margin-top:initial;
@@ -19,13 +16,13 @@ background-color:red;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.container {
+/*.container {
     margin-top: auto;
     background-color: white;
     padding: 2rem;
     margin-top: 20px;
     max-width: 120rem;
-}
+}*/
 
 .text-center {
     width: 25rem;

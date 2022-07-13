@@ -55,13 +55,38 @@ create table Usuarios (
  IDTIPO INT NOT NULL FOREIGN KEY REFERENCES TipoUsuarios(ID),
  Estado bit not null 
 )
-
+GO
+create table Mensajes(
+ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
+IDUSUARIO BIGINT foreign key references Usuarios(ID) ,
+IDUSUARIOENVIADO BIGINT , 
+Mensaje Varchar (200),
+FechaEnvio DateTime
+)
+GO
+create table EstadosProyectos(
+ID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+Descripcion Varchar(200)
+)
+GO
+create table Proyectos(
+ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
+NOMBRE Varchar(200) ,
+DESCRIPCION Varchar(200) ,
+IDESTADO INT foreign key references EstadosProyectos(ID) , 
+Monto Money,
+FechaAlta DateTime
+)
         --DATOS---
 
 --TIPOS USUARIOS--
 INSERT INTO TipoUsuarios VALUES('Administrador')
 INSERT INTO TipoUsuarios VALUES('Vecino')
 
+--Estados Proyectos
+INSERT INTO EstadosProyectos VALUES('Pendiente')
+INSERT INTO EstadosProyectos VALUES('Evaluando')
+INSERT INTO EstadosProyectos VALUES('Aprobado')
 --CALENDARIO
 INSERT INTO CALENDARIOS VALUES('28/11/2021','10:00','PINTORES',1)
 INSERT INTO CALENDARIOS VALUES('28/11/2021','12:40','SOLARIUM',1)
@@ -92,9 +117,12 @@ INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https:/
 INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://www.bing.com/th?id=OIP.FmlS-PaMW23NwkwKOH2bMQHaJR&w=150&h=188&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2',1,1)
 INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https://th.bing.com/th/id/OIP.apI5d6gkSiQBgi_7hKHK8AHaJR?pid=ImgDet&w=170&h=213&c=7',1,1)
 
+--Proyectos
+INSERT INTO Proyectos VALUES ('Deck','Pintura nueva',3,30000,'01/10/2022')
+
 GO
 	----SP----
-CREATE PROCEDURE sp_ins_usuario(
+Create PROCEDURE sp_ins_usuario(
 @NombreUsuario VARCHAR (50),
 @Nombre VARCHAR (50),
 @Apellido VARCHAR (50),
@@ -108,10 +136,6 @@ BEGIN
 		INSERT INTO Usuarios(NOMBREUSUARIO,NOMBRE,APELLIDO,EMAIL,PASS,FECHANAC,FECHAALTA,IDTIPO,Estado) VALUES(@NombreUsuario,@Nombre,@Apellido,@Email,@Pass,@FechaNac,getDate(),2,1)
 	End try
     Begin Catch
-		-- Mensaje de error, severidad (int), estado (int)
-        Rollback transaction
-
         RAISERROR('Error grave al guardar el usuario', 16, 1)
 	End Catch
-
 END

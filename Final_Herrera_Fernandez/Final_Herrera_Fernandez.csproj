@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ABMUsuarios.aspx" />
     <Content Include="Calendario.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="EspaciosComunes.aspx" />
@@ -83,6 +84,13 @@
     <Content Include="RegistrarCuenta.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMUsuarios.aspx.cs">
+      <DependentUpon>ABMUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMUsuarios.aspx.designer.cs">
+      <DependentUpon>ABMUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Calendario.aspx.cs">
       <DependentUpon>Calendario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

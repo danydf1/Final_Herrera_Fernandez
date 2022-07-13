@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Fondos_Comunes
+    public class TipoProyecto
     {
-        public long Monto { get; set; }
+        public int ID { get; set; }
+        public string Descripcion { get; set; }
     }
 }
