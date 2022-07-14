@@ -38,8 +38,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Enviar</button>
-                        </div>
+                                <asp:Button id="btnEnviar" type="button" class="btn btn-primary" runat="server" OnClick="btnEnviar_Click" Text="Enviar" />
+                            </div>
                     </div>
                 </div>
 
@@ -62,8 +62,7 @@
                                 <asp:GridView ID="ListaAprobados" CssClass="table" runat="server" ></asp:GridView>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Understood</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
                     </div>

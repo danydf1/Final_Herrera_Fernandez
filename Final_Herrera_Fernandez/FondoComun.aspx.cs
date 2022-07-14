@@ -20,7 +20,18 @@ namespace Final_Herrera_Fernandez
             ListaAprobados.DataSource = ListaProyectos;
             ListaAprobados.DataBind();
             Session.Add("ListarSevicios", ListaAprobados);
+            
         }
-    
+
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+            Proyectos proyecto = new Proyectos();
+
+            proyecto.Nombre = txtNombre.Text;
+            proyecto.Descripcion = txtDescripcion.Text;
+            proyecto.Monto = decimal.Parse(txtMonto.Text);
+
+            negocio.AgregarProyecto(proyecto);
+        }
     }
 }

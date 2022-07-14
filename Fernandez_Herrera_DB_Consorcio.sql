@@ -139,3 +139,20 @@ BEGIN
         RAISERROR('Error grave al guardar el usuario', 16, 1)
 	End Catch
 END
+
+go
+
+CREATE PROCEDURE sp_ins_proyecto(
+@Nombre VARCHAR (50),
+@Descripcion VARCHAR (200),
+@Monto Money
+)
+AS 
+BEGIN
+	Begin try 
+		INSERT INTO Proyectos(NOMBRE,DESCRIPCION,IDESTADO,Monto,FechaAlta) VALUES(@Nombre,@Descripcion,1,@Monto,getDate())
+	End try
+    Begin Catch
+        RAISERROR('Error grave al Enviar el proyecto', 16, 1)
+	End Catch
+END
