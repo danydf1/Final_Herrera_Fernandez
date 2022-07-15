@@ -20,10 +20,10 @@
                     <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
                 </svg>
             </div>
-            <div class="col-12 mb-5 d-flex align-self-start justify-content-center">
+            <div class="col-12 mb-3 d-flex align-self-start justify-content-center">
                 <h1>ConsorciApp</h1>
             </div>
-            <div class="col-12 mb-5 d-flex align-self-start justify-content-center">
+            <div class="col-12  d-flex align-self-start justify-content-center">
                 <form id="form1" runat="server">
                     <div class="col-12 text-center">
                         <asp:TextBox ID="TxtEmail" CssClass="form-control mt-3" type="Mail" placeholder="Ingrese su Email" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
