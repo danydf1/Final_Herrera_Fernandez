@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31911.196
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Final_Herrera_Fernandez", "Final_Herrera_Fernandez\Final_Herrera_Fernandez.csproj", "{F319B613-E412-48B8-82CF-E06BF3FB4D65}"
 EndProject
@@ -12,6 +12,31 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{C5872D84-5F27-4AE0-B767-B3711B52B588}"
 	ProjectSection(SolutionItems) = preProject
 		Fernandez_Herrera_DB_Consorcio.sql = Fernandez_Herrera_DB_Consorcio.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "summernote", "summernote", "{8C5AA73E-1EE4-44DD-8961-292443C1B1B8}"
+	ProjectSection(SolutionItems) = preProject
+		lib\summernote\summernote-bs4.css = lib\summernote\summernote-bs4.css
+		lib\summernote\summernote-bs4.js = lib\summernote\summernote-bs4.js
+		lib\summernote\summernote-bs4.js.map = lib\summernote\summernote-bs4.js.map
+		lib\summernote\summernote-bs4.min.css = lib\summernote\summernote-bs4.min.css
+		lib\summernote\summernote-bs4.min.js = lib\summernote\summernote-bs4.min.js
+		lib\summernote\summernote-bs4.min.js.LICENSE.txt = lib\summernote\summernote-bs4.min.js.LICENSE.txt
+		lib\summernote\summernote-bs4.min.js.map = lib\summernote\summernote-bs4.min.js.map
+		lib\summernote\summernote-lite.css = lib\summernote\summernote-lite.css
+		lib\summernote\summernote-lite.js = lib\summernote\summernote-lite.js
+		lib\summernote\summernote-lite.js.map = lib\summernote\summernote-lite.js.map
+		lib\summernote\summernote-lite.min.css = lib\summernote\summernote-lite.min.css
+		lib\summernote\summernote-lite.min.js = lib\summernote\summernote-lite.min.js
+		lib\summernote\summernote-lite.min.js.LICENSE.txt = lib\summernote\summernote-lite.min.js.LICENSE.txt
+		lib\summernote\summernote-lite.min.js.map = lib\summernote\summernote-lite.min.js.map
+		lib\summernote\summernote.css = lib\summernote\summernote.css
+		lib\summernote\summernote.js = lib\summernote\summernote.js
+		lib\summernote\summernote.js.map = lib\summernote\summernote.js.map
+		lib\summernote\summernote.min.css = lib\summernote\summernote.min.css
+		lib\summernote\summernote.min.js = lib\summernote\summernote.min.js
+		lib\summernote\summernote.min.js.LICENSE.txt = lib\summernote\summernote.min.js.LICENSE.txt
+		lib\summernote\summernote.min.js.map = lib\summernote\summernote.min.js.map
 	EndProjectSection
 EndProject
 Global

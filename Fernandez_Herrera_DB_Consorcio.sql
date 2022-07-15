@@ -156,3 +156,18 @@ BEGIN
         RAISERROR('Error grave al Enviar el proyecto', 16, 1)
 	End Catch
 END
+
+Create PROCEDURE sp_ins_Mensaje(
+@IDUsuarioEnvia Int,
+@IDUsuarioRecibe Int,
+@Mensaje varchar(200)
+)
+AS 
+BEGIN
+	Begin try 
+		INSERT INTO Mensajes(IDUSUARIO,IDUSUARIOENVIADO,Mensaje,FechaEnvio) VALUES(@IDUsuarioEnvia,@IDUsuarioRecibe,@Mensaje,getDate())
+	End try
+    Begin Catch
+        RAISERROR('Error grave al Enviar el proyecto', 16, 1)
+	End Catch
+END

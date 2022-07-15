@@ -29,5 +29,39 @@ namespace Negocio
             datos.ejectutarAccion();
             datos.cerrarConexion();
         }
+        public List<Usuario> ListaUsuarios()
+        {
+            AccesoDatos Datos = new AccesoDatos();
+            List<Usuario> lista = new List<Usuario>();
+            Datos.setearConsulta("select * from Usuarios");
+            Datos.ejecutarLectura();
+
+            try
+            {
+                while (Datos.Lector.Read())
+                {
+                    Usuario aux = new Usuario();
+
+                    aux.ID = Convert.ToInt32((long)Datos.Lector["ID"]);
+                    aux.Nombre = (string)Datos.Lector["NOMBRE"];
+                    aux.Apellido = (string)Datos.Lector["APELLIDO"];
+                    aux.Email = (string)Datos.Lector["EMAIL"];
+                    aux.Pass = (string)Datos.Lector["PASS"];
+                    //aux.FechaNac = (DateTime)datos.Lector["FECHANAC"];
+                    //aux.Tipo = (string)datos.Lector["IDTIPO"];
+
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                Datos.cerrarConexion();
+            }
+        }
     }
 }
