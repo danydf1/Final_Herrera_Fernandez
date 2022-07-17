@@ -3,9 +3,8 @@
     background-color:white;
 }
 
-.container-carrusel {
-    background-color: black;
-    margin-top:initial;
+.container-carrusel, .carousel-inner, .carousel-item active, .carousel-item, .carousel slide, carousel {
+    height: 200px;
 }
 .cover {
     height: 400px;

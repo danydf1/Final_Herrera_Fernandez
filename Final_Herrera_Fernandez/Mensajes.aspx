@@ -33,5 +33,33 @@
 
             </div>
         </div>
+         <br />
+    <br />
+    <h1 style="text-align:center">Envie Sus Correos desde esta pagina</h1>
+        <div class="row">
+            <div class="col-sm-2"></div>
+          
+            <div class="col-sm-3">
+               
+               
+                <textarea ID="mensaje" runat="server" class="form-control" type="text" placeholder="Ingresa tu mensaje" cols="20" rows="4"></textarea>
+            </div>
+             <div class="col-sm-3">
+                  <asp:TextBox id="asunto" runat="server" type="text" class="form-control" PlaceHolder="Asunto"  ></asp:TextBox>
+               
+               
+            </div>
+            <div class="col-sm-3">
+                 <asp:TextBox  id="para" runat="server" type="email" class="form-control" PlaceHolder="Correo destinatario"  ></asp:TextBox>
+               
+                
+            </div>
+        </div>
+          <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3">
+                <asp:Button ID="Button" runat="server" CssClass="btn btn-success" Text="Enviar Correo" OnClick="Button_Click" />
+                
+            </div>
     </div>
 </asp:Content>

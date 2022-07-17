@@ -19,5 +19,13 @@ namespace Final_Herrera_Fernandez
             
             usuarios = negocio.ListaUsuarios();
         }
+
+        protected void Button_Click(object sender, EventArgs e)
+        {
+
+            logic ObjetoLogic = new logic();
+            string msg = ObjetoLogic.EnviarCorreo(para.Text.Trim(), asunto.Text.Trim(), mensaje.Value);
+            ScriptManager.RegisterClientScriptBlock(this, typeof(string), "MsgAlert", "Alert('" + msg + "');window.location='Mensajes.aspx';", true);
+        }
     }
 }

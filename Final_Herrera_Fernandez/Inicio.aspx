@@ -3,25 +3,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
          
-    <div class="cover d-flex justify-content-center align-items-center flex-column ">
-        <h1>Consorcio App
-        </h1>
-        <p>
-            Todo lo que necesitas esta aca
-        </p>
-        <a class="btn btn-dark" href="NuestraEmpresa.aspx" runat="server">Conoce mas</a>
-    </div>
-    <div class="container-carrusel">
+     <div class="container-carrusel" >
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        
   <div class="carousel-inner">
     <div class="carousel-item active">
-    <img src="https://th.bing.com/th?q=Imagenes+Sin+Fondo+8M&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=es-AR&cc=AR&setlang=es&adlt=strict&t=1&mw=247" class="d-block  h-25" alt="img3">
+    <img src="https://www.investa.com.au/getattachment/Properties/567-Collins-Street/567collins-header2.jpg.aspx"  alt="img3">
     </div>
     <div class="carousel-item">
-    <img src="https://th.bing.com/th?q=Imagenes+Fitness+Sin+Fondo&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=es-AR&cc=AR&setlang=es&adlt=strict&t=1&mw=247" class="d-block  h-25" alt="img2">
+    <img src="https://www.investa.com.au/getattachment/Properties/567-Collins-Street/567collins-header2.jpg.aspx" alt="img2">
     </div>
     <div class="carousel-item">
-    <img src="https://th.bing.com/th?q=Imagenes+Sin+Fondo+8M&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=es-AR&cc=AR&setlang=es&adlt=strict&t=1&mw=247" class="d-block  h-25" alt="img3">
+    <img src="https://www.investa.com.au/getattachment/Properties/567-Collins-Street/567collins-header2.jpg.aspx"  alt="img3">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -34,10 +27,14 @@
   </button>
 </div>
 </div>
-    <br />
-    
+
+
+      <br />  
+
+   
+
     <!--textbox de buscar-->
-    <div class="container">
+ 
         <div class="d-flex justify-content-center">
             <asp:TextBox ID="TxtBuscar" runat="server" ></asp:TextBox>
             <asp:Button ID="BtnBuscar" style="margin-left:5px;" class="btn btn-outline-dark" OnClick="BtnBuscar_Click" runat="server" Text="Buscar" />
@@ -61,5 +58,5 @@
                
             <%} %>
         </div>
-    </div>
+
 </asp:Content>
