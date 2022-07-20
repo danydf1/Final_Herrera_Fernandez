@@ -25,7 +25,8 @@ namespace Final_Herrera_Fernandez
 
             logic ObjetoLogic = new logic();
             string msg = ObjetoLogic.EnviarCorreo(para.Text.Trim(), asunto.Text.Trim(), mensaje.Value);
-            ScriptManager.RegisterClientScriptBlock(this, typeof(string), "MsgAlert", "Alert('" + msg + "');window.location='Mensajes.aspx';", true);
+           
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('"+msg+"');window.location='Mensajes.aspx';", true);
         }
     }
 }

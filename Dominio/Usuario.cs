@@ -10,10 +10,13 @@ namespace Dominio
     {
         public long ID { get; set; }
         public string NombreUsuario { get; set; }
+        /*NOBRE ,APELLIDO  Y FECHA NAC LO HEREDO DE PERSONA */
+
         public string Email { get; set; }
         public string Pass { get; set; }
+     
         public DateTime FechaAlta { get; set; }
-        public string Tipo { get; set; }
+        public int Tipo { get; set; }
         public bool Estado { get; set; }
  
     }

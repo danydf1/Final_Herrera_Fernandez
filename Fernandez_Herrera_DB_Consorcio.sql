@@ -55,6 +55,7 @@ create table Usuarios (
  IDTIPO INT NOT NULL FOREIGN KEY REFERENCES TipoUsuarios(ID),
  Estado bit not null 
 )
+
 GO
 create table Mensajes(
 ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
@@ -82,7 +83,9 @@ FechaAlta DateTime
 --TIPOS USUARIOS--
 INSERT INTO TipoUsuarios VALUES('Administrador')
 INSERT INTO TipoUsuarios VALUES('Vecino')
-
+--USUARIOS--
+INSERT INTO Usuarios VALUES ('NicoAdmin','Nicolas','Herrera','admin@gmail.com','1234','1986/11/04',getdate(),1,1)
+INSERT INTO Usuarios VALUES ('DaniVecino','DAniel','Fernandez','vecino@gmail.com','1234','1986/11/04',getdate(),2,1)
 --Estados Proyectos
 INSERT INTO EstadosProyectos VALUES('Pendiente')
 INSERT INTO EstadosProyectos VALUES('Evaluando')

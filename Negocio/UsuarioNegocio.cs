@@ -63,5 +63,46 @@ namespace Negocio
                 Datos.cerrarConexion();
             }
         }
+
+        public Usuario ValidarUsuarios(string email, string pass)
+        {
+            Usuario cuenta = new Usuario();
+            AccesoDatos Datos = new AccesoDatos();
+
+            Datos.setearConsulta("select * from usuarios where email= '" + email + "'and pass='" + pass + "'");
+            Datos.ejecutarLectura();
+
+            try
+            {
+                Datos.Lector.Read();
+
+                Usuario aux = new Usuario();
+               
+                aux.ID = (long)Datos.Lector["Id"];
+                aux.NombreUsuario = (string)Datos.Lector["Nombreusuario"];
+                aux.Apellido = (string)Datos.Lector["Apellido"];
+                aux.Nombre = (string)Datos.Lector["Nombre"];
+                aux.Email = (string)Datos.Lector["Email"];
+                aux.Pass = (string)Datos.Lector["Pass"];
+                aux.FechaNac = (DateTime)Datos.Lector["FechaNac"];
+                aux.FechaAlta = (DateTime)Datos.Lector["Fechaalta"];
+                aux.Tipo = (int)Datos.Lector["Idtipo"];
+                aux.Estado = (bool)Datos.Lector["Estado"];
+
+
+                return aux;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            finally
+            {
+                Datos.cerrarConexion();
+            }
+
+
+        }
     }
 }
