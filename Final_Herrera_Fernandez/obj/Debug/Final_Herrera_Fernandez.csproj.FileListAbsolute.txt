@@ -440,3 +440,4 @@ C:\Users\aleh0\OneDrive\Escritorio\danigitConsorcio\Final_Herrera_Fernandez\Fina
 C:\Users\aleh0\OneDrive\Escritorio\danigitConsorcio\Final_Herrera_Fernandez\Final_Herrera_Fernandez\obj\Debug\Final_Herrera_Fernandez.dll
 C:\Users\aleh0\OneDrive\Escritorio\danigitConsorcio\Final_Herrera_Fernandez\Final_Herrera_Fernandez\obj\Debug\Final_Herrera_Fernandez.pdb
 C:\Users\aleh0\OneDrive\Escritorio\danigitConsorcio\Final_Herrera_Fernandez\Final_Herrera_Fernandez\bin\EASendMail.dll
+D:\utn\FinalReparado\Final_Herrera_Fernandez\Final_Herrera_Fernandez\bin\EASendMail.dll
