@@ -25,7 +25,7 @@ namespace Negocio
             datos.setearParametro("@Pass" , user.Pass);
             
             datos.setearParametro("@FechaNac", user.FechaNac);
-
+            
             datos.ejectutarAccion();
             datos.cerrarConexion();
         }

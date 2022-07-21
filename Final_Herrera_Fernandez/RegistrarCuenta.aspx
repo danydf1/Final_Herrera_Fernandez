@@ -19,11 +19,12 @@
                 
                 <div class="col-12">
                     <asp:TextBox ID="TxtNombreUsuario" class="form-control mb-2" type="text" placeholder="Ingrese Nombre de usuario" aria-label="Ingrese Nombre de Usuario" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TxtApellido" class="form-control mb-2" type="text" placeholder="Ingrese su Apellido" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
                     <asp:TextBox ID="TxtNombre" class="form-control mb-2" type="text" placeholder="Ingrese su Nombre" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
                     <asp:TextBox ID="TxtEmail" class="form-control mb-2" type="email" placeholder="Ingrese su Email" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
                     <asp:TextBox ID="TxtPass" class="form-control mb-2" MaxLength="8" type="password" placeholder="Ingrese su Contraseña 8 caracteres max" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="TxtApellido" class="form-control mb-2" type="text" placeholder="Ingrese su Apellido" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="FechaNac" runat="server" Type="Date" class="form-control"></asp:TextBox>
+                    
+                    <asp:TextBox ID="FechaNac" runat="server" Type="Date" placeholder="Ingrese su Fecha Nacimiento" aria-label="Ingrese su Fecha de Nacimiento" class="form-control"></asp:TextBox>
                 </div>
                 <div class="col-12">
                     <div class="form-check mt-3">

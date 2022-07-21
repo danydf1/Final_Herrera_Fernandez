@@ -33,6 +33,15 @@ namespace Final_Herrera_Fernandez
         protected global::System.Web.UI.WebControls.TextBox TxtNombreUsuario;
 
         /// <summary>
+        /// Control TxtApellido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtApellido;
+
+        /// <summary>
         /// Control TxtNombre.
         /// </summary>
         /// <remarks>
@@ -58,15 +67,6 @@ namespace Final_Herrera_Fernandez
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtPass;
-
-        /// <summary>
-        /// Control TxtApellido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtApellido;
 
         /// <summary>
         /// Control FechaNac.

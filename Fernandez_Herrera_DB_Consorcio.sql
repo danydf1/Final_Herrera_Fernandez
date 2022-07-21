@@ -132,6 +132,7 @@ Create PROCEDURE sp_ins_usuario(
 @Email VARCHAR (100),
 @Pass VARCHAR (80),
 @FechaNac Date
+
 )
 AS 
 BEGIN
