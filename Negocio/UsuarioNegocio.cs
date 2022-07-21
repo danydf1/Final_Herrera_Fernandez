@@ -68,7 +68,7 @@ namespace Negocio
         {
             Usuario cuenta = new Usuario();
             AccesoDatos Datos = new AccesoDatos();
-            if(email != "vecino@gamil.com" || email != "admin@gmail.com")
+            if (email != "vecino@gmail.com" && email != "admin@gmail.com")
             {
                 pass = ecriptacion.Encripta(pass);
             }
