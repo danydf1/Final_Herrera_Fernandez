@@ -30,3 +30,11 @@ C:\Users\aleh0\OneDrive\Escritorio\danigitConsorcio\Final_Herrera_Fernandez\Domi
 C:\Users\aleh0\OneDrive\Escritorio\danigitConsorcio\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.pdb
 C:\Users\aleh0\OneDrive\Escritorio\danigitConsorcio\Final_Herrera_Fernandez\Dominio\bin\Debug\EASendMail.dll
 C:\Users\aleh0\OneDrive\Escritorio\danigitConsorcio\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.csproj.CopyComplete
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Dominio\bin\Debug\Dominio.dll
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Dominio\bin\Debug\Dominio.pdb
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Dominio\bin\Debug\EASendMail.dll
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.csproj.CopyComplete
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.dll
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.pdb

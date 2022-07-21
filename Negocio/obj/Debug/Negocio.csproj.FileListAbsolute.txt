@@ -44,3 +44,13 @@ C:\Users\aleh0\OneDrive\Escritorio\danigitConsorcio\Final_Herrera_Fernandez\Nego
 C:\Users\aleh0\OneDrive\Escritorio\danigitConsorcio\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.dll
 C:\Users\aleh0\OneDrive\Escritorio\danigitConsorcio\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.pdb
 C:\Users\aleh0\OneDrive\Escritorio\danigitConsorcio\Final_Herrera_Fernandez\Negocio\bin\Debug\EASendMail.dll
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Negocio\bin\Debug\Negocio.dll
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Negocio\bin\Debug\Negocio.pdb
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Negocio\bin\Debug\Dominio.dll
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Negocio\bin\Debug\EASendMail.dll
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Negocio\bin\Debug\Dominio.pdb
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.dll
+C:\Users\aleh0\OneDrive\Escritorio\AAAAAAAAAAAAAAAAAAAAAAAAAAAAA\Final_Herrera_Fernandez\Negocio\obj\Debug\Negocio.pdb
