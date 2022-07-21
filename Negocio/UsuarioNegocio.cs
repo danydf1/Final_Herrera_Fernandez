@@ -68,7 +68,11 @@ namespace Negocio
         {
             Usuario cuenta = new Usuario();
             AccesoDatos Datos = new AccesoDatos();
-            pass = ecriptacion.Encripta(pass);
+            if(email != "vecino@gamil.com" || email != "admin@gmail.com")
+            {
+                pass = ecriptacion.Encripta(pass);
+            }
+
 
             Datos.setearConsulta("select * from usuarios where email= '" + email + "'and pass='" + pass + "'");
             Datos.ejecutarLectura();
