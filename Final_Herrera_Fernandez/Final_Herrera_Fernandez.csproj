@@ -72,15 +72,21 @@
   <ItemGroup>
     <Content Include="ABMUsuarios.aspx" />
     <Content Include="Calendario.aspx" />
+    <Content Include="CalendarioAdmin.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="EspaciosComunes.aspx" />
+    <Content Include="EspaciosComunesAdmin.aspx" />
     <Content Include="Expensas.aspx" />
+    <Content Include="ExpensasAdmin.aspx" />
     <Content Include="FondoComun.aspx" />
+    <Content Include="FondoComunAdmin.aspx" />
     <Content Include="index.css" />
     <Content Include="Inicio.aspx" />
-    <Content Include="InicioAdm.aspx" />
+    <Content Include="InicioAdmin.aspx" />
     <Content Include="Mensajes.aspx" />
+    <Content Include="MensajesAdmin.aspx" />
     <Content Include="ServiciosRecomendados.aspx" />
+    <Content Include="ServiciosRecomendadosAdmin.aspx" />
     <Content Include="VistadeArhivosPDF.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
@@ -101,6 +107,13 @@
     <Compile Include="Calendario.aspx.designer.cs">
       <DependentUpon>Calendario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CalendarioAdmin.aspx.cs">
+      <DependentUpon>CalendarioAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CalendarioAdmin.aspx.designer.cs">
+      <DependentUpon>CalendarioAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -115,12 +128,26 @@
     <Compile Include="EspaciosComunes.aspx.designer.cs">
       <DependentUpon>EspaciosComunes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EspaciosComunesAdmin.aspx.cs">
+      <DependentUpon>EspaciosComunesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EspaciosComunesAdmin.aspx.designer.cs">
+      <DependentUpon>EspaciosComunesAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Expensas.aspx.cs">
       <DependentUpon>Expensas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Expensas.aspx.designer.cs">
       <DependentUpon>Expensas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExpensasAdmin.aspx.cs">
+      <DependentUpon>ExpensasAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExpensasAdmin.aspx.designer.cs">
+      <DependentUpon>ExpensasAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="FondoComun.aspx.cs">
       <DependentUpon>FondoComun.aspx</DependentUpon>
@@ -129,6 +156,13 @@
     <Compile Include="FondoComun.aspx.designer.cs">
       <DependentUpon>FondoComun.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FondoComunAdmin.aspx.cs">
+      <DependentUpon>FondoComunAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FondoComunAdmin.aspx.designer.cs">
+      <DependentUpon>FondoComunAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -136,12 +170,12 @@
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InicioAdm.aspx.cs">
-      <DependentUpon>InicioAdm.aspx</DependentUpon>
+    <Compile Include="InicioAdmin.aspx.cs">
+      <DependentUpon>InicioAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InicioAdm.aspx.designer.cs">
-      <DependentUpon>InicioAdm.aspx</DependentUpon>
+    <Compile Include="InicioAdmin.aspx.designer.cs">
+      <DependentUpon>InicioAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -157,6 +191,13 @@
     <Compile Include="Mensajes.aspx.designer.cs">
       <DependentUpon>Mensajes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MensajesAdmin.aspx.cs">
+      <DependentUpon>MensajesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MensajesAdmin.aspx.designer.cs">
+      <DependentUpon>MensajesAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiciosRecomendados.aspx.cs">
       <DependentUpon>ServiciosRecomendados.aspx</DependentUpon>
@@ -164,6 +205,13 @@
     </Compile>
     <Compile Include="ServiciosRecomendados.aspx.designer.cs">
       <DependentUpon>ServiciosRecomendados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiciosRecomendadosAdmin.aspx.cs">
+      <DependentUpon>ServiciosRecomendadosAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiciosRecomendadosAdmin.aspx.designer.cs">
+      <DependentUpon>ServiciosRecomendadosAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="VistadeArhivosPDF.aspx.cs">
       <DependentUpon>VistadeArhivosPDF.aspx</DependentUpon>

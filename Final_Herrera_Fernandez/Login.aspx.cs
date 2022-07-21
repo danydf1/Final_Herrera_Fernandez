@@ -36,7 +36,7 @@ namespace Final_Herrera_Fernandez
                     if (cuenta.Tipo == 1) 
                    {
                        
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hola " + cuenta.NombreUsuario + "');window.location ='Inicio.aspx';", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hola " + cuenta.NombreUsuario + "');window.location ='InicioAdmin.aspx';", true);
 
                     }
                     else if (cuenta.Tipo == 2) 
