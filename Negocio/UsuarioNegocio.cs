@@ -23,7 +23,7 @@ namespace Negocio
 
             user.Pass = ecriptacion.Encripta(user.Pass);
             datos.setearParametro("@Pass" , user.Pass);
-            
+            datos.setearParametro("@Tipo" ,user.Tipo);
             datos.setearParametro("@FechaNac", user.FechaNac);
             
             datos.ejectutarAccion();

@@ -131,13 +131,14 @@ Create PROCEDURE sp_ins_usuario(
 @Apellido VARCHAR (50),
 @Email VARCHAR (100),
 @Pass VARCHAR (80),
+@Tipo int,
 @FechaNac Date
 
 )
 AS 
 BEGIN
 	Begin try 
-		INSERT INTO Usuarios(NOMBREUSUARIO,NOMBRE,APELLIDO,EMAIL,PASS,FECHANAC,FECHAALTA,IDTIPO,Estado) VALUES(@NombreUsuario,@Nombre,@Apellido,@Email,@Pass,@FechaNac,getDate(),2,1)
+		INSERT INTO Usuarios(NOMBREUSUARIO,NOMBRE,APELLIDO,EMAIL,PASS,FECHANAC,FECHAALTA,IDTIPO,Estado) VALUES(@NombreUsuario,@Nombre,@Apellido,@Email,@Pass,@FechaNac,getDate(),@Tipo,1)
 	End try
     Begin Catch
         RAISERROR('Error grave al guardar el usuario', 16, 1)

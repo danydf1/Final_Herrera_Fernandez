@@ -11,15 +11,43 @@ namespace Final_Herrera_Fernandez
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuario usuariologuiado = new Usuario();
+            usuariologuiado = (Usuario)Session["Cuenta"];
+            
+                if (usuariologuiado == null)
+                {
 
+                    RadioAdmin.Visible = false;
+                    LblAdmin.Visible = false;
+                    RadioVecino.Visible = false;
+                    LblVecino.Visible = false;
+                }
+                  
+            
+
+            else if (usuariologuiado.Tipo == 1)
+            {
+                RadioAdmin.Visible = true;
+                LblAdmin.Visible = true;
+                RadioVecino.Visible = true;
+                LblVecino.Visible = true;
+            }
+            else
+            {
+                RadioAdmin.Visible = false;
+                LblAdmin.Visible = false;
+                RadioVecino.Visible = true;
+                LblVecino.Visible = true;
+            }
         }
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
             UsuarioNegocio negocio = new UsuarioNegocio();
-            
+
             Usuario usuariologuiado = new Usuario();
             usuariologuiado = (Usuario)Session["Cuenta"];
 
@@ -30,10 +58,10 @@ namespace Final_Herrera_Fernandez
             user.Email = TxtEmail.Text;
             user.Pass = TxtPass.Text;
             user.FechaNac = DateTime.Parse( FechaNac.Text);
-            if (usuariologuiado == null || usuariologuiado.Tipo != 1)
-            {
-                user.Tipo = 2;
-            }
+            if (RadioAdmin.Checked == true) { user.Tipo = 1; }
+            else { user.Tipo = 2; }
+
+
             user.Estado = true;
             negocio.AgregarUsuario(user);
         }

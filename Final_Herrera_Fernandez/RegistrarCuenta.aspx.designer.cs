@@ -69,6 +69,15 @@ namespace Final_Herrera_Fernandez
         protected global::System.Web.UI.WebControls.TextBox TxtPass;
 
         /// <summary>
+        /// Control Lbl1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lbl1;
+
+        /// <summary>
         /// Control FechaNac.
         /// </summary>
         /// <remarks>
@@ -78,13 +87,40 @@ namespace Final_Herrera_Fernandez
         protected global::System.Web.UI.WebControls.TextBox FechaNac;
 
         /// <summary>
-        /// Control check.
+        /// Control RadioAdmin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox check;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton RadioAdmin;
+
+        /// <summary>
+        /// Control LblAdmin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblAdmin;
+
+        /// <summary>
+        /// Control RadioVecino.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton RadioVecino;
+
+        /// <summary>
+        /// Control LblVecino.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblVecino;
 
         /// <summary>
         /// Control BtnAgregar.
