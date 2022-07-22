@@ -16,26 +16,70 @@ namespace Final_Herrera_Fernandez
         protected void Page_Load(object sender, EventArgs e)
         {
             ListaUsuarios = negocioUser.ListaUsuarios();
+
+            Usuario usuariologuiado = new Usuario();
+            usuariologuiado = (Usuario)Session["Cuenta"];
+
+            if (usuariologuiado == null)
+            {
+
+                RadioAdmin.Visible = false;
+                LblAdmin.Visible = false;
+                RadioVecino.Visible = false;
+                LblVecino.Visible = false;
+            }
+
+
+
+            else if (usuariologuiado.Tipo == 1)
+            {
+                RadioAdmin.Visible = true;
+                LblAdmin.Visible = true;
+                RadioVecino.Visible = true;
+                LblVecino.Visible = true;
+            }
+            else
+            {
+                RadioAdmin.Visible = false;
+                LblAdmin.Visible = false;
+                RadioVecino.Visible = true;
+                LblVecino.Visible = true;
+            }
+            ListaUsuarios = negocioUser.ListaUsuarios();
+            Session.Add("ListarSevicios", ListaUsuarios);
+            rep.DataSource = ListaUsuarios;
+            rep.DataBind();
         }
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
+            UsuarioNegocio negocio = new UsuarioNegocio();
+
             Usuario usuariologuiado = new Usuario();
             usuariologuiado = (Usuario)Session["Cuenta"];
 
             Usuario user = new Usuario();
-            user.NombreUsuario = txtNombreUser.Text;
-            user.Nombre = txtNombrePila.Text;
-            user.Apellido = txtApellido.Text;
-            user.Email = txtEmail.Text;
-            user.Pass = txtPass.Text;
+            user.NombreUsuario = TxtNombreUsuario.Text;
+            user.Nombre = TxtNombre.Text;
+            user.Apellido = TxtApellido.Text;
+            user.Email = TxtEmail.Text;
+            user.Pass = TxtPass.Text;
             user.FechaNac = DateTime.Parse(FechaNac.Text);
-            if (usuariologuiado == null || usuariologuiado.Tipo != 1)
-            {
-                user.Tipo = 2;
-            }
+            if (RadioAdmin.Checked == true) { user.Tipo = 1; }
+            else { user.Tipo = 2; }
+
+
             user.Estado = true;
-            negocioUser.AgregarUsuario(user);
+            negocio.AgregarUsuario(user);
+        }
+
+        protected void btnDelete_Command(object sender, CommandEventArgs e)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ServiciosRecomendadosAdmin.aspx'};", true);
+            if (negocioUser.Eliminar(e.CommandArgument.ToString()))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('Se elmino Correctamente');window.location='ServiciosRecomendadosAdmin.aspx';", true);
+            }
         }
     }
 }

@@ -28,26 +28,23 @@ namespace Final_Herrera_Fernandez
             if (cuenta != null)
             {
                 Session.Add("Cuenta", cuenta);
-                
-               
-          
-               
-                    /*1 es un administrado 2 es un vecino */
-                    if (cuenta.Tipo == 1) 
-                   {
-                       
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hola " + cuenta.NombreUsuario + "');window.location ='InicioAdmin.aspx';", true);
 
-                    }
-                    else if (cuenta.Tipo == 2) 
-                    { 
-                        
+                /*1 es un administrado 2 es un vecino */
+                if (cuenta.Tipo == 1)
+                {
+
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hola " + cuenta.NombreUsuario + "');window.location ='InicioAdmin.aspx';", true);
+                    Response.Redirect("InicioAdmin.aspx");
+
+                }
+                else if (cuenta.Tipo == 2)
+                {
+
 
                     /*al ser un vecino hay k mandarlo a un inicio diferente */
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hola " + cuenta.NombreUsuario+ "');window.location ='Inicio.aspx';", true);
-
-                     }
-              
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hola " + cuenta.NombreUsuario + "');window.location ='Inicio.aspx';", true);
+                    Response.Redirect("Inicio.aspx");
+                }
 
             }
             else

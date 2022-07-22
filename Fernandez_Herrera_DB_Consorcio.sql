@@ -1,3 +1,4 @@
+
 create database Fernandez_Herrera_DB_Consorcio
 GO
 use Fernandez_Herrera_DB_Consorcio
@@ -12,17 +13,20 @@ CREATE  table CALENDARIOS  (
 go
 create table tbl_contents (
 	id int identity,
+	idvecino int,
+	mes varchar(40),
 	content varbinary(max),
 	constraint pk_tbl_contents primary key(id)
-);
+)
 go
 create table ServiciosRecomendados(
 ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1), 
 txt_Servicio VARCHAR(50) NOT NULL,
 txt_Nombre VARCHAR(50) NOT NULL,
 NroContacto  VARCHAR(15) NOT NULL,
+Horarios Varchar(50),
  ESTADO BIT NOT NULL,
-);
+)
 GO
 create table CATEGORIAS (
 ID INT NOT NULL PRIMARY	KEY identity(1,1),
@@ -43,6 +47,12 @@ create table TipoUsuarios (
  DESCRIPCION VARCHAR(50) NOT NULL,
 )
 GO
+
+create table Departamento(
+ID Int NOT NULL PRIMARY KEY IDENTITY (1,1),
+Descripcion varchar(20)
+)
+go
 create table Usuarios (
  ID BIGINT NOT NULL PRIMARY KEY IDENTITY (1,1),
  NOMBREUSUARIO VARCHAR(50) NULL,
@@ -53,18 +63,12 @@ create table Usuarios (
  FECHANAC DATE NOT NULL,
  FECHAALTA DATE NOT NULL,
  IDTIPO INT NOT NULL FOREIGN KEY REFERENCES TipoUsuarios(ID),
+ IDDepto INT NOT NULL FOREIGN KEY REFERENCES Departamento(ID),
  Estado bit not null 
 )
 
 GO
-create table Mensajes(
-ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
-IDUSUARIO BIGINT foreign key references Usuarios(ID) ,
-IDUSUARIOENVIADO BIGINT , 
-Mensaje Varchar (200),
-FechaEnvio DateTime
-)
-GO
+
 create table EstadosProyectos(
 ID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 Descripcion Varchar(200)
@@ -79,23 +83,28 @@ Monto Money,
 FechaAlta DateTime
 )
         --DATOS---
-
 --TIPOS USUARIOS--
 INSERT INTO TipoUsuarios VALUES('Administrador')
 INSERT INTO TipoUsuarios VALUES('Vecino')
+--Departamento-
+INSERT INTO Departamento VALUES ('ADMIN')
+INSERT INTO Departamento VALUES ('PB A')
+INSERT INTO Departamento VALUES ('PB B')
+INSERT INTO Departamento VALUES ('1 A')
+INSERT INTO Departamento VALUES ('1 B')
 --USUARIOS--
-INSERT INTO Usuarios VALUES ('NicoAdmin','Nicolas','Herrera','admin@gmail.com','1234','1986/11/04',getdate(),1,1)
-INSERT INTO Usuarios VALUES ('DaniVecino','DAniel','Fernandez','vecino@gmail.com','1234','1986/11/04',getdate(),2,1)
+INSERT INTO Usuarios VALUES ('NicoAdmin','Nicolas','Herrera','admin@gmail.com','1234','1986/11/04',getdate(),1,1,1)
+INSERT INTO Usuarios VALUES ('DaniVecino','DAniel','Fernandez','vecino@gmail.com','1234','1986/11/04',getdate(),2,2,1)
 --Estados Proyectos
 INSERT INTO EstadosProyectos VALUES('Pendiente')
 INSERT INTO EstadosProyectos VALUES('Evaluando')
 INSERT INTO EstadosProyectos VALUES('Aprobado')
 --CALENDARIO
-INSERT INTO CALENDARIOS VALUES('28/11/2021','10:00','PINTORES',1)
-INSERT INTO CALENDARIOS VALUES('28/11/2021','12:40','SOLARIUM',1)
+INSERT INTO CALENDARIOS VALUES('2022/07/22','10:00','PINTORES',1)
+INSERT INTO CALENDARIOS VALUES('2022/07/23','12:40','SOLARIUM',1)
 --SERVICIOS RECOMENDADOS
-INSERT INTO  ServiciosRecomendados VALUES('plomeria','el tano','15444333',1)
-INSERT INTO  ServiciosRecomendados VALUES('plomeria','manolo','46001553',1)
+INSERT INTO  ServiciosRecomendados VALUES('plomeria','el tano','15444333',1,'lun-vie de 8 a 17hs')
+INSERT INTO  ServiciosRecomendados VALUES('plomeria','manolo','46001553',1,'24hs')
 --CATEGORIAS AVISOS
 INSERT INTO CATEGORIAS VALUES('CALENDARIO')
 INSERT INTO CATEGORIAS VALUES('MENSAJES')
@@ -131,14 +140,12 @@ Create PROCEDURE sp_ins_usuario(
 @Apellido VARCHAR (50),
 @Email VARCHAR (100),
 @Pass VARCHAR (80),
-@Tipo int,
 @FechaNac Date
-
 )
 AS 
 BEGIN
 	Begin try 
-		INSERT INTO Usuarios(NOMBREUSUARIO,NOMBRE,APELLIDO,EMAIL,PASS,FECHANAC,FECHAALTA,IDTIPO,Estado) VALUES(@NombreUsuario,@Nombre,@Apellido,@Email,@Pass,@FechaNac,getDate(),@Tipo,1)
+		INSERT INTO Usuarios(NOMBREUSUARIO,NOMBRE,APELLIDO,EMAIL,PASS,FECHANAC,FECHAALTA,IDTIPO,Estado) VALUES(@NombreUsuario,@Nombre,@Apellido,@Email,@Pass,@FechaNac,getDate(),2,1)
 	End try
     Begin Catch
         RAISERROR('Error grave al guardar el usuario', 16, 1)
@@ -161,18 +168,19 @@ BEGIN
         RAISERROR('Error grave al Enviar el proyecto', 16, 1)
 	End Catch
 END
-
-Create PROCEDURE sp_ins_Mensaje(
-@IDUsuarioEnvia Int,
-@IDUsuarioRecibe Int,
-@Mensaje varchar(200)
+CREATE PROCEDURE sp_ins_Servicio(
+@Nombre VARCHAR (50),
+@Servicio VARCHAR (50),
+@NroContacto VARCHAR(15),
+@Horarios VARCHAR (50)
 )
 AS 
 BEGIN
 	Begin try 
-		INSERT INTO Mensajes(IDUSUARIO,IDUSUARIOENVIADO,Mensaje,FechaEnvio) VALUES(@IDUsuarioEnvia,@IDUsuarioRecibe,@Mensaje,getDate())
+		INSERT INTO ServiciosRecomendados(txt_Servicio,txt_Nombre,NroContacto,Horarios,ESTADO) VALUES(@Servicio,@Nombre,@NroContacto,@Horarios,1)
 	End try
     Begin Catch
         RAISERROR('Error grave al Enviar el proyecto', 16, 1)
 	End Catch
 END
+

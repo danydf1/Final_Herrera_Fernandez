@@ -24,7 +24,7 @@ namespace Negocio
             user.Pass = ecriptacion.Encripta(user.Pass);
             datos.setearParametro("@Pass" , user.Pass);
             datos.setearParametro("@Tipo" ,user.Tipo);
-            datos.setearParametro("@FechaNac", user.FechaNac);
+            datos.setearParametro("@FechaNac", user.FechaNac.ToString());
             
             datos.ejectutarAccion();
             datos.cerrarConexion();
@@ -112,6 +112,26 @@ namespace Negocio
             }
 
 
+        }
+
+        public bool Eliminar(string id)
+        {
+            try
+            {
+                datos.setearConsulta("UPDATE Usuarios SET Estado = 0 where ID = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
     }
 }
