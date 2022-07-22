@@ -12,12 +12,9 @@ namespace Dominio
         public string Servicio { get; set; }
         public string NombreContacto { get; set; }
         public string Telefono { get; set; }
+        public string Horarios { get; set; }
 
         public bool estado { get; set; }
-
-
-
-
 
     }
 }

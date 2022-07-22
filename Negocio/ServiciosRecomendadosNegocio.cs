@@ -8,11 +8,12 @@ namespace Negocio
 {
     public class ServiciosRecomendadosNegocio
     {
+        AccesoDatos Datos = new AccesoDatos();
         public List<Contactos> ServiciosRecomendados()
         {
-            AccesoDatos Datos = new AccesoDatos();
+
             List<Contactos> lista = new List<Contactos>();
-            Datos.setearConsulta("select * from ServiciosRecomendados");
+            Datos.setearConsulta("select * from ServiciosRecomendados where estado = 1");
             Datos.ejecutarLectura();
 
             try
@@ -26,6 +27,7 @@ namespace Negocio
                     aux.Servicio = (string)Datos.Lector["txt_Servicio"];
                     aux.NombreContacto = (string)Datos.Lector["txt_Nombre"];
                     aux.Telefono = (string)Datos.Lector["NroContacto"];
+                    aux.Horarios = (string)Datos.Lector["Horarios"];
                     aux.estado = (bool)Datos.Lector["ESTADO"];
 
                     lista.Add(aux);
@@ -35,6 +37,49 @@ namespace Negocio
             catch (Exception e)
             {
                 throw e;
+            }
+            finally
+            {
+                Datos.cerrarConexion();
+            }
+        }
+
+        public bool Eliminar(string id)
+        {
+            try
+            {
+                Datos.setearConsulta("UPDATE ServiciosRecomendados SET Estado = 0 where ID = @id");
+                Datos.setearParametro("@id", id);
+                Datos.ejecutarLectura();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                Datos.cerrarConexion();
+            }
+        }
+        public bool Modificar(Contactos contactos)
+        {
+            try
+            {
+                Datos.setearConsulta("UPDATE ServiciosRecomendados SET txt_Servicio = @servicio, txt_Nombre = @Nombre,NroContacto = @Telefono,Horarios = @horarios, Estado = 1 where id=@id");
+                Datos.setearParametro("@id", contactos.id);
+                Datos.setearParametro("@servicio", contactos.Servicio);
+                Datos.setearParametro("@Nombre", contactos.NombreContacto);
+                Datos.setearParametro("@Telefono", contactos.Telefono);
+                Datos.setearParametro("@horarios", contactos.Horarios);
+                Datos.ejecutarLectura();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
             finally
             {

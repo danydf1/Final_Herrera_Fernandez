@@ -15,13 +15,13 @@ namespace Final_Herrera_Fernandez
     {
 
         /// <summary>
-        /// Control mensaje.
+        /// Control selectMail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea mensaje;
+        protected global::System.Web.UI.WebControls.DropDownList selectMail;
 
         /// <summary>
         /// Control asunto.
@@ -33,13 +33,13 @@ namespace Final_Herrera_Fernandez
         protected global::System.Web.UI.WebControls.TextBox asunto;
 
         /// <summary>
-        /// Control para.
+        /// Control mensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox para;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea mensaje;
 
         /// <summary>
         /// Control Button.

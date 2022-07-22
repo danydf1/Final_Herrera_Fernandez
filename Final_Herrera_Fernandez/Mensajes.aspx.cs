@@ -15,18 +15,44 @@ namespace Final_Herrera_Fernandez
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ListItem item = new ListItem();
             UsuarioNegocio negocio = new UsuarioNegocio();
-            
+
             usuarios = negocio.ListaUsuarios();
+
+            foreach (Usuario user in usuarios)
+            {
+                item.Text = user.Nombre + " " + user.Apellido;
+                item.Value = user.Email;
+                selectMail.Items.Add(item);
+                item = new ListItem();
+            }
+            item.Text = "Todos";
+            item.Value = "";
+            selectMail.Items.Add(item);
         }
 
         protected void Button_Click(object sender, EventArgs e)
         {
-
             logic ObjetoLogic = new logic();
-            string msg = ObjetoLogic.EnviarCorreo(para.Text.Trim(), asunto.Text.Trim(), mensaje.Value);
-           
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('"+msg+"');window.location='Mensajes.aspx';", true);
+
+            if (selectMail.SelectedValue != "")
+            {
+
+                string msg = ObjetoLogic.EnviarCorreo(selectMail.SelectedValue, asunto.Text.Trim(), mensaje.Value);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('" + msg + "');window.location='Mensajes.aspx';", true);
+
+            }
+            else
+            {
+                string msgMasivo = "";
+                foreach (var item in usuarios)
+                {
+                    msgMasivo = ObjetoLogic.EnviarCorreo(item.Email, asunto.Text.Trim(), mensaje.Value);
+                }
+
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('" + msgMasivo + "');window.location='Mensajes.aspx';", true);
+            }
         }
     }
 }

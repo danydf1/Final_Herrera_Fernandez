@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="container-fluid text-center">
+ <div class="container-fluid text-center">
         <div class="row">
             <div class="col-12">
                 <h2>Saldo</h2>
@@ -24,7 +24,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="container">
+                                
                                     <div class="row">
                                         <div class="col-12">
                                             <asp:TextBox ID="txtNombre" CssClass="form-control my-2" placeholder="Nombre" runat="server"></asp:TextBox>
@@ -35,10 +35,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                           
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <asp:Button id="btnEnviar" type="button" class="btn btn-primary" runat="server" OnClick="btnEnviar_Click" Text="Enviar" />
+                                <asp:Button id="btnEnviar" type="button" class="btn btn-primary"  runat="server" OnClick="btnEnviar_Click" Text="Enviar" />
                             </div>
                     </div>
                 </div>

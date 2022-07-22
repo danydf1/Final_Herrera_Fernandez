@@ -33,11 +33,12 @@ namespace Negocio
         {
             AccesoDatos Datos = new AccesoDatos();
             List<Usuario> lista = new List<Usuario>();
-            Datos.setearConsulta("select * from Usuarios");
-            Datos.ejecutarLectura();
+            Datos.setearConsulta("select U.ID,U.NombreUSuario,U.NOMBRE,U.APELLIDO,U.EMAIL,U.PASS,u.FECHANAC,U.IDTIPO,U.Estado,D.ID As IDDepto ,D.Descripcion from Usuarios U inner join Departamento D on D.ID = U.IDDepto");
+
 
             try
             {
+                Datos.ejecutarLectura();
                 while (Datos.Lector.Read())
                 {
                     Usuario aux = new Usuario();
@@ -47,8 +48,11 @@ namespace Negocio
                     aux.Apellido = (string)Datos.Lector["APELLIDO"];
                     aux.Email = (string)Datos.Lector["EMAIL"];
                     aux.Pass = (string)Datos.Lector["PASS"];
-                    //aux.FechaNac = (DateTime)datos.Lector["FECHANAC"];
-                    //aux.Tipo = (string)datos.Lector["IDTIPO"];
+                    aux.FechaNac = (DateTime)Datos.Lector["FECHANAC"];
+                    aux.departamento = new Departamento();
+                    aux.departamento.ID = (int)Datos.Lector["IDDepto"];
+                    aux.departamento.Descripcion = (string)Datos.Lector["Descripcion"];
+                    aux.Tipo = (int)Datos.Lector["IDTIPO"];
 
                     lista.Add(aux);
                 }
@@ -61,7 +65,7 @@ namespace Negocio
             finally
             {
                 Datos.cerrarConexion();
-            }
+             }
         }
 
         public Usuario ValidarUsuarios(string email, string pass)

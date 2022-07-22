@@ -14,10 +14,12 @@ namespace Dominio
 
         public string Email { get; set; }
         public string Pass { get; set; }
-     
+
         public DateTime FechaAlta { get; set; }
         public int Tipo { get; set; }
         public bool Estado { get; set; }
- 
+
+        public Departamento departamento { get; set; }
+
     }
 }

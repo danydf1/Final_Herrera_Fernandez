@@ -9,36 +9,72 @@ namespace Negocio
 {
     public class ExpensasNegocios
     {
-   
 
+
+        AccesoDatos Datos = new AccesoDatos();
         public List<Archivos> ListarRegistros()
         {
-            List<Archivos> lista = new List<Archivos>();
-            AccesoDatos Datos = new AccesoDatos();
 
-            Datos.setearConsulta("Select * From tbl_contents;");
+            List<Archivos> lista = new List<Archivos>();
+
+            Datos.setearConsulta("select tbl.id ,D.Descripcion, U.NOMBRE,U.APELLIDO,tbl.mes,tbl.content from tbl_contents tbl inner join Usuarios U on  U.ID = tbl.idvecino inner join Departamento D on D.ID = U.IDDepto ");
             Datos.ejecutarLectura();
             try
             {
-               
-
+                while (Datos.Lector.Read())
                 {
-                    
-                    while (Datos.Lector.Read())
-                    {
-                        Archivos aux = new Archivos();
-                        aux.ID = (Int32)Datos.Lector["ID"];
-                        aux.Imagen= (byte[])Datos.Lector["content"];
-                        aux.visorImagen = "Vista de Archivos PDF.aspx?id=" + aux.ID;
+                    Archivos aux = new Archivos();
+                    aux.ID = (Int32)Datos.Lector["ID"];
+                    aux.Mes = (string)Datos.Lector["mes"];
+                    aux.Imagen = (byte[])Datos.Lector["content"];
+                    aux.visorImagen = "VistadeArhivosPDF.aspx?id=" + aux.ID;
 
-                        lista.Add(aux);
-                    }
-                    
-                    return lista;
+                    aux.vecino = new Usuario();
+                    aux.vecino.Nombre = (string)Datos.Lector["NOMBRE"];
+                    aux.vecino.Apellido = (string)Datos.Lector["APELLIDO"];
 
-                   
+                    aux.Depto = new Departamento();
+                    aux.Depto.Descripcion = (string)Datos.Lector["DESCRIPCION"];
+
+                    lista.Add(aux);
                 }
-               
+                return lista;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                Datos.cerrarConexion();
+            }
+
+        }
+        public List<Archivos> ListarRegistros(long id)
+        {
+
+            List<Archivos> lista = new List<Archivos>();
+
+            Datos.setearConsulta("Select * From tbl_contents where IDVECINO = @id");
+            Datos.setearParametro("@id", Convert.ToInt32(id));
+            Datos.ejecutarLectura();
+            try
+            {
+                while (Datos.Lector.Read())
+                {
+                    Archivos aux = new Archivos();
+                    aux.ID = (Int32)Datos.Lector["ID"];
+                    aux.IDVecino = (Int32)Datos.Lector["IDVECINO"];
+                    aux.Mes = (string)Datos.Lector["mes"];
+                    aux.Imagen = (byte[])Datos.Lector["content"];
+                    aux.visorImagen = "VistadeArhivosPDF.aspx?id=" + aux.ID;
+
+                    lista.Add(aux);
+                }
+                return lista;
+
             }
             catch (Exception)
             {
@@ -52,5 +88,33 @@ namespace Negocio
 
         }
 
+        public bool subirArchivo(byte[] fuImagen, int IdVecino, string mes)
+        {
+
+
+            try
+            {
+                Datos.setearConsulta("Insert Into tbl_contents(content,IDVECINO,mes) Values (@content,@idVecino,@mes)");
+
+                Datos.setearParametro("@content", fuImagen);
+                Datos.setearParametro("@idVecino", IdVecino);
+                Datos.setearParametro("@mes", mes);
+
+                Datos.ejectutarAccion();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+
+            }
+            finally
+            {
+                Datos.cerrarConexion();
+
+
+            }
+        }
     }
 }

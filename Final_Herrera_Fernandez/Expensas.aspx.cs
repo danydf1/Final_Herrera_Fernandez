@@ -16,25 +16,19 @@ namespace Final_Herrera_Fernandez
 
 
             ExpensasNegocios negocio = new ExpensasNegocios();
+            Usuario usuario = new Usuario();
             try
             {
+                usuario = (Usuario)Session["cuenta"];
+                //if (!IsPostBack)
+                //{
 
-                if (!IsPostBack)
-                {
-
-                    listaGrilla = negocio.ListarRegistros();
-                    gvListaImagenes.DataSource = listaGrilla;
-                    gvListaImagenes.DataBind();
-                    Session.Add("ListarComponentes", listaGrilla);
-
+                //    listaGrilla = negocio.ListarRegistros();
+                //    Session.Add("ListarComponentes", listaGrilla);
+                //}
 
 
-                }
-
-
-                listaGrilla = negocio.ListarRegistros();
-                gvListaImagenes.DataSource = listaGrilla;
-                gvListaImagenes.DataBind();
+                listaGrilla = negocio.ListarRegistros(usuario.ID);
                 Session.Add("ListarComponentes", listaGrilla);
 
 
@@ -47,39 +41,6 @@ namespace Final_Herrera_Fernandez
                 Response.Redirect("Error.aspx");
             }
         }
-
-
-
-
-
-        protected void btnGuardar_Click(object sender, EventArgs e)
-        {
-            AccesoDatos datos = new AccesoDatos();
-
-            try
-            {
-                datos.setearConsulta("Insert Into tbl_contents(content) Values(@content)");
-
-                datos.setearParametro("@content", fuImagen.FileBytes);
-
-                // Mostrar la imagen de la base de datos SQL Server en la página
-                lblMensajeOk.Text = "Se ha guardado la imagen correctamente.";
-                lblMensajeError.Text = "";
-                ExpensasNegocios negocio = new ExpensasNegocios();
-                listaGrilla = negocio.ListarRegistros();
-                datos.ejectutarAccion();
-                datos.cerrarConexion();
-            }
-            catch (Exception ex)
-            {
-
-                lblMensajeOk.Text = "";
-                lblMensajeError.Text = ex.Message;
-            }
-
-
-        }
-
         
     }
 }

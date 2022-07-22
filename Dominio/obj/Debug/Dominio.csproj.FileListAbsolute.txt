@@ -46,3 +46,5 @@ C:\Users\aleh0\OneDrive\Escritorio\ggggggggggggggggggggggg\Final_Herrera_Fernand
 C:\Users\aleh0\OneDrive\Escritorio\ggggggggggggggggggggggg\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.csproj.CopyComplete
 C:\Users\aleh0\OneDrive\Escritorio\ggggggggggggggggggggggg\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.dll
 C:\Users\aleh0\OneDrive\Escritorio\ggggggggggggggggggggggg\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.pdb
+D:\utn\FinalReparado\Final_Herrera_Fernandez\Dominio\bin\Debug\EASendMail.dll
+D:\utn\FinalReparado\Final_Herrera_Fernandez\Dominio\obj\Debug\Dominio.csproj.CopyComplete

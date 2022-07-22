@@ -19,5 +19,19 @@ namespace Final_Herrera_Fernandez
             Lista.DataBind();
             Session.Add("ListarSevicios", Lista);
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Contactos> listaBuscados = new List<Contactos>();
+            if (Session["listaBuscados"] == null)
+            {
+                Session.Add("listaBuscados", listaBuscados);
+            }
+            listaBuscados = (List<Contactos>)Session["ListarSevicios"];
+            Session["listaBuscados"] = listaBuscados.FindAll(i => i.NombreContacto.ToUpper().Contains(txtBuscar.Text.ToUpper()) || i.Servicio.ToUpper().Contains(txtBuscar.Text.ToUpper()) || i.Telefono.ToString().ToUpper().Contains(txtBuscar.Text.ToUpper()));
+
+            Session["listaServicios"] = Session["listaBuscados"];
+            Response.Redirect("ServiciosRecomendados.aspx");
+        }
     }
 }
