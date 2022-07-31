@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                <asp:Calendar ID="CalendarioEvento" Width="80%" CssClass="table table-striped table-bordered" runat="server" BorderStyle="Outset" CaptionAlign="Top" ClientIDMode="Predictable" Font-Overline="False" Font-Size="Medium" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" Height="302px" VisibleDate="2022-06-18"></asp:Calendar>
+                <asp:Calendar ID="CalendarioEvento" Width="80%" CssClass="table table-striped table-bordered" runat="server" BorderStyle="Outset" CaptionAlign="Top" ClientIDMode="Predictable" Font-Overline="False" Font-Size="Medium" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" Height="302px" ></asp:Calendar>
             </div>
             <div class="col-12 d-flex justify-content-center">
                 <div class="scrolling-table-container">

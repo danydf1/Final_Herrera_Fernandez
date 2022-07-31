@@ -8,21 +8,23 @@ namespace Negocio
 {
    public class GrillaNegocios
     {
-        public List<Calendarios> Listar(int dia)
+        public List<Calendarios> Listar(DateTime fecha)
         {
             List<Calendarios> lista = new List<Calendarios>();
             AccesoDatos Datos = new AccesoDatos();
-
-            Datos.setearConsulta("select fecha,hora,titulo from calendarios where estado = 1 and datepart(DAYOFYEAR,(fecha) )=" + dia );
+            //pongo en una cadena la fecha que viene por parametro , tuve que descomponer de esta manera la fecha por k en sql tiene este formato amo mes dia y no encontre otra forma de que me lo tome,
+            string fechaseleccionada = "'" + fecha.Year  +"/"+ fecha.Month  +"/"+ fecha.Day + "'";
+            
+Datos.setearConsulta("select fecha,hora,titulo from calendarios where estado = 1 and fecha=" +fechaseleccionada+ "");
             Datos.ejecutarLectura();
 
             try
-            {
+            {  
                 while (Datos.Lector.Read())
                 {
                     Calendarios aux = new Calendarios();
-
-                    aux.Fecha= (DateTime)Datos.Lector["fecha"];
+                 
+                    aux.Fecha= (DateTime)Datos.Lector["fecha"];                   
                     aux.Horario = Convert.ToString(Datos.Lector["hora"]);
                     aux.Titulo = (string)Datos.Lector["titulo"];
                     

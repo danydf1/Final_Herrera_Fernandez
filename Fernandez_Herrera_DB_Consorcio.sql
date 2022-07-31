@@ -1,14 +1,14 @@
-
+SET DATEFORMAT dmy; 
 create database Fernandez_Herrera_DB_Consorcio
 GO
 use Fernandez_Herrera_DB_Consorcio
 GO
-CREATE  table CALENDARIOS  (
+create  table CALENDARIOS  (
  ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1), 
- FECHA DATE NOT NULL,
+ FECHA VARCHAR(10) NOT NULL,
  HORA  TIME NOT NULL,
  TITULO VARCHAR(50) NOT NULL,
- ESTADO BIT NOT NULL,
+ ESTADO BIT NOT NULL
 )
 go
 create table tbl_contents (
@@ -100,8 +100,8 @@ INSERT INTO EstadosProyectos VALUES('Pendiente')
 INSERT INTO EstadosProyectos VALUES('Evaluando')
 INSERT INTO EstadosProyectos VALUES('Aprobado')
 --CALENDARIO
-INSERT INTO CALENDARIOS VALUES('2022/07/22','10:00','PINTORES',1)
-INSERT INTO CALENDARIOS VALUES('2022/07/23','12:40','SOLARIUM',1)
+INSERT INTO CALENDARIOS VALUES(getdate(),'10:00','PINTORES',1)
+
 --SERVICIOS RECOMENDADOS
 INSERT INTO  ServiciosRecomendados VALUES('plomeria','el tano','15444333',1,'lun-vie de 8 a 17hs')
 INSERT INTO  ServiciosRecomendados VALUES('plomeria','manolo','46001553',1,'24hs')

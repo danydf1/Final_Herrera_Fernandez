@@ -21,15 +21,17 @@ namespace Final_Herrera_Fernandez
 
                 if (!IsPostBack)
                 {
-                    int mifecha = DateTime.Now.DayOfYear;
-                    listaCalendario = negocio.Listar(mifecha);
+                   DateTime fechasistema = Convert.ToDateTime(DateTime.Now.Date.ToShortDateString());
+                    CalendarioEvento.VisibleDate = DateTime.Today;
+                    CalendarioEvento.SelectedDate = DateTime.Today;
+                    listaCalendario = negocio.Listar(fechasistema);
                     GVCalendario.DataSource = listaCalendario;
                     GVCalendario.DataBind();
 
                 }
 
-
-                listaCalendario = negocio.Listar(CalendarioEvento.SelectedDate.DayOfYear);
+                DateTime fechaseleccionada = Convert.ToDateTime(CalendarioEvento.SelectedDate.ToShortDateString());
+                listaCalendario = negocio.Listar(fechaseleccionada);
                 GVCalendario.DataSource = listaCalendario;
                 GVCalendario.DataBind();
 

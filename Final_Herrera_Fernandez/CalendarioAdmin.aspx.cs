@@ -11,7 +11,7 @@ namespace Final_Herrera_Fernandez
 {
     public partial class CalendarioAdmin : System.Web.UI.Page
     {
-        public List<Calendarios> listaCalendarioAdmin { get; set; }
+        public List<Calendarios> listaCalendario { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             GrillaNegocios negocio = new GrillaNegocios();
@@ -20,18 +20,19 @@ namespace Final_Herrera_Fernandez
 
                 if (!IsPostBack)
                 {
-                    int mifecha = DateTime.Now.DayOfYear;
-                    listaCalendarioAdmin = negocio.Listar(mifecha);
-                    GVCalendario.DataSource = listaCalendarioAdmin;
+                    DateTime fechasistema = Convert.ToDateTime(DateTime.Now.Date.ToShortDateString());
+                    CalendarioEvento.VisibleDate = DateTime.Today;
+                    CalendarioEvento.SelectedDate = DateTime.Today;
+                    listaCalendario = negocio.Listar(fechasistema);
+                    GVCalendario.DataSource = listaCalendario;
                     GVCalendario.DataBind();
 
                 }
 
-
-                listaCalendarioAdmin = negocio.Listar(CalendarioEvento.SelectedDate.DayOfYear);
-                GVCalendario.DataSource = listaCalendarioAdmin;
+                DateTime fechaseleccionada = Convert.ToDateTime(CalendarioEvento.SelectedDate.ToShortDateString());
+                listaCalendario = negocio.Listar(fechaseleccionada);
+                GVCalendario.DataSource = listaCalendario;
                 GVCalendario.DataBind();
-
             }
             catch (Exception ex)
             {
