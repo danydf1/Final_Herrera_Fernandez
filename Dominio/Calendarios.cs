@@ -8,10 +8,12 @@ namespace Dominio
 {
     public class Calendarios
     {
-        public DateTime Fecha { get; set; }
+        //public String Fecha { get; set; }
         public String Horario { get; set; }
 
-        public String Titulo { get; set; }
+        public String evento { get; set; }
+
+        public string Descripcion { get; set; }
 
     }
 }

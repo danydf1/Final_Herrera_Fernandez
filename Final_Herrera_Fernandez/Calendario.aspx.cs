@@ -21,7 +21,7 @@ namespace Final_Herrera_Fernandez
 
                 if (!IsPostBack)
                 {
-                   DateTime fechasistema = Convert.ToDateTime(DateTime.Now.Date.ToShortDateString());
+                   DateTime fechasistema = DateTime.Now.Date;
                     CalendarioEvento.VisibleDate = DateTime.Today;
                     CalendarioEvento.SelectedDate = DateTime.Today;
                     listaCalendario = negocio.Listar(fechasistema);
@@ -30,7 +30,7 @@ namespace Final_Herrera_Fernandez
 
                 }
 
-                DateTime fechaseleccionada = Convert.ToDateTime(CalendarioEvento.SelectedDate.ToShortDateString());
+                DateTime fechaseleccionada = CalendarioEvento.SelectedDate;
                 listaCalendario = negocio.Listar(fechaseleccionada);
                 GVCalendario.DataSource = listaCalendario;
                 GVCalendario.DataBind();
@@ -50,6 +50,7 @@ namespace Final_Herrera_Fernandez
 
         }
 
+      
     }
 
 }
