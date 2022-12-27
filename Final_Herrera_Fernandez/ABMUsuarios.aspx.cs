@@ -22,14 +22,19 @@ namespace Final_Herrera_Fernandez
             {
                 if (usuariologuiado.Tipo == 1)
                 {
-                    ListaUsuarios = negocioUser.ListaUsuarios();
+                    if (!IsPostBack) 
+                    {
+                        //Cargo en el repetidor mi lista de usuarios
+                     ListaUsuarios = negocioUser.ListaUsuarios();
                     Session.Add("ListarSevicios", ListaUsuarios);
                     rep.DataSource = ListaUsuarios;
                     rep.DataBind();
-
+                        //Cargo en el repetidor mi lista de departamentos
                     ListaDepartamentos = negocioUser.ListaDepartamentos();
                     DDLDepto.DataSource = ListaDepartamentos;               
                     DDLDepto.DataBind();
+                    }
+                   
                 }
                 else
                 {
@@ -85,6 +90,8 @@ namespace Final_Herrera_Fernandez
                 {
                     negocio.AgregarUsuario(user);
                     Response.Write("<script>alert('Usuario Creado');</script>");
+                    Page.Response.Redirect(Page.Request.Url.ToString(), false);
+                    Context.ApplicationInstance.CompleteRequest();
                 }
 
             }
@@ -99,9 +106,11 @@ namespace Final_Herrera_Fernandez
             int ID = Convert.ToInt32(argument);
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ABMUsuarios.aspx'};", true);
             negocioUser.eliminar(ID);
+            Page.Response.Redirect(Page.Request.Url.ToString(), false);
+            Context.ApplicationInstance.CompleteRequest();
 
-            
-          
+
+
 
         }
 

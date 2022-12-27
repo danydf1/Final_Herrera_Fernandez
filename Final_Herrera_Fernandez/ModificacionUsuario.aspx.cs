@@ -67,45 +67,53 @@ namespace Final_Herrera_Fernandez
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
-            Usuario user = new Usuario();
-            Int32 ID = (Int32)Session["UserModif"];
-            user.ID = ID;
-            user.NombreUsuario = TxtNombreUsuario.Text;
-            user.Nombre = TxtNombre.Text;
-            user.Apellido = TxtApellido.Text;
-            user.Email = TxtEmail.Text;
-            
-            int edad = negocioUser.ValidarEdad(DateTime.Parse(FechaNac.Text));
-            if (edad < 18)
+            if (IsPostBack)
             {
-                Response.Write("<script>alert('El usuario debe ser mayor de edad');</script>");
+
+                        Usuario user = new Usuario();
+                        Int32 ID = (Int32)Session["UserModif"];
+                        user.ID = ID;
+                        user.NombreUsuario = TxtNombreUsuario.Text;
+                        user.Nombre = TxtNombre.Text;
+                        user.Apellido = TxtApellido.Text;
+                        user.Email = TxtEmail.Text;
+            
+                        int edad = negocioUser.ValidarEdad(DateTime.Parse(FechaNac.Text));
+                        if (edad < 18)
+                        {
+                            Response.Write("<script>alert('El usuario debe ser mayor de edad');</script>");
 
 
-            }
-            else
-            { 
-                user.FechaNac = DateTime.Parse( FechaNac.Text);
+                        }
+                        else
+                        { 
+
+                            // ojo con esto que da lo precarga y o lo saco o busco la vuelta para k lo precargue en el ispockback
+                            user.FechaNac = DateTime.Parse( FechaNac.Text);
              
             
-            user.IDDepto = Convert.ToInt32(TxtIdDepto.Text);
-            if (RadioVecino.Checked == true)
-                {
-                user.Tipo = 2;   
-                 }
-            else 
-                 {
-                user.Tipo = 1;
-                 }
-            user.Pass = TxtPass.Text;
+                        user.IDDepto = Convert.ToInt32(TxtIdDepto.Text);
+                        if (RadioVecino.Checked == true)
+                            {
+                            user.Tipo = 2;   
+                             }
+                        else 
+                             {
+                            user.Tipo = 1;
+                             }
+                        user.Pass = TxtPass.Text;
 
 
 
             
-            negocioUser.Modificar(user);
+                        negocioUser.Modificar(user);
 
-                Response.Write("<script>alert('Usuario Modificado ');</script>");
+                            Response.Write("<script>alert('Usuario Modificado ');</script>");
 
-                Response.Redirect("ABMUsuarios.aspx");
+                            Response.Redirect("ABMUsuarios.aspx");
+            
+
+            }
             }
         }
     }
