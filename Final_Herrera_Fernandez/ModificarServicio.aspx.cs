@@ -34,13 +34,23 @@ namespace Final_Herrera_Fernandez
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuario cuenta = (Usuario)Session["cuenta"]; 
             try
             {
-                listaAux = (List<Contactos>)Session["ListarSevicios"];
-                int idAux = Convert.ToInt32(Request.QueryString["id"]);
-                contacto = listaAux.Find(i => i.id == idAux);
+                if (cuenta.Tipo == 1)
+                {
+                   listaAux = (List<Contactos>)Session["ListarSevicios"];
+                   int idAux = Convert.ToInt32(Request.QueryString["id"]);
+                   contacto = listaAux.Find(i => i.id == idAux);
+                   CargarForm();
+                }
+                else
+                {
+                    // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
+                    Response.Redirect("Error.aspx");
+                }
 
-                CargarForm();
+                
             }
             catch (Exception ex)
             {

@@ -16,46 +16,37 @@ namespace Final_Herrera_Fernandez
         UsuarioNegocio negocioUser = new UsuarioNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListaUsuarios = negocioUser.ListaUsuarios();
-            ListaDepartamentos = negocioUser.ListaDepartamentos();
-            
-                DDLDepto.DataSource = ListaDepartamentos;
-               
-                DDLDepto.DataBind();
-            
+  
+           Usuario usuariologuiado = (Usuario)Session["Cuenta"];
+            try
+            {
+                if (usuariologuiado.Tipo == 1)
+                {
+                    ListaUsuarios = negocioUser.ListaUsuarios();
+                    Session.Add("ListarSevicios", ListaUsuarios);
+                    rep.DataSource = ListaUsuarios;
+                    rep.DataBind();
+
+                    ListaDepartamentos = negocioUser.ListaDepartamentos();
+                    DDLDepto.DataSource = ListaDepartamentos;               
+                    DDLDepto.DataBind();
+                }
+                else
+                {
+                    // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
+                    Response.Redirect("Error.aspx");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
            
-            Usuario usuariologuiado = new Usuario();
-            usuariologuiado = (Usuario)Session["Cuenta"];
-            // Revisar este codigo por un lado pensar si esta de mas , capaz pensando k x url accedan a la pag sirve pensarlo,  por otro lado si sirve ponerlo en una funcion capz 
-            if (usuariologuiado == null)
-            {
-
-                RadioAdmin.Visible = false;
-                LblAdmin.Visible = false;
-                RadioVecino.Visible = false;
-                LblVecino.Visible = false;
-            }
 
 
-
-            else if (usuariologuiado.Tipo == 1)
-            {
-                RadioAdmin.Visible = true;
-                LblAdmin.Visible = true;
-                RadioVecino.Visible = true;
-                LblVecino.Visible = true;
-            }
-            else
-            {
-                RadioAdmin.Visible = false;
-                LblAdmin.Visible = false;
-                RadioVecino.Visible = true;
-                LblVecino.Visible = true;
-            }
-            
-            Session.Add("ListarSevicios", ListaUsuarios);
-            rep.DataSource = ListaUsuarios;
-            rep.DataBind();
+           
+          
         }
 
         protected void BtnAgregar_Click(object sender, EventArgs e)

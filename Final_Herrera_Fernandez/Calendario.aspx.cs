@@ -12,14 +12,17 @@ namespace Final_Herrera_Fernandez
     {
 
         public List<Calendarios> listaCalendario { get; set; }
-
+     
         protected void Page_Load(object sender, EventArgs e)
         {
             GrillaNegocios negocio = new GrillaNegocios();
+            Usuario cuenta = (Usuario)Session["cuenta"];
             try
             {
 
-                if (!IsPostBack)
+                if (cuenta.Tipo == 2)
+                {
+                   if (!IsPostBack)
                 {
                    DateTime fechasistema = DateTime.Now.Date;
                     CalendarioEvento.VisibleDate = DateTime.Today;
@@ -34,6 +37,14 @@ namespace Final_Herrera_Fernandez
                 listaCalendario = negocio.Listar(fechaseleccionada);
                 GVCalendario.DataSource = listaCalendario;
                 GVCalendario.DataBind();
+                }
+                else
+                {
+                    // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
+                    Response.Redirect("Error.aspx");
+                }
+
+                
 
             }
             catch (Exception ex)

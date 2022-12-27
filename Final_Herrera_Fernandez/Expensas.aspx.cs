@@ -16,11 +16,15 @@ namespace Final_Herrera_Fernandez
 
 
             ExpensasNegocios negocio = new ExpensasNegocios();
+            Usuario cuenta = (Usuario)Session["cuenta"];
             Usuario usuario = new Usuario();
             try
             {
-                usuario = (Usuario)Session["cuenta"];
-                //if (!IsPostBack)
+
+               
+                    if (cuenta.Tipo == 2)
+                    {
+                         //if (!IsPostBack)
                 //{
 
                 //    listaGrilla = negocio.ListarRegistros();
@@ -30,9 +34,18 @@ namespace Final_Herrera_Fernandez
 
                 listaGrilla = negocio.ListarRegistros(usuario.ID);
                 Session.Add("ListarComponentes", listaGrilla);
+                    } 
+                    else
+                    {
+                        // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
+                        Response.Redirect("Error.aspx");
+                    }
 
 
-            }
+
+
+                }
+              
             catch (Exception ex)
             {
 

@@ -11,26 +11,50 @@ namespace Final_Herrera_Fernandez
 {
     public partial class ExpensasAdmin : System.Web.UI.Page
     {
+
         public List<Usuario> usuarios { get; set; }
         public List<Archivos> listaGrilla { get; set; }
         ExpensasNegocios expensasNegocios = new ExpensasNegocios();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListItem item = new ListItem();
-            UsuarioNegocio negocio = new UsuarioNegocio();
-
-            usuarios = negocio.ListaUsuarios();
-            foreach (Usuario user in usuarios)
+            Usuario cuenta = (Usuario)Session["cuenta"];
+            try
             {
-                item.Text = user.Nombre + " " + user.Apellido;
-                item.Value = user.ID.ToString();
-                selectVecino.Items.Add(item);
-                item = new ListItem();
+
+                if (cuenta.Tipo == 1)
+                {
+                    ListItem item = new ListItem();
+                    UsuarioNegocio negocio = new UsuarioNegocio();
+
+                    usuarios = negocio.ListaUsuarios();
+                    foreach (Usuario user in usuarios)
+                    {
+                        item.Text = user.Nombre + " " + user.Apellido;
+                        item.Value = user.ID.ToString();
+                        selectVecino.Items.Add(item);
+                        item = new ListItem();
+                    }
+
+
+                    listaGrilla = expensasNegocios.ListarRegistros();
+                    Session.Add("ListarComponentes", listaGrilla);
+                }
+                else
+                {
+                    // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
+                    Response.Redirect("Error.aspx");
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
             }
 
-
-            listaGrilla = expensasNegocios.ListarRegistros();
-            Session.Add("ListarComponentes", listaGrilla);
+           
         }
 
         protected void btnSubir_Click(object sender, EventArgs e)

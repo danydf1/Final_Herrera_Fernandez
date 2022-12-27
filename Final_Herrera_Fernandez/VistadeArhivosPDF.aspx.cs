@@ -11,9 +11,13 @@ namespace Final_Herrera_Fernandez
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuario cuenta = (Usuario)Session["cuenta"];
             try
             {
-                //Logre luego de guardarlo en una session accder a los archivos y descargarlos.
+                
+                    if (cuenta.Tipo == 1)
+                    {
+                       //Logre luego de guardarlo en una session accder a los archivos y descargarlos.
                 int id = int.Parse(Request.QueryString["id"]);
                 List<Archivos> listado = (List<Archivos>)Session["listarComponentes"];
                 Archivos seleccionado = listado.Find(x => x.ID == id);
@@ -22,6 +26,15 @@ namespace Final_Herrera_Fernandez
                 Response.ContentType = "image/JPEG";
                 Response.ContentType = "application/pdf";
                 Response.BinaryWrite(imagen);
+                    }
+                    else
+                    {
+                        // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
+                        Response.Redirect("Error.aspx");
+                    }
+
+
+                
             }
             catch (Exception ex)
             {

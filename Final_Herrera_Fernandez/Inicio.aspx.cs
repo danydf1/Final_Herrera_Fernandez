@@ -15,19 +15,31 @@ namespace Final_Herrera_Fernandez
         protected void Page_Load(object sender, EventArgs e)
         {
            AvisoNegocios negocio = new AvisoNegocios();
+            Usuario cuenta= (Usuario)Session["cuenta"];
             try
-            {
-                if (Session["listabuscados"] == null)
-                {
-                    listaComponentes = negocio.Listar();
-                    Session.Add("ListarComponentes", listaComponentes);
-                }
-                else
-                {
-                    listaComponentes = (List<avisos>)Session["listabuscados"];
-                    Session["listabuscados"] = null;
-                }
 
+            {
+                if (cuenta.Tipo==2)
+                {
+                    if (Session["listabuscados"] == null)
+                    {
+                        listaComponentes = negocio.Listar();
+                        Session.Add("ListarComponentes", listaComponentes);
+                    }
+                    else
+                    {
+                        listaComponentes = (List<avisos>)Session["listabuscados"];
+                        Session["listabuscados"] = null;
+                    }
+                }
+                else {
+                   // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
+                    Response.Redirect("Error.aspx");
+                    }
+                
+                
+                
+               
             }
             catch (Exception)
             {

@@ -12,12 +12,34 @@ namespace Final_Herrera_Fernandez
     {
         public List<Contactos> ListaRegistros { get; set; }
         ServiciosRecomendadosNegocio negocio = new ServiciosRecomendadosNegocio();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListaRegistros = negocio.ServiciosRecomendados();
+            Usuario cuenta = (Usuario)Session["cuenta"];
+            try
+            { 
+                if (cuenta.Tipo == 2)
+            {
+                ListaRegistros = negocio.ServiciosRecomendados();
             Lista.DataSource = ListaRegistros;
             Lista.DataBind();
             Session.Add("ListarSevicios", Lista);
+            }
+            else
+            {
+                // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
+                Response.Redirect("Error.aspx");
+            }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
+
+           
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)

@@ -16,10 +16,34 @@ namespace Final_Herrera_Fernandez
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            ListaProyectos = negocio.ListarProyectosAprobados();
-            ListaAprobados.DataSource = ListaProyectos;
-            ListaAprobados.DataBind();
-            Session.Add("ListarSevicios", ListaAprobados);
+            Usuario cuenta = (Usuario)Session["cuenta"];
+            try
+
+            {
+                if (cuenta.Tipo == 2)
+                {
+                    ListaProyectos = negocio.ListarProyectosAprobados();
+                    ListaAprobados.DataSource = ListaProyectos;
+                    ListaAprobados.DataBind();
+                    Session.Add("ListarSevicios", ListaAprobados);
+            
+                }
+                else
+                {
+                    // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
+                    Response.Redirect("Error.aspx");
+                }
+
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
             
         }
 

@@ -14,32 +14,56 @@ namespace Final_Herrera_Fernandez
         Usuario UsuarioaModificar = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) 
-            {
-            Int32 ID = (Int32)Session["UserModif"];
-            UsuarioaModificar = negocioUser.TraerUsuario(ID);
-            TxtNombreUsuario.Text = UsuarioaModificar.NombreUsuario;
-            TxtNombre.Text = UsuarioaModificar.Nombre;
-            TxtApellido.Text = UsuarioaModificar.Apellido;
-            TxtEmail.Text = UsuarioaModificar.Email;
-            TxtPass.Text = UsuarioaModificar.Pass;
-            TxtIdDepto.Text = Convert.ToString(UsuarioaModificar.IDDepto);
+            Usuario cuenta = (Usuario)Session["cuenta"];
 
-            if (Convert.ToBoolean(UsuarioaModificar.Tipo == 1))
+            try
             {
 
-                RadioVecino.Checked = false;
-                RadioAdmin.Checked = true;
+                if (cuenta.Tipo == 1)
+                {
+                    if (!IsPostBack)
+                    {
+                        Int32 ID = (Int32)Session["UserModif"];
+                        UsuarioaModificar = negocioUser.TraerUsuario(ID);
+                        TxtNombreUsuario.Text = UsuarioaModificar.NombreUsuario;
+                        TxtNombre.Text = UsuarioaModificar.Nombre;
+                        TxtApellido.Text = UsuarioaModificar.Apellido;
+                        TxtEmail.Text = UsuarioaModificar.Email;
+                        TxtPass.Text = UsuarioaModificar.Pass;
+                        TxtIdDepto.Text = Convert.ToString(UsuarioaModificar.IDDepto);
+
+                        if (Convert.ToBoolean(UsuarioaModificar.Tipo == 1))
+                        {
+
+                            RadioVecino.Checked = false;
+                            RadioAdmin.Checked = true;
+                        }
+                        else
+                        {
+                            RadioAdmin.Checked = false;
+                            RadioVecino.Checked = true;
+                        }
+                    }
+                }
+                else
+                {
+                    // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
+                    Response.Redirect("Error.aspx");
+                }
+
+
+
             }
-            else
+            catch (Exception ex)
             {
-                RadioAdmin.Checked = false;
-                RadioVecino.Checked = true;
+                string mensaje = ex.Message;
             }
-            }
-            
 
         }
+
+
+    
+
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {

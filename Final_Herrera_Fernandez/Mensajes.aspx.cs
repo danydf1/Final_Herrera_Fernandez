@@ -15,21 +15,42 @@ namespace Final_Herrera_Fernandez
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListItem item = new ListItem();
-            UsuarioNegocio negocio = new UsuarioNegocio();
-
-            usuarios = negocio.ListaUsuarios();
-
-            foreach (Usuario user in usuarios)
+            Usuario cuenta = (Usuario)Session["cuenta"];
+            try
             {
-                item.Text = user.Nombre + " " + user.Apellido;
-                item.Value = user.Email;
-                selectMail.Items.Add(item);
-                item = new ListItem();
+
+                if (cuenta.Tipo == 1)
+                {
+                            ListItem item = new ListItem();
+                    UsuarioNegocio negocio = new UsuarioNegocio();
+
+                    usuarios = negocio.ListaUsuarios();
+
+                    foreach (Usuario user in usuarios)
+                    {
+                        item.Text = user.Nombre + " " + user.Apellido;
+                        item.Value = user.Email;
+                        selectMail.Items.Add(item);
+                        item = new ListItem();
+                    }
+                    item.Text = "Todos";
+                    item.Value = "";
+                    selectMail.Items.Add(item);
+                }
+                else
+                {
+                    // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
+                    Response.Redirect("Error.aspx");
+                }
+
+
+
             }
-            item.Text = "Todos";
-            item.Value = "";
-            selectMail.Items.Add(item);
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message;
+            }
+           
         }
 
         protected void Button_Click(object sender, EventArgs e)
