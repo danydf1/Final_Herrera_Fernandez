@@ -23,17 +23,20 @@ namespace Negocio
 
             user.Pass = ecriptacion.Encripta(user.Pass);
             datos.setearParametro("@Pass" , user.Pass);
-            datos.setearParametro("@Tipo" ,user.Tipo);
             datos.setearParametro("@FechaNac", user.FechaNac.ToString());
-            
+            datos.setearParametro("@IdTipo",user.Tipo);
+            datos.setearParametro("@IdDepto", user.IDDepto);
+
+
             datos.ejectutarAccion();
             datos.cerrarConexion();
         }
+
         public List<Usuario> ListaUsuarios()
         {
             AccesoDatos Datos = new AccesoDatos();
             List<Usuario> lista = new List<Usuario>();
-            Datos.setearConsulta("select U.ID,U.NombreUSuario,U.NOMBRE,U.APELLIDO,U.EMAIL,U.PASS,u.FECHANAC,U.IDTIPO,U.Estado,D.ID As IDDepto ,D.Descripcion from Usuarios U inner join Departamento D on D.ID = U.IDDepto");
+            Datos.setearConsulta("select U.ID,U.NombreUSuario,U.NOMBRE,U.APELLIDO,U.EMAIL,U.PASS,u.FECHANAC,U.IDTIPO,U.Estado,D.ID As IDDepto ,D.Descripcion from Usuarios U inner join Departamento D on D.ID = U.IDDepto where u.estado =1");
 
 
             try
@@ -66,6 +69,39 @@ namespace Negocio
             {
                 Datos.cerrarConexion();
              }
+        }
+
+
+        public List<Departamento> ListaDepartamentos()
+        {
+            AccesoDatos Datos = new AccesoDatos();
+            List<Departamento> lista = new List<Departamento>();
+            Datos.setearConsulta("select * from Departamento");
+
+
+            try
+            {
+                Datos.ejecutarLectura();
+                while (Datos.Lector.Read())
+                {
+                    Departamento aux = new Departamento();
+
+                    aux.ID = Convert.ToInt32(Datos.Lector["ID"]);
+                    aux.Descripcion = (string)Datos.Lector["DESCRIPCION"];
+                    
+
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                Datos.cerrarConexion();
+            }
         }
 
         public Usuario ValidarUsuarios(string email, string pass)
@@ -114,24 +150,101 @@ namespace Negocio
 
         }
 
-        public bool Eliminar(string id)
+        public int ValidarEdad(DateTime FechaNac)
         {
+            int edad = 0;
+            int AñoActual = DateTime.Now.Year;
+            int AñoNacimiento = FechaNac.Year;
+            edad = AñoActual - AñoNacimiento;
+            return edad;
+
+        }
+         
+       public Usuario TraerUsuario(int id)
+        {
+            Usuario cuenta = new Usuario();
+            AccesoDatos Datos = new AccesoDatos();
+            
+
+
+            Datos.setearConsulta("select U.ID, U.NombreUSuario, U.NOMBRE, U.APELLIDO, U.EMAIL, U.PASS, u.FECHANAC,u.FECHAALTA, U.IDTIPO, U.Estado, D.ID As IDDepto, D.Descripcion from Usuarios U inner join Departamento D on D.ID = U.IDDepto where u.estado = 1 and u.id="+id);
+            Datos.ejecutarLectura();
+
             try
             {
-                datos.setearConsulta("UPDATE Usuarios SET Estado = 0 where ID = @id");
-                datos.setearParametro("@id", id);
-                datos.ejecutarLectura();
-                return true;
-            }
-            catch (Exception)
-            {
+                Datos.Lector.Read();
 
-                throw;
+                Usuario aux = new Usuario();
+
+                aux.ID = (long)Datos.Lector["Id"];
+                aux.IDDepto = (Int32)Datos.Lector["IdDepto"];
+                aux.NombreUsuario = (string)Datos.Lector["Nombreusuario"];
+                aux.Apellido = (string)Datos.Lector["Apellido"];
+                aux.Nombre = (string)Datos.Lector["Nombre"];
+                aux.Email = (string)Datos.Lector["Email"];
+                aux.Pass = (string)Datos.Lector["Pass"];
+                aux.FechaNac = (DateTime)Datos.Lector["FechaNac"];
+                aux.FechaAlta = (DateTime)Datos.Lector["FechaAlta"];
+                aux.Tipo = (Int32)Datos.Lector["Idtipo"];
+                aux.Estado = (bool)Datos.Lector["Estado"];
+
+
+                return aux;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                Datos.cerrarConexion();
+            }
+        }
+
+        public void eliminar(int id)
+        {
+            datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("UPDATE Usuarios SET Estado = 0 where ID =" + id);
+                datos.ejectutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
             finally
             {
                 datos.cerrarConexion();
+                datos = null;
             }
         }
+
+
+        public void Modificar(Usuario user)
+        {
+            datos.setearSP("sp_Modif_usuario");
+
+            datos.setearParametro("@ID", user.ID);
+            datos.setearParametro("@NombreUsuario", user.NombreUsuario);
+            datos.setearParametro("@Nombre", user.Nombre);
+            datos.setearParametro("@Apellido", user.Apellido);
+            datos.setearParametro("@Email", user.Email);
+
+            user.Pass = ecriptacion.Encripta(user.Pass);
+            datos.setearParametro("@Pass", user.Pass);
+            datos.setearParametro("@FechaNac", user.FechaNac.ToString());
+            datos.setearParametro("@IdTipo", user.Tipo);
+            datos.setearParametro("@IdDepto", user.IDDepto);
+
+
+            datos.ejectutarAccion();
+            datos.cerrarConexion();
+        }
+
+
+
+
+
     }
 }

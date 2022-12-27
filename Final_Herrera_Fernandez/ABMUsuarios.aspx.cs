@@ -12,14 +12,21 @@ namespace Final_Herrera_Fernandez
     public partial class ABMUsuarios : System.Web.UI.Page
     {
         public List<Usuario> ListaUsuarios { get; set; }
+        public List<Departamento> ListaDepartamentos { get; set; }
         UsuarioNegocio negocioUser = new UsuarioNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
             ListaUsuarios = negocioUser.ListaUsuarios();
-
+            ListaDepartamentos = negocioUser.ListaDepartamentos();
+            
+                DDLDepto.DataSource = ListaDepartamentos;
+               
+                DDLDepto.DataBind();
+            
+           
             Usuario usuariologuiado = new Usuario();
             usuariologuiado = (Usuario)Session["Cuenta"];
-
+            // Revisar este codigo por un lado pensar si esta de mas , capaz pensando k x url accedan a la pag sirve pensarlo,  por otro lado si sirve ponerlo en una funcion capz 
             if (usuariologuiado == null)
             {
 
@@ -45,7 +52,7 @@ namespace Final_Herrera_Fernandez
                 RadioVecino.Visible = true;
                 LblVecino.Visible = true;
             }
-            ListaUsuarios = negocioUser.ListaUsuarios();
+            
             Session.Add("ListarSevicios", ListaUsuarios);
             rep.DataSource = ListaUsuarios;
             rep.DataBind();
@@ -57,29 +64,64 @@ namespace Final_Herrera_Fernandez
 
             Usuario usuariologuiado = new Usuario();
             usuariologuiado = (Usuario)Session["Cuenta"];
-
+            
             Usuario user = new Usuario();
             user.NombreUsuario = TxtNombreUsuario.Text;
             user.Nombre = TxtNombre.Text;
-            user.Apellido = TxtApellido.Text;
+            user.Apellido = TxtApellido.Text; 
             user.Email = TxtEmail.Text;
             user.Pass = TxtPass.Text;
             user.FechaNac = DateTime.Parse(FechaNac.Text);
+            user.IDDepto = Convert.ToInt32(DDLDepto.SelectedValue);
+            user.Estado = true;
             if (RadioAdmin.Checked == true) { user.Tipo = 1; }
             else { user.Tipo = 2; }
+            int edad = negocio.ValidarEdad(user.FechaNac);
+            if (edad < 18)
+            {
+                Response.Write("<script>alert('El usuario debe ser mayor de edad');</script>");
 
 
-            user.Estado = true;
-            negocio.AgregarUsuario(user);
+            }
+            else
+            {
+                if (usuariologuiado == null)
+                {
+                    Response.Write("<script>alert('Utd debe loguearse  y ser administrador para dar de alta');</script>");
+                }
+
+                else if (usuariologuiado.Tipo == 1)
+                {
+                    negocio.AgregarUsuario(user);
+                    Response.Write("<script>alert('Usuario Creado');</script>");
+                }
+
+            }
+            
+   
+
+            }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            var argument = ((Button)sender).CommandArgument;
+            int ID = Convert.ToInt32(argument);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ABMUsuarios.aspx'};", true);
+            negocioUser.eliminar(ID);
+
+            
+          
+
         }
 
-        protected void btnDelete_Command(object sender, CommandEventArgs e)
+        protected void btnModificar_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ServiciosRecomendadosAdmin.aspx'};", true);
-            if (negocioUser.Eliminar(e.CommandArgument.ToString()))
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('Se elmino Correctamente');window.location='ServiciosRecomendadosAdmin.aspx';", true);
-            }
+            //INTENTE USAR MODAL PERO NO LOGRO QUE DESDE EL BOTON MODIFICAR ME ABRA EL MODAL DEL FORMULARIO ,SI LO CARGA Y SI ACCEDO DEL BOTON "CREAR USUARIO" LO MUESTRA PRECARGADO ,CREO QUE SE DEBE A K NO USO BUTTON SINO ASPBUTTON 
+            Usuario UsuarioaModificar = new Usuario();
+            var argument = ((Button)sender).CommandArgument;
+            int ID = Convert.ToInt32(argument);
+            Session.Add("UserModif", ID);
+            Response.Redirect("ModificacionUsuario.aspx");
         }
     }
 }

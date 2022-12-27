@@ -33,6 +33,24 @@ namespace Final_Herrera_Fernandez
         protected global::System.Web.UI.WebControls.Repeater rep;
 
         /// <summary>
+        /// Control LblDpto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblDpto;
+
+        /// <summary>
+        /// Control DDLDepto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLDepto;
+
+        /// <summary>
         /// Control TxtNombreUsuario.
         /// </summary>
         /// <remarks>
@@ -40,6 +58,15 @@ namespace Final_Herrera_Fernandez
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtNombreUsuario;
+
+        /// <summary>
+        /// Control TxtPass.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtPass;
 
         /// <summary>
         /// Control TxtApellido.
@@ -69,22 +96,13 @@ namespace Final_Herrera_Fernandez
         protected global::System.Web.UI.WebControls.TextBox TxtEmail;
 
         /// <summary>
-        /// Control TxtPass.
+        /// Control LblNac.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtPass;
-
-        /// <summary>
-        /// Control Lbl1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl1;
+        protected global::System.Web.UI.WebControls.Label LblNac;
 
         /// <summary>
         /// Control FechaNac.

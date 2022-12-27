@@ -17,31 +17,7 @@ namespace Final_Herrera_Fernandez
             Usuario usuariologuiado = new Usuario();
             usuariologuiado = (Usuario)Session["Cuenta"];
             
-                if (usuariologuiado == null)
-                {
-
-                    RadioAdmin.Visible = false;
-                    LblAdmin.Visible = false;
-                    RadioVecino.Visible = false;
-                    LblVecino.Visible = false;
-                }
-                  
-            
-
-            else if (usuariologuiado.Tipo == 1)
-            {
-                RadioAdmin.Visible = true;
-                LblAdmin.Visible = true;
-                RadioVecino.Visible = true;
-                LblVecino.Visible = true;
-            }
-            else
-            {
-                RadioAdmin.Visible = false;
-                LblAdmin.Visible = false;
-                RadioVecino.Visible = true;
-                LblVecino.Visible = true;
-            }
+                
         }
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
@@ -58,12 +34,32 @@ namespace Final_Herrera_Fernandez
             user.Email = TxtEmail.Text;
             user.Pass = TxtPass.Text;
             user.FechaNac = DateTime.Parse( FechaNac.Text);
-            if (RadioAdmin.Checked == true) { user.Tipo = 1; }
-            else { user.Tipo = 2; }
+            user.IDDepto = Convert.ToInt32(TxtIdDepto.Text);
+            // user.departamento.Descripcion = "3";
+            user.Estado = true; 
+            int edad = negocio.ValidarEdad(user.FechaNac);
+            if (edad < 18)
+            {  //mandar un mensaje de "debe loguiarse"
+                Response.Write("<script>alert('El usuario debe ser mayor de edad');</script>");
 
+                //Response.Redirect("Inicio.aspx");}
+            }
+            else
+            {
+                if (usuariologuiado == null)
+                {
+                    Response.Write("<script>alert('Utd debe loguearse  y ser administrador para dar de alta');</script>");
+                }
 
-            user.Estado = true;
-            negocio.AgregarUsuario(user);
+                else if (usuariologuiado.Tipo == 1)
+                {
+                    negocio.AgregarUsuario(user);
+                    Response.Write("<script>alert('Usuario Creado');</script>");
+                }
+                
+                
+            }
+            
         }
     }
 }

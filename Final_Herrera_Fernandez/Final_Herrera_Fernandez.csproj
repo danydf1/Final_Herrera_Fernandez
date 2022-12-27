@@ -84,8 +84,8 @@
     <Content Include="Inicio.aspx" />
     <Content Include="InicioAdmin.aspx" />
     <Content Include="Mensajes.aspx" />
+    <Content Include="ModificacionUsuario.aspx" />
     <Content Include="ModificarServicio.aspx" />
-    <Content Include="ModificarUsuario.aspx" />
     <Content Include="ServiciosRecomendados.aspx" />
     <Content Include="ServiciosRecomendadosAdmin.aspx" />
     <Content Include="VistadeArhivosPDF.aspx" />
@@ -192,19 +192,19 @@
     <Compile Include="Mensajes.aspx.designer.cs">
       <DependentUpon>Mensajes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModificacionUsuario.aspx.cs">
+      <DependentUpon>ModificacionUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificacionUsuario.aspx.designer.cs">
+      <DependentUpon>ModificacionUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModificarServicio.aspx.cs">
       <DependentUpon>ModificarServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ModificarServicio.aspx.designer.cs">
       <DependentUpon>ModificarServicio.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ModificarUsuario.aspx.cs">
-      <DependentUpon>ModificarUsuario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ModificarUsuario.aspx.designer.cs">
-      <DependentUpon>ModificarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiciosRecomendados.aspx.cs">

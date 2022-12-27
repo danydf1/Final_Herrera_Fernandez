@@ -29,7 +29,7 @@
                         <asp:TextBox ID="TxtEmail" CssClass="form-control mt-3" type="Mail" placeholder="Ingrese su Email" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
                         <asp:TextBox ID="TxtPass" CssClass="form-control mt-3" type="password" placeholder=" Contraseña" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
                         <asp:Button ID="BtnAgregar" Text="ENTRAR" OnClick="BtnAgregar_Click" runat="server" CssClass="btn btn-dark mt-3" />
-                        <p class="mt-3 mb-5"><a href="RegistrarCuenta.aspx" style="text-decoration:none;color:black;font-size:25px;font-weight:400;">Registrarme</a></p>
+                       
                     </div>
                 </form>
             </div>

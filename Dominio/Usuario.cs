@@ -19,6 +19,8 @@ namespace Dominio
         public int Tipo { get; set; }
         public bool Estado { get; set; }
 
+        public Int32 IDDepto { get; set; }
+
         public Departamento departamento { get; set; }
 
     }

@@ -8,7 +8,7 @@ namespace Dominio
 {
     public class Departamento
     {
-        public int ID { get; set; }
+        public Int32 ID { get; set; }
         public string Descripcion { get; set; }
     }
 }

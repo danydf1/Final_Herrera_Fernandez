@@ -143,20 +143,25 @@ INSERT INTO Avisos VALUES ('2022/06/22','REUNION DE CONSORCIO EL 24/06','https:/
 --Proyectos
 INSERT INTO Proyectos VALUES ('Deck','Pintura nueva',3,30000,'01/10/2022')
 
-GO
+GO 
 	----SP----
+
+---	USUARIOS-------
 Create PROCEDURE sp_ins_usuario(
 @NombreUsuario VARCHAR (50),
 @Nombre VARCHAR (50),
 @Apellido VARCHAR (50),
 @Email VARCHAR (100),
 @Pass VARCHAR (80),
-@FechaNac Date
+@FechaNac Date,
+@IdTipo int,
+@IdDepto int
+
 )
 AS 
 BEGIN
 	Begin try 
-		INSERT INTO Usuarios(NOMBREUSUARIO,NOMBRE,APELLIDO,EMAIL,PASS,FECHANAC,FECHAALTA,IDTIPO,Estado) VALUES(@NombreUsuario,@Nombre,@Apellido,@Email,@Pass,@FechaNac,getDate(),2,1)
+		INSERT INTO Usuarios(NOMBREUSUARIO,NOMBRE,APELLIDO,EMAIL,PASS,FECHANAC,FECHAALTA,IDTIPO,IDDEPTO,Estado) VALUES(@NombreUsuario,@Nombre,@Apellido,@Email,@Pass,@FechaNac,getDate(),@IdTipo,@IdDepto,1)
 	End try
     Begin Catch
         RAISERROR('Error grave al guardar el usuario', 16, 1)
@@ -165,6 +170,33 @@ END
 
 go
 
+
+Create PROCEDURE sp_Modif_usuario(
+@ID bigint,
+@NombreUsuario VARCHAR (50),
+@Nombre VARCHAR (50),
+@Apellido VARCHAR (50),
+@Email VARCHAR (100),
+@Pass VARCHAR (80),
+@FechaNac Date,
+@IdTipo int,
+@IdDepto int
+
+)
+AS 
+BEGIN
+	Begin try 
+	UPDATE Usuarios SET NOMBREUSUARIO =@NombreUsuario,NOMBRE=@Nombre,APELLIDO=@Apellido,EMAIL=@Email,FECHANAC=@FechaNac,PASS=@Pass,IDTIPO=@IdTipo,IDDepto=@IdDepto,Estado=1 where ID =@ID;   
+
+	End try
+    Begin Catch
+        RAISERROR('Error grave al guardar el usuario', 16, 1)
+	End Catch
+END
+
+
+
+---	PROYECTOS-------
 CREATE PROCEDURE sp_ins_proyecto(
 @Nombre VARCHAR (50),
 @Descripcion VARCHAR (200),
@@ -180,6 +212,8 @@ BEGIN
 	End Catch
 END
 GO
+
+---	SERVICIOS-------
 CREATE PROCEDURE sp_ins_Servicio(
 @Nombre VARCHAR (50),
 @Servicio VARCHAR (50),
