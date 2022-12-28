@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,6 +14,7 @@ namespace Final_Herrera_Fernandez
     {
         UsuarioNegocio negocioUser = new UsuarioNegocio();
         Usuario UsuarioaModificar = new Usuario();
+        public List<Departamento> ListaDepartamentos { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuario cuenta = (Usuario)Session["cuenta"];
@@ -23,14 +26,21 @@ namespace Final_Herrera_Fernandez
                 {
                     if (!IsPostBack)
                     {
+                        //Cargo en el repetidor mi lista de departamentos
+                        ListaDepartamentos = negocioUser.ListaDepartamentos();
+                        DDLDepto.DataSource = ListaDepartamentos;
+                        DDLDepto.DataBind();
+
                         Int32 ID = (Int32)Session["UserModif"];
                         UsuarioaModificar = negocioUser.TraerUsuario(ID);
+                        DDLDepto.SelectedValue = Convert.ToString(UsuarioaModificar.IDDepto);
                         TxtNombreUsuario.Text = UsuarioaModificar.NombreUsuario;
                         TxtNombre.Text = UsuarioaModificar.Nombre;
                         TxtApellido.Text = UsuarioaModificar.Apellido;
                         TxtEmail.Text = UsuarioaModificar.Email;
                         TxtPass.Text = UsuarioaModificar.Pass;
-                        TxtIdDepto.Text = Convert.ToString(UsuarioaModificar.IDDepto);
+                        //con esto seteo el textbox
+                        FechaNac.Text = UsuarioaModificar.FechaNac.ToString("yyyy-MM-dd");
 
                         if (Convert.ToBoolean(UsuarioaModificar.Tipo == 1))
                         {
@@ -92,8 +102,8 @@ namespace Final_Herrera_Fernandez
                             user.FechaNac = DateTime.Parse( FechaNac.Text);
              
             
-                        user.IDDepto = Convert.ToInt32(TxtIdDepto.Text);
-                        if (RadioVecino.Checked == true)
+                        user.IDDepto = Convert.ToInt32(DDLDepto.SelectedValue);
+                    if (RadioVecino.Checked == true)
                             {
                             user.Tipo = 2;   
                              }

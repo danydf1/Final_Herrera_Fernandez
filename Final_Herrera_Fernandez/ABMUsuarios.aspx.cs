@@ -64,8 +64,18 @@ namespace Final_Herrera_Fernandez
             Usuario user = new Usuario();
             user.NombreUsuario = TxtNombreUsuario.Text;
             user.Nombre = TxtNombre.Text;
-            user.Apellido = TxtApellido.Text; 
-            user.Email = TxtEmail.Text;
+            user.Apellido = TxtApellido.Text;
+            //valido que el email no se encuentre en la db , 1 email x usuario
+            bool libre = negocio.ValidarEmail(TxtEmail.Text);
+            if (libre == false)
+            {
+                Response.Write("<script>alert('Ese email ya existe');</script>");
+                
+            }
+            else {
+             user.Email = TxtEmail.Text;
+            };
+           
             user.Pass = TxtPass.Text;
             user.FechaNac = DateTime.Parse(FechaNac.Text);
             user.IDDepto = Convert.ToInt32(DDLDepto.SelectedValue);

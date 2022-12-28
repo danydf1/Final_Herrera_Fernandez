@@ -10,11 +10,11 @@
                 </div>
 
                 <div class="col-12">
-                                <asp:Label ID="LblDepto" runat="server"  Text="Nº Departamento"></asp:Label>
-                                <asp:TextBox ID="TxtIdDepto" class="form-control mb-2" type="Number"  placeholder="Ingrese Su ID de Departamento" aria-label="Ingrese Nombre de Usuario" runat="server"></asp:TextBox>   
+                                <asp:Label ID="LblDpto" runat="server" Text="Departamento" ></asp:Label>
+                                <asp:DropDownList ID="DDLDepto" class="form-control mb-2" runat="server" placeholder="Ingrese Su ID de Departamento" AutoPostBack="False" DataTextField="descripcion" DataValueField="id"  ></asp:DropDownList>     
                                 <asp:Label ID="LblUsuario" runat="server"  Text="Usuario"></asp:Label>
                                 <asp:TextBox ID="TxtNombreUsuario" class="form-control mb-2"   type="text" placeholder="Ingrese Nombre de usuario" aria-label="Ingrese Nombre de Usuario" runat="server"></asp:TextBox>
-                                <asp:Label ID="LblPass" runat="server" Text="Contraseña"></asp:Label>
+                                <asp:Label ID="LblPass" runat="server" Text="Contraseña" ></asp:Label>
                                 <asp:TextBox ID="TxtPass" class="form-control mb-2" MaxLength="8" type="password" placeholder="Ingrese su Contraseña 8 caracteres max" runat="server" CssClass="form-control mb-2"></asp:TextBox>                               
                                 <asp:Label ID="LblApellido" runat="server" Text="Apellido"></asp:Label>
                                 <asp:TextBox ID="TxtApellido" class="form-control mb-2" type="text" placeholder=" Apellido" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
@@ -24,7 +24,7 @@
                                 <asp:TextBox ID="TxtEmail" class="form-control mb-2" type="email" placeholder="Ingrese su Email" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
                                 
                                 <asp:Label ID="LblFechnac" runat="server"  Text="Fecha Nacimiento"></asp:Label>
-                                <asp:TextBox ID="FechaNac" runat="server" Type="Date" class="form-control" placeholder="yyyy/mm/dd" ></asp:TextBox>
+                                <asp:TextBox ID="FechaNac" runat="server" Type="Date" class="form-control"></asp:TextBox>
                             </div>
                             <div class="col-6">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioAdmin" runat="server">

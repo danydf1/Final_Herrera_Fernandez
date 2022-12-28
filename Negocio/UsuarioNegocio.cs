@@ -50,7 +50,8 @@ namespace Negocio
                     aux.Nombre = (string)Datos.Lector["NOMBRE"];
                     aux.Apellido = (string)Datos.Lector["APELLIDO"];
                     aux.Email = (string)Datos.Lector["EMAIL"];
-                    aux.Pass = (string)Datos.Lector["PASS"];
+                    
+                    aux.Pass = ecriptacion.Desencripta((string)Datos.Lector["PASS"]);
                     aux.FechaNac = (DateTime)Datos.Lector["FECHANAC"];
                     aux.departamento = new Departamento();
                     aux.departamento.ID = (int)Datos.Lector["IDDepto"];
@@ -128,7 +129,8 @@ namespace Negocio
                 aux.Apellido = (string)Datos.Lector["Apellido"];
                 aux.Nombre = (string)Datos.Lector["Nombre"];
                 aux.Email = (string)Datos.Lector["Email"];
-                aux.Pass = (string)Datos.Lector["Pass"];
+
+                aux.Pass = ecriptacion.Desencripta((string)Datos.Lector["PASS"]);
                 aux.FechaNac = (DateTime)Datos.Lector["FechaNac"];
                 aux.FechaAlta = (DateTime)Datos.Lector["Fechaalta"];
                 aux.Tipo = (int)Datos.Lector["Idtipo"];
@@ -159,8 +161,33 @@ namespace Negocio
             return edad;
 
         }
-         
-       public Usuario TraerUsuario(int id)
+
+        public bool ValidarEmail(String Email)
+        {
+            AccesoDatos Datos = new AccesoDatos();
+
+
+
+            Datos.setearConsulta("select  ISNULL( COUNT (*),0) cantidad  from Usuarios where EMAIL="+"'" + Email + "'");
+            Datos.ejecutarLectura();
+
+            try
+            {
+                Datos.Lector.Read();
+                bool aux =Convert.ToBoolean(datos.Lector["cantidad"]);
+                return aux;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                Datos.cerrarConexion();
+            }
+
+        }
+        public Usuario TraerUsuario(int id)
         {
             Usuario cuenta = new Usuario();
             AccesoDatos Datos = new AccesoDatos();
@@ -182,7 +209,8 @@ namespace Negocio
                 aux.Apellido = (string)Datos.Lector["Apellido"];
                 aux.Nombre = (string)Datos.Lector["Nombre"];
                 aux.Email = (string)Datos.Lector["Email"];
-                aux.Pass = (string)Datos.Lector["Pass"];
+
+                aux.Pass = ecriptacion.Desencripta((string)Datos.Lector["PASS"]);
                 aux.FechaNac = (DateTime)Datos.Lector["FechaNac"];
                 aux.FechaAlta = (DateTime)Datos.Lector["FechaAlta"];
                 aux.Tipo = (Int32)Datos.Lector["Idtipo"];
