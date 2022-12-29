@@ -66,47 +66,45 @@ namespace Final_Herrera_Fernandez
             user.Nombre = TxtNombre.Text;
             user.Apellido = TxtApellido.Text;
             //valido que el email no se encuentre en la db , 1 email x usuario
-            bool libre = negocio.ValidarEmail(TxtEmail.Text);
-            if (libre == false)
+            bool ocupado = negocio.ValidarEmail(TxtEmail.Text);
+            if (ocupado == true)
             {
                 Response.Write("<script>alert('Ese email ya existe');</script>");
                 
             }
             else {
-             user.Email = TxtEmail.Text;
-            };
-           
-            user.Pass = TxtPass.Text;
-            user.FechaNac = DateTime.Parse(FechaNac.Text);
-            user.IDDepto = Convert.ToInt32(DDLDepto.SelectedValue);
-            user.Estado = true;
-            if (RadioAdmin.Checked == true) { user.Tipo = 1; }
-            else { user.Tipo = 2; }
-            int edad = negocio.ValidarEdad(user.FechaNac);
-            if (edad < 18)
-            {
-                Response.Write("<script>alert('El usuario debe ser mayor de edad');</script>");
+                    user.Email =  TxtEmail.Text.ToUpper();
+                    user.Pass = TxtPass.Text.ToUpper();
+                    user.FechaNac = DateTime.Parse(FechaNac.Text);
+                    user.IDDepto = Convert.ToInt32(DDLDepto.SelectedValue);
+                    user.Estado = true;
+                    if (RadioAdmin.Checked == true) { user.Tipo = 1; }
+                    else { user.Tipo = 2; }
+                    int edad = negocio.ValidarEdad(user.FechaNac);
+                    if (edad < 18)
+                    {
+                        Response.Write("<script>alert('El usuario debe ser mayor de edad');</script>");
 
 
-            }
-            else
-            {
-                if (usuariologuiado == null)
-                {
-                    Response.Write("<script>alert('Utd debe loguearse  y ser administrador para dar de alta');</script>");
-                }
+                    }
+                    else
+                    {
+                        if (usuariologuiado == null)
+                        {
+                            Response.Write("<script>alert('Utd debe loguearse  y ser administrador para dar de alta');</script>");
+                        }
 
-                else if (usuariologuiado.Tipo == 1)
-                {
-                    negocio.AgregarUsuario(user);
-                    Response.Write("<script>alert('Usuario Creado');</script>");
-                    Page.Response.Redirect(Page.Request.Url.ToString(), false);
-                    Context.ApplicationInstance.CompleteRequest();
-                }
+                        else if (usuariologuiado.Tipo == 1)
+                        {
+                            negocio.AgregarUsuario(user);
+                            Response.Write("<script>alert('Usuario Creado');</script>");
+                            Page.Response.Redirect(Page.Request.Url.ToString(), false);
+                            Context.ApplicationInstance.CompleteRequest();
+                        }
 
-            }
+                    }
             
-   
+                   };
 
             }
 

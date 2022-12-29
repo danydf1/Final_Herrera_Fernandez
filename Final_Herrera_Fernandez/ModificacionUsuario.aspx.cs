@@ -86,7 +86,7 @@ namespace Final_Herrera_Fernandez
                         user.NombreUsuario = TxtNombreUsuario.Text;
                         user.Nombre = TxtNombre.Text;
                         user.Apellido = TxtApellido.Text;
-                        user.Email = TxtEmail.Text;
+                        user.Email = TxtEmail.Text.ToUpper();
             
                         int edad = negocioUser.ValidarEdad(DateTime.Parse(FechaNac.Text));
                         if (edad < 18)
@@ -111,7 +111,7 @@ namespace Final_Herrera_Fernandez
                              {
                             user.Tipo = 1;
                              }
-                        user.Pass = TxtPass.Text;
+                        user.Pass = TxtPass.Text.ToUpper();
 
 
 

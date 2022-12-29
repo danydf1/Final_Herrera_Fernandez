@@ -162,20 +162,33 @@ namespace Negocio
 
         }
 
-        public bool ValidarEmail(String Email)
+        public bool ValidarEmail(string Email)
         {
             AccesoDatos Datos = new AccesoDatos();
 
 
 
-            Datos.setearConsulta("select  ISNULL( COUNT (*),0) cantidad  from Usuarios where EMAIL="+"'" + Email + "'");
+            Datos.setearConsulta("select count(*) as ocupado from usuarios where EMAIL=" + "'" + Email + "'");
             Datos.ejecutarLectura();
-
+            int aux;
+            bool libre;
             try
             {
+             
+                //  trae siempre algo ya sea 0 o 1 por lo que siempre es true
                 Datos.Lector.Read();
-                bool aux =Convert.ToBoolean(datos.Lector["cantidad"]);
-                return aux;
+                aux = Convert.ToInt32(Datos.Lector["ocupado"]);
+                if (aux == 1)
+                {
+                    libre= true;
+                    return libre;
+                }
+                else
+                {
+                    libre = false;
+                    return libre;
+                }
+                
             }
             catch (Exception e)
             {
@@ -187,6 +200,8 @@ namespace Negocio
             }
 
         }
+   
+
         public Usuario TraerUsuario(int id)
         {
             Usuario cuenta = new Usuario();

@@ -14,13 +14,13 @@
                                 <asp:DropDownList ID="DDLDepto" class="form-control mb-2" runat="server" placeholder="Ingrese Su ID de Departamento" AutoPostBack="False" DataTextField="descripcion" DataValueField="id"  ></asp:DropDownList>     
                                 <asp:Label ID="LblUsuario" runat="server"  Text="Usuario"></asp:Label>
                                 <asp:TextBox ID="TxtNombreUsuario" class="form-control mb-2"   type="text" placeholder="Ingrese Nombre de usuario" aria-label="Ingrese Nombre de Usuario" runat="server"></asp:TextBox>
-                                <asp:Label ID="LblPass" runat="server" Text="Contraseña" ></asp:Label>
+                                <asp:Label ID="LblPass" runat="server" Text="Contraseña(no distingue minusculas)" ></asp:Label>
                                 <asp:TextBox ID="TxtPass" class="form-control mb-2" MaxLength="8" type="password" placeholder="Ingrese su Contraseña 8 caracteres max" runat="server" CssClass="form-control mb-2"></asp:TextBox>                               
                                 <asp:Label ID="LblApellido" runat="server" Text="Apellido"></asp:Label>
                                 <asp:TextBox ID="TxtApellido" class="form-control mb-2" type="text" placeholder=" Apellido" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
                                 <asp:Label ID="LblNombre" runat="server"  Text="Nombre"></asp:Label>
                                 <asp:TextBox ID="TxtNombre" class="form-control mb-2" type="text" placeholder="Ingrese su Nombre" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
-                                <asp:Label ID="LblEmail" runat="server"  Text="Email"></asp:Label>
+                                <asp:Label ID="LblEmail" runat="server"  Text="Email (no distingue minusculas)"></asp:Label>
                                 <asp:TextBox ID="TxtEmail" class="form-control mb-2" type="email" placeholder="Ingrese su Email" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
                                 
                                 <asp:Label ID="LblFechnac" runat="server"  Text="Fecha Nacimiento"></asp:Label>

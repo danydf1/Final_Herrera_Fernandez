@@ -194,7 +194,7 @@ BEGIN
 	End Catch
 END
 
-
+go
 
 ---	PROYECTOS-------
 CREATE PROCEDURE sp_ins_proyecto(
