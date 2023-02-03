@@ -98,7 +98,7 @@ namespace Final_Herrera_Fernandez
                         else
                         { 
 
-                            // ojo con esto que da lo precarga y o lo saco o busco la vuelta para k lo precargue en el ispockback
+            
                             user.FechaNac = DateTime.Parse( FechaNac.Text);
              
             
@@ -117,10 +117,11 @@ namespace Final_Herrera_Fernandez
 
             
                         negocioUser.Modificar(user);
-
-                            Response.Write("<script>alert('Usuario Modificado ');</script>");
-
-                            Response.Redirect("ABMUsuarios.aspx");
+                    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ABMUsuarios.aspx'};", true  )
+                    //  NO LOGRE QUE ACTUALICE LA MODIFICACION Y A SU VEZ K MANDE UNA ALERTA O K CONSULTE ANTES DE HACERLO
+                    Response.Write("<script>alert('Usuario Modificado');</script>");
+                    
+                    Response.Redirect("ABMUsuarios.aspx");
             
 
             }

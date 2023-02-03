@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
 using Negocio;
+using System.Windows.Input;
+using System.Windows;
 
 namespace Final_Herrera_Fernandez
 {
@@ -13,6 +15,7 @@ namespace Final_Herrera_Fernandez
     {
         public List<Usuario> ListaUsuarios { get; set; }
         public List<Departamento> ListaDepartamentos { get; set; }
+
         UsuarioNegocio negocioUser = new UsuarioNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -97,7 +100,9 @@ namespace Final_Herrera_Fernandez
                         else if (usuariologuiado.Tipo == 1)
                         {
                             negocio.AgregarUsuario(user);
-                            Response.Write("<script>alert('Usuario Creado');</script>");
+                        //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ABMUsuarios.aspx'};", true  )
+                        //  NO LOGRE QUE DE ALTA Y A SU VEZ K MANDE UNA ALERTA O K CONSULTE ANTES DE HACERLO
+                        Response.Write("<script>alert('Usuario Creado');</script>");
                             Page.Response.Redirect(Page.Request.Url.ToString(), false);
                             Context.ApplicationInstance.CompleteRequest();
                         }
@@ -112,8 +117,11 @@ namespace Final_Herrera_Fernandez
         {
             var argument = ((Button)sender).CommandArgument;
             int ID = Convert.ToInt32(argument);
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ABMUsuarios.aspx'};", true);
+            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ABMUsuarios.aspx'};", true  );
+            //  NO LOGRE QUE ACTUALICE LA ELIMINANCION Y A SU VEZ K MANDE UNA ALERTA O K CONSULTE SI DESEA ELIMINAR ANTES DE HACERLO
             negocioUser.eliminar(ID);
+            
+            //Response.Write("<script>alert('Usuario Eliminado');</script>");
             Page.Response.Redirect(Page.Request.Url.ToString(), false);
             Context.ApplicationInstance.CompleteRequest();
 

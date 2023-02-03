@@ -12,11 +12,13 @@ namespace Final_Herrera_Fernandez
     public partial class CalendarioAdmin : System.Web.UI.Page
     {
         public List<Calendarios> listaCalendario { get; set; }
+
+        GrillaNegocios negocio = new GrillaNegocios();
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuario cuenta = (Usuario)Session["cuenta"];
 
-            GrillaNegocios negocio = new GrillaNegocios();
+            
             try
             {
                 if (cuenta.Tipo == 1)
@@ -27,15 +29,46 @@ namespace Final_Herrera_Fernandez
                     CalendarioEvento.VisibleDate = DateTime.Today;
                     CalendarioEvento.SelectedDate = DateTime.Today;
                     listaCalendario = negocio.Listar(fechasistema);
-                    GVCalendario.DataSource = listaCalendario;
-                    GVCalendario.DataBind();
+                        if (listaCalendario.Count == 0)
+                        {
+                            PanelEvento.Visible = false;
+                            LBlEvento.Visible = true;
+                            LBlEvento.Text = "Hoy no hay eventos programados";
+                            rep.DataSource = listaCalendario;
+                            rep.DataBind();
+                        }
+                        else { 
+                        
+                            PanelEvento.Visible = true;
+                            LBlEvento.Visible = false;
+                            rep.DataSource = listaCalendario;
+                            rep.DataBind(); 
+                           
+                         }
 
-                }
+                    }
 
                 DateTime fechaseleccionada = Convert.ToDateTime(CalendarioEvento.SelectedDate.ToShortDateString());
                 listaCalendario = negocio.Listar(fechaseleccionada);
-                GVCalendario.DataSource = listaCalendario;
-                GVCalendario.DataBind();
+                    if (listaCalendario.Count == 0)
+                    {
+                        PanelEvento.Visible = false;
+                        LBlEvento.Visible = true;
+                        LBlEvento.Text = "Hoy no hay eventos programados";
+                        rep.DataSource =  listaCalendario ;
+                        rep.DataBind();
+
+                    }
+                    else
+                    {
+
+                        PanelEvento.Visible = true;
+                        LBlEvento.Visible = false;
+                        rep.DataSource = listaCalendario;
+                        rep.DataBind();
+                       
+                    }
+                   
                 }
                 else
                 {
@@ -49,14 +82,40 @@ namespace Final_Herrera_Fernandez
               catch (Exception ex)
             {
 
-                Session.Add("Error", ex.ToString());
-
-                Response.Redirect("Error.aspx");
+                
 
             }
             
             
          
+        }
+
+        protected void GVCalendario_RowDeleted(object sender, GridViewDeletedEventArgs e)
+        {
+            
+        }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            //INTENTE USAR MODAL PERO NO LOGRO QUE DESDE EL BOTON MODIFICAR ME ABRA EL MODAL DEL FORMULARIO ,SI LO CARGA Y SI ACCEDO DEL BOTON "CREAR USUARIO" LO MUESTRA PRECARGADO ,CREO QUE SE DEBE A K NO USO BUTTON SINO ASPBUTTON 
+            Calendario CalendarioModificar = new Calendario();
+            var argument = ((Button)sender).CommandArgument;
+            int ID = Convert.ToInt32(argument);
+            Session.Add("CalendarioModif", ID);
+            Response.Redirect("ModificarCalendario.aspx");
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            var argument = ((Button)sender).CommandArgument;
+            int ID = Convert.ToInt32(argument);
+            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ABMUsuarios.aspx'};", true  );
+            //  NO LOGRE QUE ACTUALICE LA ELIMINANCION Y A SU VEZ K MANDE UNA ALERTA O K CONSULTE SI DESEA ELIMINAR ANTES DE HACERLO
+            negocio.eliminar(ID);
+
+            //Response.Write("<script>alert('Usuario Eliminado');</script>");
+            Page.Response.Redirect(Page.Request.Url.ToString(), false);
+            Context.ApplicationInstance.CompleteRequest();
         }
     }
 }

@@ -12,14 +12,16 @@
                 </button>
             </div>
             <div class="col-12">
-                <asp:GridView ID="Lista" CssClass="table table-primary" runat="server"></asp:GridView>
+               
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Apellido</th>
+                            <th scope="col">Usuario</th>
                             <th scope="col">Email</th>
                             <th scope="col">Depto</th>
+                            <th scope="col">Tipo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,8 +30,10 @@
                                 <tr>
                                         <td><%#Eval("Nombre") %></td>
                                         <td><%#Eval("Apellido")%></td>
+                                        <td><%#Eval("NombreUsuario")%></td>
                                         <td><%#Eval("Email")%></td>
-                                        <td><%#Eval("Departamento.Descripcion")%></td>                                      
+                                        <td><%#Eval("Departamento.Descripcion")%></td> 
+                                         <td><%#Eval("Tipo") %></td>
                                         <td><asp:Button  Text="Modificar" ID="btnModificar" CssClass="btn btn-primary" runat="server"  CommandArgument='<%#Eval("id") %>' OnClick="btnModificar_Click"     /></td> </button>
                                     <td><asp:Button runat="server" ID="btnDelete" CommandArgument='<%#Eval("id") %>' Text="Eliminar" CssClass="btn btn-danger" OnClick= "btnDelete_Click" /></td>
                                 </tr>
@@ -56,11 +60,11 @@
                                 <asp:Label ID="LblDpto" runat="server" class="form-control mb-2" Text="Ingrese su Depto" ForeColor="#660066"></asp:Label>
                                 <asp:DropDownList ID="DDLDepto" class="form-control mb-2" runat="server" placeholder="Ingrese Su ID de Departamento" AutoPostBack="False" DataTextField="descripcion" DataValueField="id"></asp:DropDownList>     
                                 <asp:TextBox ID="TxtNombreUsuario" class="form-control mb-2" type="text" placeholder="Ingrese Nombre de usuario" aria-label="Ingrese Nombre de Usuario" runat="server"></asp:TextBox>
-                                <asp:Label ID="LblPass" runat="server" class="form-control mb-2" Text="No distingue minusculas" ForeColor="#660066"></asp:Label>
+                                <asp:Label ID="LblPass" runat="server" class="form-control mb-2" Text=" Se convertiran a mayusculas!!" ForeColor="#660066"></asp:Label>
                                 <asp:TextBox ID="TxtPass" class="form-control mb-2" MaxLength="8" type="password" placeholder="Ingrese su Contraseña 8 caracteres max" runat="server" CssClass="form-control mb-2"></asp:TextBox>                               
                                 <asp:TextBox ID="TxtApellido" class="form-control mb-2" type="text" placeholder="Ingrese su Apellido" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
                                 <asp:TextBox ID="TxtNombre" class="form-control mb-2" type="text" placeholder="Ingrese su Nombre" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
-                                <asp:TextBox ID="TxtEmail" class="form-control mb-2" type="email" placeholder="Ingrese su Email (no distingue minusculas)" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TxtEmail" class="form-control mb-2" type="email" placeholder="Ingrese su Email ( se convertira a mayusculas!!)" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
                                 
                                 <asp:Label ID="LblNac" runat="server" class="form-control mb-2" Text="Ingrese su Fecha Nac" ForeColor="#660066"></asp:Label>
                                 <asp:TextBox ID="FechaNac" runat="server" Type="Date" class="form-control" placeholder="yyyy/mm/dd" ></asp:TextBox>

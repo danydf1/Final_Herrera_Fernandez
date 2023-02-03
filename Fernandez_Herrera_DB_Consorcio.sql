@@ -6,7 +6,7 @@ use Fernandez_Herrera_DB_Consorcio
 GO
 create  table CALENDARIOS  (
  ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1), 
- FECHA VARCHAR(10) NOT NULL,
+ FECHA DATE NOT NULL,
  HORA  TIME NOT NULL,
 EVENTO VARCHAR(50) NOT NULL,
  DESCRIPCION VARCHAR(MAX) NULL,
@@ -66,7 +66,7 @@ create table Usuarios (
  FECHAALTA DATE NOT NULL,
  IDTIPO INT NOT NULL FOREIGN KEY REFERENCES TipoUsuarios(ID),
  IDDepto INT NOT NULL FOREIGN KEY REFERENCES Departamento(ID),
- Estado bit not null 
+ Estado bit not null  
 )
 
 GO
@@ -95,8 +95,8 @@ INSERT INTO Departamento VALUES ('PB B')
 INSERT INTO Departamento VALUES ('1 A')
 INSERT INTO Departamento VALUES ('1 B')
 --USUARIOS--
-INSERT INTO Usuarios VALUES ('NicoAdmin','Nicolas','Herrera','admin@gmail.com','1234','1986/11/04',getdate(),1,1,1)
-INSERT INTO Usuarios VALUES ('DaniVecino','DAniel','Fernandez','vecino@gmail.com','1234','1986/11/04',getdate(),2,2,1)
+INSERT INTO Usuarios VALUES ('NicoAdmin','Nicolas','Herrera','admin@gmail.com','1234','1986-11-04',getdate(),1,1,1)
+INSERT INTO Usuarios VALUES ('DaniVecino','DAniel','Fernandez','vecino@gmail.com','1234','1986-11-04',getdate(),2,2,1)
 --Estados Proyectos
 INSERT INTO EstadosProyectos VALUES('Pendiente')
 INSERT INTO EstadosProyectos VALUES('Evaluando')
@@ -230,3 +230,40 @@ BEGIN
 	End Catch
 END
 
+---CALENDARIO----
+go
+Create PROCEDURE sp_Modif_calendario(
+@ID bigint,
+@Fecha date,
+@Hora time ,
+@Evento varchar(50),
+@Descripcion varchar(max)
+)
+AS 
+BEGIN
+	Begin try 
+	UPDATE Calendarios SET  Fecha=@Fecha,Hora=@Hora,Evento=@Evento,Descripcion =@Descripcion,Estado=1 where ID =@ID;   
+
+	End try
+    Begin Catch
+        RAISERROR('Error grave al guardar el evento', 16, 1)
+	End Catch
+END
+
+go
+Create PROCEDURE sp_ins_evento(
+@Fecha date,
+@Hora time ,
+@Evento varchar(50),
+@Descripcion varchar(max)
+
+)
+AS 
+BEGIN
+	Begin try 
+		INSERT INTO Calendarios(Fecha,Hora,Evento,Descripcion,Estado) VALUES(@Fecha,@Hora,@Evento,@Descripcion,1)
+	End try
+    Begin Catch
+        RAISERROR('Error grave al guardar el evento', 16, 1)
+	End Catch
+END

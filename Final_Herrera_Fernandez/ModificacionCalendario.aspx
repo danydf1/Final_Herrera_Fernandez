@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ModificacionUsuario.aspx.cs" Inherits="Final_Herrera_Fernandez.ModificacionUsuario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ModificacionCalendario.aspx.cs" Inherits="Final_Herrera_Fernandez.ModificacionCalendario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+     
     <div class="container text-center" aria-multiline="True">
             <div class="row">
                 <div class="col-12 mb-5">
@@ -43,5 +43,4 @@
                
                     <asp:Button ID="BtnAgregar" Text="Modificar" OnClick="BtnAgregar_Click" runat="server" CssClass="btn btn-primary" type="submit" />
            </div>
-
 </asp:Content>

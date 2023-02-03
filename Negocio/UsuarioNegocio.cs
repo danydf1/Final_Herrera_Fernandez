@@ -50,8 +50,16 @@ namespace Negocio
                     aux.Nombre = (string)Datos.Lector["NOMBRE"];
                     aux.Apellido = (string)Datos.Lector["APELLIDO"];
                     aux.Email = (string)Datos.Lector["EMAIL"];
-                    
-                    aux.Pass = ecriptacion.Desencripta((string)Datos.Lector["PASS"]);
+                    aux.NombreUsuario = (string)Datos.Lector["NombreUsuario"];
+                    // lo utilizo pra usar los 2 email que traigo x base de dato  ya que viene encriptado
+                    if (aux.Email == "admin@gmail.com" || aux.Email == "vecino@gmail.com")
+                    {
+                        aux.Pass = (string)Datos.Lector["PASS"];
+                    }
+                    else
+                    {
+                        aux.Pass = ecriptacion.Desencripta((string)Datos.Lector["PASS"]);
+                    }
                     aux.FechaNac = (DateTime)Datos.Lector["FECHANAC"];
                     aux.departamento = new Departamento();
                     aux.departamento.ID = (int)Datos.Lector["IDDepto"];
@@ -112,7 +120,9 @@ namespace Negocio
             if (email != "vecino@gmail.com" && email != "admin@gmail.com")
             {
                 pass = ecriptacion.Encripta(pass);
+
             }
+           
 
 
             Datos.setearConsulta("select * from usuarios where email= '" + email + "'and pass='" + pass + "'");
@@ -123,21 +133,28 @@ namespace Negocio
                 Datos.Lector.Read();
 
                 Usuario aux = new Usuario();
-               
+                
                 aux.ID = (long)Datos.Lector["Id"];
                 aux.NombreUsuario = (string)Datos.Lector["Nombreusuario"];
-                aux.Apellido = (string)Datos.Lector["Apellido"];
+                aux.Apellido = (string)Datos.Lector["Apellido"];  
                 aux.Nombre = (string)Datos.Lector["Nombre"];
                 aux.Email = (string)Datos.Lector["Email"];
-
-                aux.Pass = ecriptacion.Desencripta((string)Datos.Lector["PASS"]);
+                // lo utilizo pra usar los 2 email que traigo x base de dato  ya que viene encriptado
+                if (aux.Email == "admin@gmail.com" || aux.Email== "vecino@gmail.com")
+                {
+                    aux.Pass = (string)Datos.Lector["PASS"];
+                }
+                else
+                {
+                 aux.Pass = ecriptacion.Desencripta((string)Datos.Lector["PASS"]); 
+                }
                 aux.FechaNac = (DateTime)Datos.Lector["FechaNac"];
                 aux.FechaAlta = (DateTime)Datos.Lector["Fechaalta"];
                 aux.Tipo = (int)Datos.Lector["Idtipo"];
                 aux.Estado = (bool)Datos.Lector["Estado"];
 
 
-                return aux;
+                return aux; 
             }
             catch (Exception)
             {
