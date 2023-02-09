@@ -62,7 +62,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title " id="staticBackdropLabel">Registrar Usuario</h5>
+                    <h5 class="modal-title " id="staticBackdropLabel">Registrar Calendario</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -70,35 +70,18 @@
                         <div class="row">
 
                             <div class="col-12">
-                                <asp:Label ID="LblDpto" runat="server" class="form-control mb-2" Text="Ingrese su Depto" ForeColor="#660066"></asp:Label>
-                                <asp:DropDownList ID="DDLDepto" class="form-control mb-2" runat="server" placeholder="Ingrese Su ID de Departamento" AutoPostBack="False" DataTextField="descripcion" DataValueField="id"></asp:DropDownList>     
-                                <asp:TextBox ID="TxtNombreUsuario" class="form-control mb-2" type="text" placeholder="Ingrese Nombre de usuario" aria-label="Ingrese Nombre de Usuario" runat="server"></asp:TextBox>
-                                <asp:Label ID="LblPass" runat="server" class="form-control mb-2" Text=" Se convertiran a mayusculas!!" ForeColor="#660066"></asp:Label>
-                                <asp:TextBox ID="TxtPass" class="form-control mb-2" MaxLength="8" type="password" placeholder="Ingrese su Contraseña 8 caracteres max" runat="server" CssClass="form-control mb-2"></asp:TextBox>                               
-                                <asp:TextBox ID="TxtApellido" class="form-control mb-2" type="text" placeholder="Ingrese su Apellido" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
-                                <asp:TextBox ID="TxtNombre" class="form-control mb-2" type="text" placeholder="Ingrese su Nombre" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
-                                <asp:TextBox ID="TxtEmail" class="form-control mb-2" type="email" placeholder="Ingrese su Email ( se convertira a mayusculas!!)" aria-label="Ingrese Nombre" runat="server"></asp:TextBox>
-                                
-                                <asp:Label ID="LblNac" runat="server" class="form-control mb-2" Text="Ingrese su Fecha Nac" ForeColor="#660066"></asp:Label>
-                                <asp:TextBox ID="FechaNac" runat="server" Type="Date" class="form-control" placeholder="yyyy/mm/dd" ></asp:TextBox>
-                            </div>
-                            <div class="col-6">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioAdmin" runat="server">
-                                <label class="form-control mb-2" for="flexRadioDefault1" id="LblAdmin" runat="server">
-                                    Administrador
-                                </label>
-                            </div>
-                            <div class="col-6">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioVecino" runat="server" checked />
-                                <label class="form-control mb-2" for="flexRadioDefault2" id="LblVecino" runat="server">
-                                    Vecino
-                                </label>
+                                 <asp:Label ID="LblFecha" runat="server" class="form-control mb-2" Text="Ingrese la fecha del evento " ForeColor="#660066"></asp:Label>     
+                                <asp:TextBox ID="TxtFecha" class="form-control mb-2" type="date" runat="server"></asp:TextBox>
+                                <asp:Label ID="LBlHora" runat="server" class="form-control mb-2" Text="Ingrese la Hora del evento " ForeColor="#660066"></asp:Label>  
+                                <asp:TextBox ID="TxtHora" class="form-control mb-2"  type="time" runat="server" CssClass="form-control mb-2"></asp:TextBox>                               
+                                <asp:TextBox ID="TxtEvento" class="form-control mb-2" type="text" placeholder="Ingrese el Evento"  runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TxtDescripcion" class="form-control mb-2" type="text" placeholder="Ingrese una breve descripcion si lo desea"  runat="server" TextMode="MultiLine" MaxLength="500"></asp:TextBox>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <asp:Button ID="BtnAgregar" Text="Registrar"  Onclick="BtnAgregar_OnClick" runat="server" CssClass="btn btn-primary" type="submit" />
+                    <asp:Button ID="BtnAgregar" Text="Registrar" Onclick="BtnAgregar_Click" runat="server" CssClass="btn btn-primary" type="submit" />
                 </div>
             </div>
         </div>

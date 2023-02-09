@@ -14,7 +14,7 @@ namespace Negocio
             List<Calendarios> lista = new List<Calendarios>();
             AccesoDatos Datos = new AccesoDatos();
             //pongo en una cadena la fecha que viene por parametro , tuve que descomponer de esta manera la fecha por k en sql tiene este formato amo mes dia y no encontre otra forma de que me lo tome,
-            string fechaseleccionada = "'" + fecha.Day + "/" + fecha.Month + "/" + fecha.Year + "'";
+            string fechaseleccionada = "'" + fecha.Year + "/" + fecha.Month + "/" + fecha.Day + "'";
             Datos.setearConsulta("select  id,hora,evento ,descripcion from calendarios where estado = 1 and fecha =" + fechaseleccionada + "");
             Datos.ejecutarLectura();
 
@@ -90,6 +90,42 @@ namespace Negocio
             {
                 datos.cerrarConexion();
                 datos = null;
+            }
+        }
+
+        public Calendarios TraerEvento(int id)
+        {
+            Usuario cuenta = new Usuario();
+            AccesoDatos Datos = new AccesoDatos();
+
+
+
+            Datos.setearConsulta("select * from calendarios where estado = 1 and id=" + id);
+            Datos.ejecutarLectura();
+
+            try
+            {
+                Datos.Lector.Read();
+
+                Calendarios aux = new Calendarios();
+
+                aux.Id = (long)Datos.Lector["Id"];
+                aux.Fecha = (DateTime)Datos.Lector["Fecha"];
+                aux.Horario = Convert.ToString(Datos.Lector["Hora"]);
+                aux.evento = (string)Datos.Lector["Evento"];
+                aux.Descripcion = (string)Datos.Lector["Descripcion"];
+                aux.Estado = (bool)Datos.Lector["Estado"];
+
+
+                 return aux;
+            }
+             catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                Datos.cerrarConexion();
             }
         }
     }

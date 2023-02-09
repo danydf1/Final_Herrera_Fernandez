@@ -10,7 +10,7 @@ namespace Dominio
     {
         //public String Fecha { get; set; }
 
-        public Int32 Id { get; set;
+        public long Id { get; set;
         }
         public String Horario { get; set; }
 
@@ -20,5 +20,6 @@ namespace Dominio
 
         public string Descripcion { get; set; }
 
+        public bool  Estado { get; set; }
     }
 }

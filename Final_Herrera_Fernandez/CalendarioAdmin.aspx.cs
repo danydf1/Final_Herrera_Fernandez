@@ -102,7 +102,7 @@ namespace Final_Herrera_Fernandez
             var argument = ((Button)sender).CommandArgument;
             int ID = Convert.ToInt32(argument);
             Session.Add("CalendarioModif", ID);
-            Response.Redirect("ModificarCalendario.aspx");
+            Response.Redirect("ModificacionCalendario.aspx");
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -117,5 +117,41 @@ namespace Final_Herrera_Fernandez
             Page.Response.Redirect(Page.Request.Url.ToString(), false);
             Context.ApplicationInstance.CompleteRequest();
         }
-    }
+
+        protected void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            
+
+            Usuario usuariologuiado = new Usuario();
+            usuariologuiado = (Usuario)Session["Cuenta"];
+
+            Calendarios calendario = new Calendarios();
+            calendario.Fecha = DateTime.Parse(TxtFecha.Text);
+            calendario.Horario = TxtHora.Text;
+            calendario.evento= TxtEvento.Text;
+            calendario.Descripcion = TxtDescripcion.Text;
+            calendario.Estado = true;
+               
+                {
+                    if (usuariologuiado == null)
+                    {
+                        Response.Write("<script>alert('Utd debe loguearse  y ser administrador para dar de alta');</script>");
+                    }
+
+                    else if (usuariologuiado.Tipo == 1)
+                    {
+                        negocio.AgregarEvento(calendario);
+                        //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ABMUsuarios.aspx'};", true  )
+                        //  NO LOGRE QUE DE ALTA Y A SU VEZ K MANDE UNA ALERTA O K CONSULTE ANTES DE HACERLO
+                        Response.Write("<script>alert('Evento Agregado');</script>");
+                        Page.Response.Redirect(Page.Request.Url.ToString(), false);
+                        Context.ApplicationInstance.CompleteRequest();
+                    }
+
+                }
+
+            }
+
+        }
+    
 }
