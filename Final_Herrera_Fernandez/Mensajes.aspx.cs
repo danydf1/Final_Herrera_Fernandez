@@ -25,7 +25,7 @@ namespace Final_Herrera_Fernandez
                     UsuarioNegocio negocio = new UsuarioNegocio();
 
                     usuarios = negocio.ListaUsuarios();
-
+                     
                     foreach (Usuario user in usuarios)
                     {
                         item.Text = user.Nombre + " " + user.Apellido;
@@ -55,12 +55,12 @@ namespace Final_Herrera_Fernandez
 
         protected void Button_Click(object sender, EventArgs e)
         {
-            logic ObjetoLogic = new logic();
+              logic ObjetoLogic = new logic();
 
             if (selectMail.SelectedValue != "")
             {
 
-                string msg = ObjetoLogic.EnviarCorreo(selectMail.SelectedValue, asunto.Text.Trim(), mensaje.Value);
+                string msg = ObjetoLogic.EnviarCorreo(selectMail.SelectedValue, asunto.Text.Trim(), mensaje.InnerText.Trim());
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('" + msg + "');window.location='Mensajes.aspx';", true);
 
             }

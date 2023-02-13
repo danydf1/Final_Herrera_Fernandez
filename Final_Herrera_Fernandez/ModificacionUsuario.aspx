@@ -41,7 +41,7 @@
                         </div>
                    
                
-                    <asp:Button ID="BtnAgregar" Text="Modificar"  runat="server" CssClass="btn btn-primary" type="submit" />
+                    <asp:Button ID="BtnAgregar" Text="Modificar" OnClick="BtnAgregar_Click" runat="server" CssClass="btn btn-primary" type="submit" />
            </div>
 
 </asp:Content>

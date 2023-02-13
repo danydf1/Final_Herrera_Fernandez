@@ -23,7 +23,7 @@ namespace Negocio
 
             user.Pass = ecriptacion.Encripta(user.Pass);
             datos.setearParametro("@Pass" , user.Pass);
-            datos.setearParametro("@FechaNac", user.FechaNac.ToString());
+            datos.setearParametro("@FechaNac", user.FechaNac);
             datos.setearParametro("@IdTipo",user.Tipo);
             datos.setearParametro("@IdDepto", user.IDDepto);
 
@@ -241,8 +241,15 @@ namespace Negocio
                 aux.Apellido = (string)Datos.Lector["Apellido"];
                 aux.Nombre = (string)Datos.Lector["Nombre"];
                 aux.Email = (string)Datos.Lector["Email"];
-
-                aux.Pass = ecriptacion.Desencripta((string)Datos.Lector["PASS"]);
+                // lo utilizo pra usar los 2 email que traigo x base de dato  ya que viene encriptado
+                if (aux.Email == "admin@gmail.com" || aux.Email == "vecino@gmail.com")
+                {
+                    aux.Pass = (string)Datos.Lector["PASS"];
+                }
+                else
+                {
+                    aux.Pass = ecriptacion.Desencripta((string)Datos.Lector["PASS"]);
+                }
                 aux.FechaNac = (DateTime)Datos.Lector["FechaNac"];
                 aux.FechaAlta = (DateTime)Datos.Lector["FechaAlta"];
                 aux.Tipo = (Int32)Datos.Lector["Idtipo"];

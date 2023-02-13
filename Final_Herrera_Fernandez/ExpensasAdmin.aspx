@@ -8,8 +8,11 @@
                 <h1>Expensas</h1>
             </div>
             <div class="col-12 d-flex justify-content-center">
-                <asp:DropDownList ID="selectVecino" CssClass="form-select my-3" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="selectVecino" CssClass="form-select my-3" runat="server"  ></asp:DropDownList>
+                 <asp:Button CssClass="btn btn-primary mx-2" ID="BtnFiltrar"  runat="server" Text="Filtrar " />
             </div>
+                </div>
+            
             <div class="col-12 d-flex justify-content-center">
                 <asp:DropDownList ID="SelectMes" CssClass="form-select my-3" runat="server">
                     <asp:ListItem Value="Enero">Enero</asp:ListItem>
@@ -30,7 +33,7 @@
                 <asp:FileUpload ID="fuImagen" class="form-control" CssClass="mb-4" runat="server" />
             </div>
             <div class="col-12  d-flex justify-content-center">
-                <button type="button" class="btn btn-primary  mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" id="BtnCargadas"  class="btn btn-primary  mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal"   >
                     Cargadas
                 </button>
                 <asp:Button CssClass="btn btn-primary mx-2" ID="btnSubir" OnClick="btnSubir_Click" OnClientClick="return ValidarFormulario();" runat="server" Text="Subir" />
@@ -70,11 +73,12 @@
                         <%foreach (var item in listaGrilla)
                             {%>
                         <tr>
-                            <td><%= item.Depto.Descripcion %></td>
+                             <td><%= item.Depto.Descripcion %></td>
                             <td><%= item.vecino.Nombre %></td>
                             <td><%= item.vecino.Apellido %></td>
                             <td><%=item.Mes%></td>
                             <td><a class="btn btn-primary" target="_blank" href="<%=item.visorImagen %>">Ver</a></td>
+                            
                         </tr>
                         <%} %>
                     </tbody>
@@ -86,6 +90,7 @@
                     </div>
                 </div>
             </div>
+      
         </div>
     </div>
 </asp:Content>

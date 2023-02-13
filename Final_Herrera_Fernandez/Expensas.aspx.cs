@@ -32,7 +32,7 @@ namespace Final_Herrera_Fernandez
                 //}
 
 
-                listaGrilla = negocio.ListarRegistros(usuario.ID);
+                listaGrilla = negocio.ListarRegistrosXVecino(usuario.ID);
                 Session.Add("ListarComponentes", listaGrilla);
                     } 
                     else

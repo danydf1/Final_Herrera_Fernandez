@@ -14,46 +14,69 @@ namespace Final_Herrera_Fernandez
 
         public List<Usuario> usuarios { get; set; }
         public List<Archivos> listaGrilla { get; set; }
-        ExpensasNegocios expensasNegocios = new ExpensasNegocios();
 
+        ExpensasNegocios expensasNegocios = new ExpensasNegocios();
+        bool pagina = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuario cuenta = (Usuario)Session["cuenta"];
-            try
-            {
+ 
+                try
+                {
 
                 if (cuenta.Tipo == 1)
                 {
-                    ListItem item = new ListItem();
-                    UsuarioNegocio negocio = new UsuarioNegocio();
-
-                    usuarios = negocio.ListaUsuarios();
-                    foreach (Usuario user in usuarios)
+                    
+                    if (pagina == false)
                     {
-                        item.Text = user.Nombre + " " + user.Apellido;
-                        item.Value = user.ID.ToString();
-                        selectVecino.Items.Add(item);
-                        item = new ListItem();
+                        ListItem item = new ListItem();
+                        UsuarioNegocio negocio = new UsuarioNegocio();
+
+                        usuarios = negocio.ListaUsuarios();
+                        foreach (Usuario user in usuarios)
+                        {
+                            item.Text = user.Nombre + " " + user.Apellido;
+                            item.Value = user.ID.ToString();
+                            selectVecino.Items.Add(item);
+                            item = new ListItem();
+
+                        }
+                        pagina = true;
+                    }
+                    if (!IsPostBack)
+                    {
+                      
+                        listaGrilla = expensasNegocios.ListarRegistros();
+                        Session.Add("ListarComponentes", listaGrilla);
+                    }
+                    else
+                    {
+                       
+
+                        long Id = Convert.ToInt32(selectVecino.SelectedValue);
+                        listaGrilla = expensasNegocios.ListarRegistrosXVecino(Id);
+                        Session.Add("ListarComponentes", listaGrilla);
+
                     }
 
-
-                    listaGrilla = expensasNegocios.ListarRegistros();
-                    Session.Add("ListarComponentes", listaGrilla);
                 }
+
                 else
                 {
                     // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
                     Response.Redirect("Error.aspx");
                 }
+   
+                }
 
-
-
-            }
-            catch (Exception ex)
-            {
-                string mensaje = ex.Message;
-            }
-
+               
+                catch (Exception ex)
+                {
+                    string mensaje = ex.Message;
+                }
+        
+           
+          
            
         }
 
@@ -71,5 +94,9 @@ namespace Final_Herrera_Fernandez
                 lblMensajeError.Text = "error al subir imagen";
             }
         }
+
+        
+
+        
     }
 }
