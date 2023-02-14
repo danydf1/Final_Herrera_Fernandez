@@ -4,14 +4,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <div class="container ">
         <div class="row">
+            
             <div class="col-12  d-flex justify-content-center">
                 <h1>Expensas</h1>
             </div>
             <div class="col-12 d-flex justify-content-center">
-                <asp:DropDownList ID="selectVecino" CssClass="form-select my-3" runat="server"  ></asp:DropDownList>
+                <asp:DropDownList ID="selectVecino" CssClass="form-select my-3" runat="server"   ></asp:DropDownList>
                  <asp:Button CssClass="btn btn-primary mx-2" ID="BtnFiltrar"  runat="server" Text="Filtrar " />
             </div>
-                </div>
+                
             
             <div class="col-12 d-flex justify-content-center">
                 <asp:DropDownList ID="SelectMes" CssClass="form-select my-3" runat="server">
@@ -29,6 +30,8 @@
                     <asp:ListItem Value="Diciembre">Diciembre</asp:ListItem>
                 </asp:DropDownList>
             </div>
+          </div>
+         
             <div class="col-12 d-flex justify-content-center">
                 <asp:FileUpload ID="fuImagen" class="form-control" CssClass="mb-4" runat="server" />
             </div>
