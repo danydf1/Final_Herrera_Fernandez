@@ -13,7 +13,8 @@ namespace Dominio
         public string NombreContacto { get; set; }
         public string Telefono { get; set; }
         public string Horarios { get; set; }
-
+        public string Sitio { get; set; }
+        public string Ubicacion { get; set; }
         public bool estado { get; set; }
 
     }

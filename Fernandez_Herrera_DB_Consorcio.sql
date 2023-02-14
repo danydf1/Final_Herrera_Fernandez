@@ -25,9 +25,11 @@ create table ServiciosRecomendados(
 ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1), 
 txt_Servicio VARCHAR(50) NOT NULL,
 txt_Nombre VARCHAR(50) NOT NULL,
-NroContacto  VARCHAR(15) NOT NULL,
+NroContacto  VARCHAR(15)  NULL,
 Horarios Varchar(50) NULL,
- ESTADO BIT NOT NULL,
+Sitio varchar(max) null,
+Ubicacion varchar(max) null,
+ ESTADO BIT NOT NULL
 )
 GO
 create table CATEGORIAS (
@@ -114,8 +116,8 @@ INSERT INTO CALENDARIOS VALUES( GETDATE(),'10:00','REUNION CONSORCIO','LOS TEMAS
 
 
 --SERVICIOS RECOMENDADOS
-INSERT INTO  ServiciosRecomendados VALUES('plomeria','el tano','15444333','lun-vie de 8 a 17hs',1)
-INSERT INTO  ServiciosRecomendados VALUES('plomeria','manolo','46001553','24hs',1)
+INSERT INTO  ServiciosRecomendados VALUES('plomeria','el tano','15444333','lun-vie de 8 a 17hs','https://www.buloneramartelli.com.ar/','https://goo.gl/maps/YRzDDxFkYachseh46',1)
+INSERT INTO  ServiciosRecomendados VALUES('plomeria','manolo','46001553','24hs','sin sitio','No tiene',1)
 --CATEGORIAS AVISOS
 INSERT INTO CATEGORIAS VALUES('CALENDARIO')
 INSERT INTO CATEGORIAS VALUES('MENSAJES')

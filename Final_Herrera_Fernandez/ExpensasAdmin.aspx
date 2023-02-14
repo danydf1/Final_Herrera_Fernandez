@@ -10,7 +10,7 @@
             </div>
             <div class="col-12 d-flex justify-content-center">
                 <asp:DropDownList ID="selectVecino" CssClass="form-select my-3" runat="server"   ></asp:DropDownList>
-                 <asp:Button CssClass="btn btn-primary mx-2" ID="BtnFiltrar"  runat="server" Text="Filtrar " />
+                 <asp:Button CssClass="btn btn-primary mx-2" ID="BtnFiltrar"  runat="server" Text="Filtrar Expensas por vecino " />
             </div>
                 
             
@@ -37,9 +37,9 @@
             </div>
             <div class="col-12  d-flex justify-content-center">
                 <button type="button" id="BtnCargadas"  class="btn btn-primary  mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal"   >
-                    Cargadas
+                   Expensas Cargadas
                 </button>
-                <asp:Button CssClass="btn btn-primary mx-2" ID="btnSubir" OnClick="btnSubir_Click" OnClientClick="return ValidarFormulario();" runat="server" Text="Subir" />
+                <asp:Button CssClass="btn btn-primary mx-2" ID="btnSubir" OnClick="btnSubir_Click" OnClientClick="return ValidarFormulario();" runat="server" Text="Subir Archivo" />
             </div>
         </div>
         <div>

@@ -28,6 +28,8 @@ namespace Negocio
                     aux.NombreContacto = (string)Datos.Lector["txt_Nombre"];
                     aux.Telefono = (string)Datos.Lector["NroContacto"];
                     aux.Horarios = (string)Datos.Lector["Horarios"];
+                    aux.Sitio = (string)Datos.Lector["Sitio"];
+                    aux.Ubicacion = (string)Datos.Lector["Ubicacion"];
                     aux.estado = (bool)Datos.Lector["ESTADO"];
 
                     lista.Add(aux);
@@ -44,7 +46,7 @@ namespace Negocio
             }
         }
 
-        public bool Eliminar(string id)
+        public bool Eliminar(int id)
         {
             try
             {

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -43,20 +43,24 @@ namespace Final_Herrera_Fernandez
 
              
             }
-            catch (Exception)
+            catch (Exception )
             {
 
-                throw;
+                Response.Redirect("Error.aspx");
             }
         }
 
         protected void btnDelete_Command(object sender, CommandEventArgs e)
         {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ServiciosRecomendadosAdmin.aspx'};", true);
-            if (negocio.Eliminar(e.CommandArgument.ToString()))
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('Se elmino Correctamente');window.location='ServiciosRecomendadosAdmin.aspx';", true);
-            }
+            var argument = ((Button)sender).CommandArgument;
+            int ID = Convert.ToInt32(argument);
+            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ABMUsuarios.aspx'};", true  );
+            //  NO LOGRE QUE ACTUALICE LA ELIMINANCION Y A SU VEZ K MANDE UNA ALERTA O K CONSULTE SI DESEA ELIMINAR ANTES DE HACERLO
+            negocio.Eliminar(ID);
+
+            //Response.Write("<script>alert('Usuario Eliminado');</script>");
+            Page.Response.Redirect(Page.Request.Url.ToString(), false);
+            Context.ApplicationInstance.CompleteRequest();
         }
     }
 }
