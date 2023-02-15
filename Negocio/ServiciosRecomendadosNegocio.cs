@@ -29,7 +29,9 @@ namespace Negocio
                     aux.Telefono = (string)Datos.Lector["NroContacto"];
                     aux.Horarios = (string)Datos.Lector["Horarios"];
                     aux.Sitio = (string)Datos.Lector["Sitio"];
+                    aux.ImgSitio = (string)Datos.Lector["ImgSitio"];
                     aux.Ubicacion = (string)Datos.Lector["Ubicacion"];
+                    aux.ImgUbicacion = (string)Datos.Lector["ImgUbicacion"];
                     aux.estado = (bool)Datos.Lector["ESTADO"];
 
                     lista.Add(aux);

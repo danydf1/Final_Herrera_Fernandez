@@ -30,8 +30,9 @@
                                    <td><%#Eval("Servicio")%></td>
                                     <td><%#Eval("Telefono")%></td>
                                     <td><%#Eval("Horarios")%></td>
-                                    <td><asp:HyperLink ID="HyperLink1" ImageHeight="20px" ImageWidth="20px" ImageUrl="https://cdn-icons-png.flaticon.com/128/3449/3449750.png" href=<%#Eval("Sitio")%> runat="server"></asp:HyperLink></td>
-                                    <td><asp:HyperLink ID="HyperLink2"  ImageHeight="20px" ImageWidth="20px"  ImageUrl="https://cdn-icons-png.flaticon.com/512/447/447031.png" href=<%#Eval("Ubicacion")%> runat="server"></asp:HyperLink></td>                                  
+                                    
+                                    <td><asp:HyperLink ID="HLSitio" ImageHeight="20px" ImageWidth="20px" ImageUrl=<%#Eval("ImgSitio")%> href=<%#Eval("Sitio")%> runat ="server"></asp:HyperLink></td>
+                                    <td><asp:HyperLink ID="HLUbicacion"  ImageHeight="20px" ImageWidth="20px" ImageUrl=<%#Eval("ImgUbicacion")%> href=<%#Eval("Ubicacion")%> runat="server"></asp:HyperLink></td>                                  
                                     <td><a  href="ModificarServicio.aspx?id=<%#Eval("id") %>" Class="btn btn-secondary" >Modificar</a></td>
                                     <td><asp:Button runat="server" ID="btnDelete" CommandArgument='<%#Eval("id") %>' Text="Eliminar" CssClass="btn btn-danger" Oncommand="btnDelete_Command" /></td>
                                 </tr>

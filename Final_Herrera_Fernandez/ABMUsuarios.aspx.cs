@@ -48,13 +48,14 @@ namespace Final_Herrera_Fernandez
             }
             catch (Exception ex)
             {
-                string mensaje = ex.Message;
+                throw ex;
             }
-           
 
 
-           
-          
+
+
+
+
         }
 
         protected void BtnAgregar_Click(object sender, EventArgs e)

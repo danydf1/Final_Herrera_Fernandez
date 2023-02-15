@@ -19,11 +19,14 @@ namespace Final_Herrera_Fernandez
             Usuario cuenta = (Usuario)Session["cuenta"];
             try
             {
+                
                 if (cuenta.Tipo == 1)
                  {
                        if (Session["listaBuscados"] == null)
                  {
                     ListaRegistros = negocio.ServiciosRecomendados();
+                        
+
                     Session.Add("ListarSevicios", ListaRegistros);
                     rep.DataSource = ListaRegistros;
                     rep.DataBind();
@@ -46,7 +49,10 @@ namespace Final_Herrera_Fernandez
             catch (Exception )
             {
 
+               
                 Response.Redirect("Error.aspx");
+                
+                
             }
         }
 

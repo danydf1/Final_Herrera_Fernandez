@@ -28,7 +28,9 @@ txt_Nombre VARCHAR(50) NOT NULL,
 NroContacto  VARCHAR(15)  NULL,
 Horarios Varchar(50) NULL,
 Sitio varchar(max) null,
+ImgSitio varchar(max) null,
 Ubicacion varchar(max) null,
+ImgUbicacion varchar(max) null,
  ESTADO BIT NOT NULL
 )
 GO
@@ -116,8 +118,9 @@ INSERT INTO CALENDARIOS VALUES( GETDATE(),'10:00','REUNION CONSORCIO','LOS TEMAS
 
 
 --SERVICIOS RECOMENDADOS
-INSERT INTO  ServiciosRecomendados VALUES('plomeria','el tano','15444333','lun-vie de 8 a 17hs','https://www.buloneramartelli.com.ar/','https://goo.gl/maps/YRzDDxFkYachseh46',1)
-INSERT INTO  ServiciosRecomendados VALUES('plomeria','manolo','46001553','24hs','sin sitio','No tiene',1)
+
+INSERT INTO  ServiciosRecomendados VALUES('plomeria','manolo','46001553','24hs','Error.aspx','https://cdn-icons-png.flaticon.com/512/1006/1006720.png','Error.aspx','https://cdn-icons-png.flaticon.com/512/447/447031.png',1)
+INSERT INTO  ServiciosRecomendados VALUES('plomeria','manolo','46001553','24hs','https://www.flaticon.es/icono-gratis/ubicacion_1483336?term=ubicacion&related_id=1483336','https://cdn-icons-png.flaticon.com/512/1006/1006669.png','https://www.flaticon.es/icono-gratis/ubicacion_1483336?term=ubicacion&related_id=1483336','https://cdn-icons-png.flaticon.com/512/1483/1483336.png',1)
 --CATEGORIAS AVISOS
 INSERT INTO CATEGORIAS VALUES('CALENDARIO')
 INSERT INTO CATEGORIAS VALUES('MENSAJES')
@@ -220,12 +223,14 @@ CREATE PROCEDURE sp_ins_Servicio(
 @Nombre VARCHAR (50),
 @Servicio VARCHAR (50),
 @NroContacto VARCHAR(15),
-@Horarios VARCHAR (50)
+@Horarios VARCHAR (50),
+@Sitio VARCHAR (max),
+@Ubicacion VARCHAR(Max)
 )
 AS 
 BEGIN
 	Begin try 
-		INSERT INTO ServiciosRecomendados(txt_Servicio,txt_Nombre,NroContacto,Horarios,ESTADO) VALUES(@Servicio,@Nombre,@NroContacto,@Horarios,1)
+		INSERT INTO ServiciosRecomendados(txt_Servicio,txt_Nombre,NroContacto,Horarios,Sitio ,Ubicacion,ESTADO) VALUES(@Servicio,@Nombre,@NroContacto,@Horarios,@Sitio,@Ubicacion,1)
 	End try
     Begin Catch
         RAISERROR('Error grave al Enviar el proyecto', 16, 1)
@@ -240,7 +245,7 @@ Create PROCEDURE sp_Modif_calendario(
 @Hora time ,
 @Evento varchar(50),
 @Descripcion varchar(max)
-)
+) 
 AS 
 BEGIN
 	Begin try 
