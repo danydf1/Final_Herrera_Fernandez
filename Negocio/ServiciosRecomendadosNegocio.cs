@@ -82,6 +82,52 @@ namespace Negocio
             }
         }
 
+       public  ServiciosRecomendadosXAdmin TraerSR(int id)
+        {
+
+            AccesoDatos Datos = new AccesoDatos();
+
+
+
+            Datos.setearConsulta("select SR.ID,SR.IDSERVICIO,S.DESCRIPCION,SR.txt_Nombre,SR.NroContacto,SR.Horarios,SR.Sitio,SR.ImgSitio,SR.Ubicacion,SR.ImgUbicacion,SR.ESTADO from ServiciosRecomendados AS SR inner join SERVICIOS AS S ON SR.IDSERVICIO=S.ID where SR.ESTADO = 1 and SR.ID =" + id);
+            Datos.ejecutarLectura();
+
+            try
+            {
+
+                Datos.Lector.Read();
+                {
+                    ServiciosRecomendadosXAdmin aux = new ServiciosRecomendadosXAdmin();
+
+                    aux.ID = Convert.ToInt32((long)Datos.Lector["ID"]);
+                    aux.servicio = new Servicios();
+                    aux.servicio.ID = (Int32)Datos.Lector["IDSERVICIO"];
+                    aux.servicio.Descripcion = (String)Datos.Lector["DESCRIPCION"];
+                    aux.NombreContacto = (string)Datos.Lector["txt_Nombre"];
+                    aux.Contacto = (string)Datos.Lector["NroContacto"];
+                    aux.Horario = (string)Datos.Lector["Horarios"];
+                    aux.PaginaWeb = (string)Datos.Lector["Sitio"];
+                    aux.ImgSitio = (string)Datos.Lector["ImgSitio"];
+                    aux.Ubicacion = (string)Datos.Lector["Ubicacion"];
+                    aux.ImgUbi = (string)Datos.Lector["ImgUbicacion"];
+                    aux.estado = (bool)Datos.Lector["ESTADO"];
+
+                 return aux;
+                }
+
+                
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+         
+                Datos.cerrarConexion();
+            }
+        }
         public void AgregarServicio(ServiciosRecomendadosXAdmin ser)
         {
             Datos.setearSP("sp_ins_serviciorecomendado");

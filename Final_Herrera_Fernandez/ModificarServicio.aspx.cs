@@ -11,74 +11,76 @@ namespace Final_Herrera_Fernandez
 {
     public partial class ModificarServicio : System.Web.UI.Page
     {
-        List<Contactos> listaAux = new List<Contactos>();
-        ServiciosRecomendadosNegocio negocio = new ServiciosRecomendadosNegocio();
-        public Contactos contacto { get; set; }
-        public void CargarForm()
-        {
-
-           // TxtServicio.Text =Conv ert.ToString( contacto.IdServicio);
-            TxtNombre.Text = contacto.NombreContacto;
-            TxtTelefono.Text = contacto.Telefono;
-            TxtHorarios.Text = contacto.Horarios;
-
-        }
-
-        public void GuardarForm()
-        {
-            contacto.id = Convert.ToInt32(Request.QueryString["id"]);
-            //contacto.servicios = Convert.ToInt32(TxtServicio.Text);
-            contacto.NombreContacto = TxtNombre.Text;
-            contacto.Telefono = TxtTelefono.Text;
-            contacto.Horarios = TxtHorarios.Text;
-        }
+        ServiciosRecomendadosNegocio negocioModif = new ServiciosRecomendadosNegocio();
+        ServiciosRecomendadosXAdmin SRaModificar = new ServiciosRecomendadosXAdmin ();
+        public List<Servicios> ListaServicios { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario cuenta = (Usuario)Session["cuenta"]; 
-            try
-            {
-                if (cuenta.Tipo == 1)
+            
+                Usuario cuenta = (Usuario)Session["cuenta"];
+
+                try
                 {
-                   listaAux = (List<Contactos>)Session["ListarSevicios"]; 
-                   int idAux = Convert.ToInt32(Request.QueryString["id"]);
-                   contacto = listaAux.Find(i => i.id == idAux);
-                   CargarForm();
+
+                    if (cuenta.Tipo == 1)
+                    {
+                        if (!IsPostBack)
+                        {
+                        //Cargo en el repetidor mi lista de departamentos
+                        ListaServicios = negocioModif.ListaTiposServicios();
+                            DDLServicio.DataSource = ListaServicios;
+                            DDLServicio.DataBind();
+
+                            Int32 ID = (Int32)Session["SRModif"];
+                            SRaModificar = negocioModif.TraerSR(ID);
+                            DDLServicio.SelectedValue = Convert.ToString(SRaModificar.ServicioID);
+                            TxtNombre.Text = SRaModificar.NombreContacto;
+                            TxtTelefono.Text = SRaModificar.Contacto;
+                            TxtHorarios.Text = SRaModificar.Horario;
+                            if (SRaModificar.PaginaWeb == "Error.aspx")
+                            {
+                            CBWeb.Checked = true;
+                            }
+                            TxtSitioweb.Text = SRaModificar.PaginaWeb;
+                        if (SRaModificar.Ubicacion == "Error.aspx")
+                        {
+                            CBUbi.Checked = true;
+                        }
+                        TxtUbicacion.Text = SRaModificar.Ubicacion;
+
+                            
+                           
+                        }
+                    }
+                    else
+                    {
+                        // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
+                        Response.Redirect("Error.aspx");
+                    }
+
+
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    // ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No tiene permiso');window.location ='Login.aspx';", true);
-                    Response.Redirect("Error.aspx");
+                    string mensaje = ex.Message;
                 }
 
-                
-            }
-            catch (Exception ex)
-            {
-                Session.Add("errorEncontrado", ex.ToString());
-                Response.Redirect("Error.aspx");
-            }
+            
+
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+
+        protected void BtnModificar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("serviciosRecomendadoAdmin.aspx");
+            // usar if para determinar el tipo de imagen del sitio y la ubi esto lo codeo no lo ingresa el usuario,
         }
 
-        protected void btnAceptar_Click(object sender, EventArgs e)
+        protected void btvVolver_Click(object sender, EventArgs e)
         {
-            GuardarForm();
-
-            if (negocio.Modificar(contacto))
-            {
-
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('Servicio Actualizado');window.location='ServiciosRecomendadosAdmin.aspx';", true);
-
-            }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('Error no se completo la modificacion');window.location='ServiciosRecomendadosAdmin.aspx';", true);
-
-            }
+            Response.Redirect("ServiciosRecomendadosAdmin.aspx");
         }
+
+       
     }
 }

@@ -37,7 +37,7 @@
                                     
                                     <td><asp:HyperLink ID="HLSitio" ImageHeight="20px" ImageWidth="20px" ImageUrl=<%#Eval("ImgSitio")%> href=<%#Eval("Sitio")%> runat ="server"></asp:HyperLink></td>
                                     <td><asp:HyperLink ID="HLUbicacion"  ImageHeight="20px" ImageWidth="20px" ImageUrl=<%#Eval("ImgUbicacion")%> href=<%#Eval("Ubicacion")%> runat="server"></asp:HyperLink></td>                                  
-                                    <td><a  href="ModificarServicio.aspx?id=<%#Eval("id") %>" Class="btn btn-secondary" >Modificar</a></td>
+                                    <td> <td><asp:Button  Text="Modificar" ID="btnModificar" CssClass="btn btn-primary" runat="server"  CommandArgument='<%#Eval("id") %>' OnClick="btnModificar_Click"/></td> </button>
                                     <td><asp:Button runat="server" ID="btnDelete" CommandArgument='<%#Eval("id") %>' Text="Eliminar" CssClass="btn btn-danger" Oncommand="btnDelete_Command" /></td>
                                 </tr>
                             </ItemTemplate>

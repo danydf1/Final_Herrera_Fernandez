@@ -8,8 +8,9 @@ namespace Dominio
 {
   public  class ServiciosRecomendadosXAdmin
     {
+        public Int32 ID { get; set; }
         public Int32 ServicioID { get; set; }
-        public Servicios Servicio { get; set; }
+        public Servicios servicio { get; set; }
 
         public String NombreContacto { get; set; }
 
@@ -24,5 +25,6 @@ namespace Dominio
 
         public string ImgUbi { get; set; }
 
+        public bool estado { get; set; }
     }
 }

@@ -98,7 +98,7 @@ namespace Final_Herrera_Fernandez
         protected void btnModificar_Click(object sender, EventArgs e)
         {
             //INTENTE USAR MODAL PERO NO LOGRO QUE DESDE EL BOTON MODIFICAR ME ABRA EL MODAL DEL FORMULARIO ,SI LO CARGA Y SI ACCEDO DEL BOTON "CREAR USUARIO" LO MUESTRA PRECARGADO ,CREO QUE SE DEBE A K NO USO BUTTON SINO ASPBUTTON 
-            Calendario CalendarioModificar = new Calendario();
+            
             var argument = ((Button)sender).CommandArgument;
             int ID = Convert.ToInt32(argument);
             Session.Add("CalendarioModif", ID);

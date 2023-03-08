@@ -221,7 +221,7 @@ namespace Negocio
 
         public Usuario TraerUsuario(int id)
         {
-            Usuario cuenta = new Usuario();
+          
             AccesoDatos Datos = new AccesoDatos();
             
 

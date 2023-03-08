@@ -9,7 +9,7 @@
                 </div>
                 
                 <div class="col-12">
-                    <asp:Label ID="LblServicios" runat="server" Text="Servicio" ></asp:Label>
+                    <asp:Label ID="LblServicios" runat="server" Text="Tipo de Servicio" ></asp:Label>
                     <asp:DropDownList ID="DDLServicio" class="form-control mb-2" runat="server"  AutoPostBack="False" DataTextField="Descripcion" DataValueField="Id"  ></asp:DropDownList>     
                     <asp:Label ID="LblNombre" runat="server" Text="Nombre Contacto" ></asp:Label>
                     <asp:TextBox runat="server" ID="TxtNombre" class="form-control mb-2" type="text"></asp:TextBox>
@@ -17,16 +17,27 @@
                     <asp:TextBox ID="TxtTelefono" class="form-control mb-2" type="text"  runat="server"></asp:TextBox>
                     <asp:Label ID="LblHorarios" runat="server" Text="Horarios  de atencion" ></asp:Label>
                     <asp:TextBox ID="TxtHorarios" class="form-control mb-2" type="text"  runat="server"></asp:TextBox>
-                    <div class="col-12">
-                    <asp:Label ID="LblSitio" runat="server" Text="Sitio Web (copiar vinculo)" ></asp:Label>  
-                    <asp:Button runat="server"  CssClass="btn-secondary" Text="Validar vinculo"  />
-                   </div>
-                    <asp:TextBox ID="TxtSitioweb" class="form-control mb-2"    runat="server" ></asp:TextBox>
-                </div>
-                <div class="col-12">
-                     <asp:Button runat="server" CssClass="btn btn-danger" Text="Cancelar" ID="btnCancelar" OnClick="btnCancelar_Click"/>
+                      <asp:Label ID="LblSitioWeb" runat="server" Text="Sitio web" ></asp:Label>
+                    
+                    <asp:TextBox ID="TxtSitioweb" class="form-control mb-2" placeholder="Pegue el vinculo (solo si tiene web) "   runat="server" ></asp:TextBox>   
+                  
+                     <div class="form-check form-switch">
+                     <input class="form-check-input" type="checkbox" role="switch" id="CBWeb" runat="server"    />
+                     <label class="form-check-label" for="flexSwitchCheckDefault">Sin Web</label>  
+                   </div>       
+                    <asp:Label ID="LblUbicacion" runat="server" Text="Ubicacion Geografica" ></asp:Label>
+
+                        <asp:TextBox ID="TxtUbicacion" class="form-control mb-2" placeholder="Pegue el vinculo (solo si tiene ubi)"   runat="server" ></asp:TextBox>      
+
+                        <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="CBUbi" runat="server" />
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Sin Ubi</label>
+                        </div>   
                 
-                     <asp:Button runat="server"  CssClass="btn btn-primary" Text="Modificar" ID="btnAceptar" OnClick="btnAceptar_Click" />
+                <div class="col-12">
+                     <asp:Button runat="server" CssClass="btn btn-danger" Text="Volver" ID="btvVolver" OnClick="btvVolver_Click" />
+                
+                     <asp:Button runat="server"  CssClass="btn btn-primary" Text="Modificar" ID="BtnModificar" OnClick="BtnModificar_Click" />
                 </div>
             </div>
         </div>
