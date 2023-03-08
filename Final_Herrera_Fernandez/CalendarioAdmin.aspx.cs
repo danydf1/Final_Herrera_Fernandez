@@ -79,10 +79,10 @@ namespace Final_Herrera_Fernandez
 
 
             }
-              catch (Exception ex)
+              catch (Exception )
             {
 
-                
+                Response.Redirect("Error.aspx");
 
             }
             

@@ -17,7 +17,7 @@ namespace Final_Herrera_Fernandez
         public void CargarForm()
         {
 
-            TxtServicio.Text = contacto.Servicio;
+           // TxtServicio.Text =Conv ert.ToString( contacto.IdServicio);
             TxtNombre.Text = contacto.NombreContacto;
             TxtTelefono.Text = contacto.Telefono;
             TxtHorarios.Text = contacto.Horarios;
@@ -27,7 +27,7 @@ namespace Final_Herrera_Fernandez
         public void GuardarForm()
         {
             contacto.id = Convert.ToInt32(Request.QueryString["id"]);
-            contacto.Servicio = TxtServicio.Text;
+            //contacto.servicios = Convert.ToInt32(TxtServicio.Text);
             contacto.NombreContacto = TxtNombre.Text;
             contacto.Telefono = TxtTelefono.Text;
             contacto.Horarios = TxtHorarios.Text;
@@ -39,7 +39,7 @@ namespace Final_Herrera_Fernandez
             {
                 if (cuenta.Tipo == 1)
                 {
-                   listaAux = (List<Contactos>)Session["ListarSevicios"];
+                   listaAux = (List<Contactos>)Session["ListarSevicios"]; 
                    int idAux = Convert.ToInt32(Request.QueryString["id"]);
                    contacto = listaAux.Find(i => i.id == idAux);
                    CargarForm();

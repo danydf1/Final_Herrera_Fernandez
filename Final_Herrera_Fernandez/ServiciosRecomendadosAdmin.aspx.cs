@@ -12,31 +12,46 @@ namespace Final_Herrera_Fernandez
     public partial class ServiciosRecomendadosAdmin : System.Web.UI.Page
     {
         public List<Contactos> ListaRegistros { get; set; }
+        public List<Servicios> ListatiposServicios { get; set; }
         ServiciosRecomendadosNegocio negocio = new ServiciosRecomendadosNegocio();
         
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+           
+        
+
             Usuario cuenta = (Usuario)Session["cuenta"];
             try
             {
                 
                 if (cuenta.Tipo == 1)
                  {
-                       if (Session["listaBuscados"] == null)
-                 {
-                    ListaRegistros = negocio.ServiciosRecomendados();
+                    if (!IsPostBack)
+                    {
+                        if (Session["listaBuscados"] == null)
+                        {
+                            //Cargo los tipos de srvicios
+                            ListatiposServicios = negocio.ListaTiposServicios();
+                            DDLServicio.DataSource = ListatiposServicios;
+                            DDLServicio.DataBind();
+                            // Cargo Los registros de servicios recomendados   
+                            ListaRegistros = negocio.ServiciosRecomendados();
+                            Session.Add("ListarSevicios", ListaRegistros);
+                            rep.DataSource = ListaRegistros;
+                            rep.DataBind();
+                        }
                         
 
-                    Session.Add("ListarSevicios", ListaRegistros);
-                    rep.DataSource = ListaRegistros;
-                    rep.DataBind();
-                 }
+
+                    }
                  else
                  {
 
                     ListaRegistros = (List<Contactos>)Session["listaBuscados"];
                     Session["listaBuscados"] = null;
                  }
+                       
                 }
                 else
                 {
@@ -63,8 +78,49 @@ namespace Final_Herrera_Fernandez
             //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "confirm", "if(!confirm('esta seguro que quiere eliminar?')){window.location='ABMUsuarios.aspx'};", true  );
             //  NO LOGRE QUE ACTUALICE LA ELIMINANCION Y A SU VEZ K MANDE UNA ALERTA O K CONSULTE SI DESEA ELIMINAR ANTES DE HACERLO
             negocio.Eliminar(ID);
-
+            
             //Response.Write("<script>alert('Usuario Eliminado');</script>");
+            Page.Response.Redirect(Page.Request.Url.ToString(), false);
+            Context.ApplicationInstance.CompleteRequest();
+        }
+
+        protected void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            ServiciosRecomendadosXAdmin sr = new ServiciosRecomendadosXAdmin();
+          
+            sr.ServicioID =Convert.ToInt32(DDLServicio.SelectedValue);
+            sr.NombreContacto = TxtNombre.Text;
+            sr.Contacto = TxtNombre.Text;
+            sr.Horario = TxtHorarios.Text;
+            
+            if (CBWeb.Checked)
+            {
+                //mando por default como pagina "error.aspx" y y cambio al icono "X
+                sr.PaginaWeb = "Error.aspx";
+                sr.ImgSitio = "https://cdn-icons-png.flaticon.com/512/1828/1828527.png";
+
+            }
+            else
+            {
+                sr.PaginaWeb = TxtSitioweb.Text; ;
+                sr.ImgSitio = "https://cdn-icons-png.flaticon.com/512/1006/1006669.png";
+            }
+
+            if (CBUbi.Checked)
+            {
+                //mando por default como ubicacion "error.aspx" y y cambio al icono "X
+                sr.Ubicacion = "Error.aspx";
+                sr.ImgUbi = "https://cdn-icons-png.flaticon.com/512/1828/1828527.png";
+
+            }
+            else 
+            {
+                sr.Ubicacion = TxtUbicacion.Text;
+                sr.ImgUbi = "https://cdn-icons-png.flaticon.com/512/1483/1483336.png";
+            }
+
+            negocio.AgregarServicio(sr);
+            Response.Write("<script>alert('Servicio Creado');</script>");
             Page.Response.Redirect(Page.Request.Url.ToString(), false);
             Context.ApplicationInstance.CompleteRequest();
         }

@@ -28,7 +28,7 @@ namespace Final_Herrera_Fernandez
                     if (!IsPostBack) 
                     {
                         //Cargo en el repetidor mi lista de usuarios
-                     ListaUsuarios = negocioUser.ListaUsuarios();
+                    ListaUsuarios = negocioUser.ListaUsuarios();
                     Session.Add("ListarSevicios", ListaUsuarios);
                     rep.DataSource = ListaUsuarios;
                     rep.DataBind();

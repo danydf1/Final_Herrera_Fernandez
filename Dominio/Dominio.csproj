@@ -60,6 +60,8 @@
     <Compile Include="Proyectos.cs" />
     <Compile Include="Recordatorios.cs" />
     <Compile Include="Reservas.cs" />
+    <Compile Include="Servicios.cs" />
+    <Compile Include="ServiciosRecomendadosXAdmin.cs" />
     <Compile Include="TipoProyecto.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>

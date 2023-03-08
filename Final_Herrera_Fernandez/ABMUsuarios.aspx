@@ -58,7 +58,7 @@
 
                             <div class="col-12">
                                 <asp:Label ID="LblDpto" runat="server" class="form-control mb-2" Text="Ingrese su Depto" ForeColor="#660066"></asp:Label>
-                                <asp:DropDownList ID="DDLDepto" class="form-control mb-2" runat="server" placeholder="Ingrese Su ID de Departamento" AutoPostBack="False" DataTextField="descripcion" DataValueField="id"></asp:DropDownList>     
+                                <asp:DropDownList ID="DDLDepto" class="form-control mb-2" runat="server"  AutoPostBack="False" DataTextField="descripcion" DataValueField="id"></asp:DropDownList>     
                                 <asp:TextBox ID="TxtNombreUsuario" class="form-control mb-2" type="text" placeholder="Ingrese Nombre de usuario" aria-label="Ingrese Nombre de Usuario" runat="server"></asp:TextBox>
                                 <asp:Label ID="LblPass" runat="server" class="form-control mb-2" Text=" Se convertiran a mayusculas!!" ForeColor="#660066"></asp:Label>
                                 <asp:TextBox ID="TxtPass" class="form-control mb-2" MaxLength="8" type="password" placeholder="Ingrese su Contraseña 8 caracteres max" runat="server" CssClass="form-control mb-2"></asp:TextBox>                               

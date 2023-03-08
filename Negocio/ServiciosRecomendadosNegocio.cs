@@ -13,7 +13,7 @@ namespace Negocio
         {
 
             List<Contactos> lista = new List<Contactos>();
-            Datos.setearConsulta("select * from ServiciosRecomendados where estado = 1");
+            Datos.setearConsulta("select SR.ID,SR.IDSERVICIO,S.DESCRIPCION,SR.txt_Nombre,SR.NroContacto,SR.Horarios,SR.Sitio,SR.ImgSitio,SR.Ubicacion,SR.ImgUbicacion,SR.ESTADO from ServiciosRecomendados AS SR inner join SERVICIOS AS S ON SR.IDSERVICIO=S.ID where SR.ESTADO = 1");
             Datos.ejecutarLectura();
 
             try
@@ -24,7 +24,9 @@ namespace Negocio
                     Contactos aux = new Contactos();
 
                     aux.id = Convert.ToInt32((long)Datos.Lector["ID"]);
-                    aux.Servicio = (string)Datos.Lector["txt_Servicio"];
+                    aux.servicios = new Servicios();
+                    aux.servicios.ID = (Int32)Datos.Lector["IDSERVICIO"];
+                    aux.servicios.Descripcion = (String)Datos.Lector["DESCRIPCION"];
                     aux.NombreContacto = (string)Datos.Lector["txt_Nombre"];
                     aux.Telefono = (string)Datos.Lector["NroContacto"];
                     aux.Horarios = (string)Datos.Lector["Horarios"];
@@ -48,6 +50,54 @@ namespace Negocio
             }
         }
 
+        public List<Servicios> ListaTiposServicios()
+        {
+            AccesoDatos Datos = new AccesoDatos();
+            List<Servicios> lista = new List<Servicios>();
+            Datos.setearConsulta("select * from Servicios");
+
+
+            try
+            {
+                Datos.ejecutarLectura();
+                while (Datos.Lector.Read())
+                {
+                    Servicios aux = new Servicios();
+
+                    aux.ID = Convert.ToInt32(Datos.Lector["ID"]);
+                    aux.Descripcion = (string)Datos.Lector["DESCRIPCION"];
+
+
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                Datos.cerrarConexion();
+            }
+        }
+
+        public void AgregarServicio(ServiciosRecomendadosXAdmin ser)
+        {
+            Datos.setearSP("sp_ins_serviciorecomendado");
+
+            Datos.setearParametro("@Servicio", ser.ServicioID);
+            Datos.setearParametro("@NombreContacto", ser.NombreContacto);
+            Datos.setearParametro("@Contacto", ser.Contacto);
+            Datos.setearParametro("@Horario", ser.Horario);
+            Datos.setearParametro("@Paginaweb", ser.PaginaWeb);
+            Datos.setearParametro("@ImgSitio", ser.ImgSitio);
+            Datos.setearParametro("@Ubicacion", ser.Ubicacion);
+            Datos.setearParametro("@ImgUbicacion", ser.ImgUbi);
+
+            Datos.ejectutarAccion();
+            Datos.cerrarConexion();
+        }
         public bool Eliminar(int id)
         {
             try
@@ -71,9 +121,9 @@ namespace Negocio
         {
             try
             {
-                Datos.setearConsulta("UPDATE ServiciosRecomendados SET txt_Servicio = @servicio, txt_Nombre = @Nombre,NroContacto = @Telefono,Horarios = @horarios, Estado = 1 where id=@id");
+                Datos.setearConsulta("UPDATE ServiciosRecomendados SET IDSERVICIO = @IdServicio, txt_Nombre = @Nombre,NroContacto = @Telefono,Horarios = @horarios, Estado = 1 where id=@id");
                 Datos.setearParametro("@id", contactos.id);
-                Datos.setearParametro("@servicio", contactos.Servicio);
+                Datos.setearParametro("@IdServicio", contactos.servicios.ID);
                 Datos.setearParametro("@Nombre", contactos.NombreContacto);
                 Datos.setearParametro("@Telefono", contactos.Telefono);
                 Datos.setearParametro("@horarios", contactos.Horarios);

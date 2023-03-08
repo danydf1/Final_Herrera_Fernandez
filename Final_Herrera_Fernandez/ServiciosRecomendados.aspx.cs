@@ -42,7 +42,7 @@ namespace Final_Herrera_Fernandez
            
         }
 
-        protected void btnBuscar_Click(object sender, EventArgs e)
+       protected void btnBuscar_Click(object sender, EventArgs e)
         {
             List<Contactos> listaBuscados = new List<Contactos>();
             if (Session["listaBuscados"] == null)
@@ -50,7 +50,7 @@ namespace Final_Herrera_Fernandez
                 Session.Add("listaBuscados", listaBuscados);
             }
             listaBuscados = (List<Contactos>)Session["ListarSevicios"];
-            Session["listaBuscados"] = listaBuscados.FindAll(i => i.NombreContacto.ToUpper().Contains(txtBuscar.Text.ToUpper()) || i.Servicio.ToUpper().Contains(txtBuscar.Text.ToUpper()) || i.Telefono.ToString().ToUpper().Contains(txtBuscar.Text.ToUpper()));
+            Session["listaBuscados"] = listaBuscados.FindAll(i => i.NombreContacto.ToUpper().Contains(txtBuscar.Text.ToUpper()) || i.servicios.Descripcion.ToUpper().Contains(txtBuscar.Text.ToUpper()) || i.Telefono.ToString().ToUpper().Contains(txtBuscar.Text.ToUpper()));
 
             Session["listaServicios"] = Session["listaBuscados"];
             Response.Redirect("ServiciosRecomendados.aspx");

@@ -21,11 +21,16 @@ create table tbl_contents (
 	constraint pk_tbl_contents primary key(id)
 )
 go
+create table SERVICIOS (
+ID INT NOT NULL PRIMARY	KEY identity(1,1),
+DESCRIPCION VARCHAR (100)NOT NULL
+)
+go
 create table ServiciosRecomendados(
 ID BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1), 
-txt_Servicio VARCHAR(50) NOT NULL,
+IDSERVICIO INT NOT NULL FOREIGN KEY REFERENCES SERVICIOS(ID),
 txt_Nombre VARCHAR(50) NOT NULL,
-NroContacto  VARCHAR(15)  NULL,
+NroContacto  VARCHAR(100)  NULL,
 Horarios Varchar(50) NULL,
 Sitio varchar(max) null,
 ImgSitio varchar(max) null,
@@ -116,12 +121,53 @@ INSERT INTO CALENDARIOS VALUES( GETDATE(),'10:00','REUNION CONSORCIO','LOS TEMAS
 INSERT INTO CALENDARIOS VALUES( GETDATE(),'08:00','GASISTA','REPARACION DE ALA B',1)
 INSERT INTO CALENDARIOS VALUES( GETDATE(),'10:00','REUNION CONSORCIO','LOS TEMAS DE ESTA REUNION SERAN PROXIMOS PROYECTOS',1)
 
+--SERVICIOS
+INSERT INTO SERVICIOS VALUES('TRANSPORTE')
+INSERT INTO SERVICIOS VALUES('PLOMERIA')
+INSERT INTO SERVICIOS VALUES('ELECTRICISTA')
+INSERT INTO SERVICIOS VALUES('GASISTA')
+INSERT INTO SERVICIOS VALUES('FERRETERIA')
+INSERT INTO SERVICIOS VALUES('VETERINARIA')
+INSERT INTO SERVICIOS VALUES('CERRAJERIA')
+INSERT INTO SERVICIOS VALUES('FARMACIA')
+
 
 --SERVICIOS RECOMENDADOS
 
-INSERT INTO  ServiciosRecomendados VALUES('plomeria','manolo','46001553','24hs','Error.aspx','https://cdn-icons-png.flaticon.com/512/1006/1006720.png','Error.aspx','https://cdn-icons-png.flaticon.com/512/447/447031.png',1)
-INSERT INTO  ServiciosRecomendados VALUES('plomeria','manolo','46001553','24hs','https://www.flaticon.es/icono-gratis/ubicacion_1483336?term=ubicacion&related_id=1483336','https://cdn-icons-png.flaticon.com/512/1006/1006669.png','https://www.flaticon.es/icono-gratis/ubicacion_1483336?term=ubicacion&related_id=1483336','https://cdn-icons-png.flaticon.com/512/1483/1483336.png',1)
---CATEGORIAS AVISOS
+--iconos de servicios recomendados---
+-- x---
+--https://cdn-icons-png.flaticon.com/512/1828/1828527.png
+
+--google map--
+--https://cdn-icons-png.flaticon.com/512/1483/1483336.png
+
+-- web--
+--https://cdn-icons-png.flaticon.com/512/1006/1006669.png
+
+--con pagina con ubicacion
+INSERT INTO  ServiciosRecomendados VALUES(2,'plomero.com','sin numero','24hs','https://www.plomero.com.ar/','https://cdn-icons-png.flaticon.com/512/1006/1006669.png','https://www.google.com.ar/maps/place/PLOMERO.COM.AR/@-34.5923364,-58.4897871,14z/data=!4m7!3m6!1s0x95bcb5f78e76a4b9:0x2a2d15bb4b61a006!8m2!3d-34.596004!4d-58.4510431!15sCiRodHRwczovL3d3dy5wbG9tZXJvLmNvbS5hci9wbG9tZXJpYS-SAQdwbHVtYmVy4AEA!16s%2Fg%2F11bxc6180t?coh=164777&entry=tt','https://cdn-icons-png.flaticon.com/512/1483/1483336.png',1)
+INSERT INTO  ServiciosRecomendados VALUES(3,'Electricista Matriculado','sin numero','24hs','https://www.electricista-matriculado.net/seguridad-electrica/','https://cdn-icons-png.flaticon.com/512/1006/1006669.png','https://www.google.com.ar/maps/place/Lavalle+1772,+C1048AAP+CABA/@-34.6032322,-58.3940287,17z/data=!3m1!4b1!4m6!3m5!1s0x95bccac1073b3e87:0x41408909df2860df!8m2!3d-34.6032366!4d-58.3918347!16s%2Fg%2F11cs9dk43x?coh=164777&entry=tt','https://cdn-icons-png.flaticon.com/512/1483/1483336.png',1)
+INSERT INTO  ServiciosRecomendados VALUES(4,'Gasista Matriculado','sin numero','24hs','https://www.jhonservices.com/','https://cdn-icons-png.flaticon.com/512/1006/1006669.png','https://www.google.com.ar/maps/place/RAMON+-+GASISTA+MATRICULADO+Y+PLOMERIA/@-34.5912871,-58.427594,13z/data=!4m6!3m5!1s0x95bccbe924c2409d:0x8e698a3c91722b4c!8m2!3d-34.6081456!4d-58.3958427!16s%2Fg%2F11h_19btkn?coh=164777&entry=tt','https://cdn-icons-png.flaticon.com/512/1483/1483336.png',1)
+
+--sin pagina sin ubicacion
+INSERT INTO  ServiciosRecomendados VALUES(1,'Fletes Ricardo','11433456','de 8 a 21 hs','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png',1)
+INSERT INTO  ServiciosRecomendados VALUES(1,'Mudanzas LosHermanos','1154419886','de 8 a 21 hs','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png',1)
+INSERT INTO  ServiciosRecomendados VALUES(2,'manolo','46001553','24hs','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png',1)
+
+-- sin pagina
+INSERT INTO  ServiciosRecomendados VALUES(2,'Home inox','46001553','24hs','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png','https://www.google.com.ar/maps/place/Homeinox/@-34.5974266,-58.5184174,14z/data=!4m6!3m5!1s0x95bcb7fc52099c25:0x728766727842880c!8m2!3d-34.5974266!4d-58.4854584!16s%2Fg%2F11fvfpdn8c?coh=164777&entry=tt','https://cdn-icons-png.flaticon.com/512/1483/1483336.png',1)
+
+
+--sin pagina sin ubicacion
+INSERT INTO  ServiciosRecomendados VALUES('Transporte','Fletes Ricardo','11433456','de 8 a 21 hs','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png',1)
+INSERT INTO  ServiciosRecomendados VALUES('Transporte','Mudanzas LosHermanos','1154419886','de 8 a 21 hs','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png',1)
+INSERT INTO  ServiciosRecomendados VALUES('plomeria','manolo','46001553','24hs','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png',1)
+
+-- sin pagina
+INSERT INTO  ServiciosRecomendados VALUES('plomeria','Home inox','46001553','24hs','Error.aspx','https://cdn-icons-png.flaticon.com/512/1828/1828527.png','https://www.google.com.ar/maps/place/Homeinox/@-34.5974266,-58.5184174,14z/data=!4m6!3m5!1s0x95bcb7fc52099c25:0x728766727842880c!8m2!3d-34.5974266!4d-58.4854584!16s%2Fg%2F11fvfpdn8c?coh=164777&entry=tt','https://cdn-icons-png.flaticon.com/512/1483/1483336.png',1)
+
+
+
 INSERT INTO CATEGORIAS VALUES('CALENDARIO')
 INSERT INTO CATEGORIAS VALUES('MENSAJES')
 INSERT INTO CATEGORIAS VALUES('EXPENSAS')
@@ -218,24 +264,31 @@ BEGIN
 END
 GO
 
+
 ---	SERVICIOS-------
-CREATE PROCEDURE sp_ins_Servicio(
-@Nombre VARCHAR (50),
-@Servicio VARCHAR (50),
-@NroContacto VARCHAR(15),
-@Horarios VARCHAR (50),
-@Sitio VARCHAR (max),
-@Ubicacion VARCHAR(Max)
+Create PROCEDURE sp_ins_serviciorecomendado(
+@Servicio int ,
+@NombreContacto varchar(100),
+@Contacto varchar(100),
+@Horario varchar(100), 
+@Paginaweb varchar(max),
+@ImgSitio varchar (max),
+@Ubicacion varchar(max), 
+@ImgUbicacion varchar(max)
+
 )
 AS 
 BEGIN
 	Begin try 
-		INSERT INTO ServiciosRecomendados(txt_Servicio,txt_Nombre,NroContacto,Horarios,Sitio ,Ubicacion,ESTADO) VALUES(@Servicio,@Nombre,@NroContacto,@Horarios,@Sitio,@Ubicacion,1)
+		INSERT INTO ServiciosRecomendados(IDSERVICIO,txt_Nombre,NroContacto,Horarios,Sitio,ImgSitio,Ubicacion,ImgUbicacion,Estado) VALUES(@Servicio,@NombreContacto, @Contacto,@Horario, @Paginaweb,@ImgSitio,@Ubicacion,@ImgUbicacion ,1  )
+
 	End try
     Begin Catch
-        RAISERROR('Error grave al Enviar el proyecto', 16, 1)
+        RAISERROR('Error grave al guardar el usuario', 16, 1)
 	End Catch
 END
+
+go
 
 ---CALENDARIO----
 go
