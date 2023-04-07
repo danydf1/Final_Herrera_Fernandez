@@ -113,7 +113,7 @@ namespace Final_Herrera_Fernandez
             //  NO LOGRE QUE ACTUALICE LA ELIMINANCION Y A SU VEZ K MANDE UNA ALERTA O K CONSULTE SI DESEA ELIMINAR ANTES DE HACERLO
             negocio.eliminar(ID);
 
-            //Response.Write("<script>alert('Usuario Eliminado');</script>");
+            // 
             Page.Response.Redirect(Page.Request.Url.ToString(), false);
             Context.ApplicationInstance.CompleteRequest();
         }

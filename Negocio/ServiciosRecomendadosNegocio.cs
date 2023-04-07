@@ -167,12 +167,16 @@ namespace Negocio
         {
             try
             {
-                Datos.setearConsulta("UPDATE ServiciosRecomendados SET IDSERVICIO = @IdServicio, txt_Nombre = @Nombre,NroContacto = @Telefono,Horarios = @horarios, Estado = 1 where id=@id");
+                Datos.setearConsulta("UPDATE ServiciosRecomendados SET IDSERVICIO = @IdServicio, txt_Nombre = @Nombre,NroContacto = @Telefono,Horarios = @horarios,ImgSitio=@ImgSitio, Sitio=@Sitio, ImgUbicacion=@ImgUbicacion, Ubicacion=@Ubicacion,  Estado = 1 where id=@id");
                 Datos.setearParametro("@id", contactos.id);
-                Datos.setearParametro("@IdServicio", contactos.servicios.ID);
+                Datos.setearParametro("@IdServicio", contactos.IdServicio );
                 Datos.setearParametro("@Nombre", contactos.NombreContacto);
                 Datos.setearParametro("@Telefono", contactos.Telefono);
                 Datos.setearParametro("@horarios", contactos.Horarios);
+                Datos.setearParametro("@ImgSitio", contactos.ImgSitio);
+                Datos.setearParametro("@Sitio", contactos.Sitio);
+                Datos.setearParametro("@ImgUbicacion", contactos.ImgUbicacion);
+                Datos.setearParametro("@Ubicacion", contactos.Ubicacion);
                 Datos.ejecutarLectura();
                 return true;
             }

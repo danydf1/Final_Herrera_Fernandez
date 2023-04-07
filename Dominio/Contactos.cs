@@ -9,8 +9,9 @@ namespace Dominio
     public class Contactos 
     {
         public Int32 id { get; set; }
-
+         
         public Servicios servicios { get; set; }
+        public Int32 IdServicio { get; set; }
         public string NombreContacto { get; set; }
         public string Telefono { get; set; }
         public string Horarios { get; set; }
